@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/1.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/2.1.0/schema.json",
   "themeCollection": {
     "baseTheme": {
       "name": "CY23SU11",
@@ -12,7 +12,6 @@
       "type": "RegisteredResources"
     }
   },
-  "layoutOptimization": "None",
   "objects": {
     "section": [
       {
@@ -65,21 +64,6 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "arrow-left.256x228647127354830604.png",
-          "path": "arrow-left.256x228647127354830604.png",
-          "type": "Image"
-        },
-        {
-          "name": "arrow-right.256x2289640792818772792.png",
-          "path": "arrow-right.256x2289640792818772792.png",
-          "type": "Image"
-        },
-        {
-          "name": "bookmark.370x5120710090639571983.png",
-          "path": "bookmark.370x5120710090639571983.png",
-          "type": "Image"
-        },
-        {
           "name": "error.252x2563895271007607568.png",
           "path": "error.252x2563895271007607568.png",
           "type": "Image"
@@ -95,48 +79,13 @@
           "type": "Image"
         },
         {
-          "name": "info.252x25622367070138557765.png",
-          "path": "info.252x25622367070138557765.png",
-          "type": "Image"
-        },
-        {
           "name": "issues.256x25616285810141838541.png",
           "path": "issues.256x25616285810141838541.png",
           "type": "Image"
         },
         {
-          "name": "menu.256x145612169215579371.png",
-          "path": "menu.256x145612169215579371.png",
-          "type": "Image"
-        },
-        {
-          "name": "pass.252x2566647446340401604.png",
-          "path": "pass.252x2566647446340401604.png",
-          "type": "Image"
-        },
-        {
           "name": "question.256x2569915260140321693.png",
           "path": "question.256x2569915260140321693.png",
-          "type": "Image"
-        },
-        {
-          "name": "thumbsdown.256x2229328729198442753.png",
-          "path": "thumbsdown.256x2229328729198442753.png",
-          "type": "Image"
-        },
-        {
-          "name": "thumbsup.256x22224830372896900643.png",
-          "path": "thumbsup.256x22224830372896900643.png",
-          "type": "Image"
-        },
-        {
-          "name": "trash.217x2568989096251931072.png",
-          "path": "trash.217x2568989096251931072.png",
-          "type": "Image"
-        },
-        {
-          "name": "warning.256x2389778384304723806.png",
-          "path": "warning.256x2389778384304723806.png",
           "type": "Image"
         },
         {

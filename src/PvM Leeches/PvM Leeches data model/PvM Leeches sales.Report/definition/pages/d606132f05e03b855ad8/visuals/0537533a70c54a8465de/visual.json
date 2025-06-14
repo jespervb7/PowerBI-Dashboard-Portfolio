@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "0537533a70c54a8465de",
   "position": {
     "x": 25.547594677584438,
     "y": 417.60491299897643,
-    "z": 1006,
+    "z": 7000,
     "height": 258.42374616171952,
     "width": 1877.7482088024562,
-    "tabOrder": 4006
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "areaChart",
@@ -22,37 +22,17 @@
                     "Hierarchy": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "DIM Date"
+                          "Entity": "Dim Date"
                         }
                       },
-                      "Hierarchy": "Year Hierarchy"
+                      "Hierarchy": "00. Hierarchy"
                     }
                   },
                   "Level": "Year"
                 }
               },
-              "queryRef": "DIM Date.Year Hierarchy.Year",
-              "nativeQueryRef": "Year Hierarchy Year",
-              "active": false
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "DIM Date"
-                        }
-                      },
-                      "Hierarchy": "Year Hierarchy"
-                    }
-                  },
-                  "Level": "Year-Quarter"
-                }
-              },
-              "queryRef": "DIM Date.Year Hierarchy.Year-Quarter",
-              "nativeQueryRef": "Year Hierarchy Year-Quarter",
+              "queryRef": "Dim Date.00. Hierarchy.Year",
+              "nativeQueryRef": "00. Hierarchy Year",
               "active": true
             },
             {
@@ -62,17 +42,77 @@
                     "Hierarchy": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "DIM Date"
+                          "Entity": "Dim Date"
                         }
                       },
-                      "Hierarchy": "Year Hierarchy"
+                      "Hierarchy": "00. Hierarchy"
                     }
                   },
-                  "Level": "Year-Month"
+                  "Level": "Quarter name short"
                 }
               },
-              "queryRef": "DIM Date.Year Hierarchy.Year-Month",
-              "nativeQueryRef": "Year Hierarchy Year-Month",
+              "queryRef": "Dim Date.00. Hierarchy.Quarter name short",
+              "nativeQueryRef": "00. Hierarchy Quarter name short",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Month name short"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Month name short",
+              "nativeQueryRef": "00. Hierarchy Month name short",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Week name"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Week name",
+              "nativeQueryRef": "00. Hierarchy Week name",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Date"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Date",
+              "nativeQueryRef": "00. Hierarchy Date",
               "active": false
             }
           ]

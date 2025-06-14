@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "a4554f4553be74c772b8",
   "position": {
     "x": 25.547594677584438,
     "y": 698.62845445240521,
-    "z": 1007,
+    "z": 8000,
     "height": 364.54452405322411,
     "width": 899.078812691914,
-    "tabOrder": 4007
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "tableEx",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM Date"
+                      "Entity": "Dim Date"
                     }
                   },
                   "Property": "Date"
                 }
               },
-              "queryRef": "DIM Date.Date",
+              "queryRef": "Dim Date.Date",
               "nativeQueryRef": "Date"
             },
             {
@@ -110,7 +110,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "DIM Date"
+                    "Entity": "Dim Date"
                   }
                 },
                 "Property": "Date"

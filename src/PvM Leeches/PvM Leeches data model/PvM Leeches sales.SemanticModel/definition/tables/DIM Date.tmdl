@@ -1,12 +1,15 @@
-table 'DIM Date'
-	lineageTag: 6c72e472-9148-4101-b3bd-14245341154a
+/// This table contains date related fields that connect to the business activity you are trying to analyse.
+table 'Dim Date'
+	lineageTag: 9a5a13a8-4d2d-420b-8fee-acf30fbc827a
 	dataCategory: Time
 
+	/// This column contains the date related to a business activity in the DD/MM/YYYY format.
 	column Date
 		dataType: dateTime
-		isKey
-		formatString: Long Date
-		lineageTag: 5dd347aa-68f1-4df6-bdd8-4cab53a64f0f
+		formatString: Short Date
+		displayFolder: 01. Columns
+		lineageTag: a227ad85-a408-4a6c-b28b-bd12224ef623
+		isDefaultLabel
 		summarizeBy: none
 		sourceColumn: Date
 
@@ -14,405 +17,604 @@ table 'DIM Date'
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["DATECOLUMN_FORMATSTRING"]}
 
+	/// This columns tells you what year the business acitivity occured in. For example: 2024, 2025, etc.
 	column Year
 		dataType: int64
 		formatString: 0
-		lineageTag: 07684422-96ba-4f5d-9260-242a42d9c033
+		displayFolder: 01. Columns
+		lineageTag: 7825685d-b68f-4fc8-bcce-aec5a8d859da
 		summarizeBy: none
 		sourceColumn: Year
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Start of Year'
+	/// This column contains the start date of the year related to the business acitivity.
+	column 'Start of year'
 		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 629dd236-4bf2-4d12-b442-91be42ebd8fd
+		formatString: Short Date
+		displayFolder: 04. Start off
+		lineageTag: 13bfc0f6-1977-416b-89aa-34eda44895bb
 		summarizeBy: none
-		sourceColumn: Start of Year
+		sourceColumn: Start of year
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 'End of Year'
+	/// This column contains the end date of the year related to the business acitivity.
+	column 'End of year'
 		dataType: dateTime
-		formatString: Long Date
-		lineageTag: b0c42a83-498c-47d9-984d-d556ae067164
+		formatString: Short Date
+		displayFolder: 05. End off
+		lineageTag: 33618636-e07d-459b-89ea-2c72ac1a8173
 		summarizeBy: none
-		sourceColumn: End of Year
+		sourceColumn: End of year
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column Month
+	/// This column says what month of the year the business activity occured in.
+	column 'Month of year'
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: 07. Other
+		lineageTag: d3e5435a-61ce-4e13-94da-8e95ac41e8dd
+		summarizeBy: none
+		sourceColumn: Month of year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column contains the start date of the month related to the business acitivity.
+	column 'Start of month'
+		dataType: dateTime
+		formatString: Short Date
+		displayFolder: 04. Start off
+		lineageTag: ea0a6d7e-e96c-4fdc-9bbb-67156503fa04
+		summarizeBy: none
+		sourceColumn: Start of month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["MONTHCOLUMN_FORMATSTRING"]}
+
+	/// This column contains the end date of the month related to the business acitivity.
+	column 'End of month'
+		dataType: dateTime
+		formatString: Short Date
+		displayFolder: 05. End off
+		lineageTag: 43e5de1a-a10d-424b-ad1d-b09b319c9ba1
+		summarizeBy: none
+		sourceColumn: End of month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["MONTHCOLUMN_FORMATSTRING"]}
+
+	/// This column gives you the amount of days the month has that the business acitivity occured in. For example if this activity happend in May then the number you get is 31.
+	column 'Days in month'
 		dataType: int64
 		formatString: 0
-		lineageTag: a29659df-bf26-4340-8ae9-9e8b9bb383c2
+		displayFolder: 01. Columns
+		lineageTag: 095f5348-09d0-43d0-bb7d-05d6a9e54e6b
 		summarizeBy: none
-		sourceColumn: Month
+		sourceColumn: Days in month
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Start of Month'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 6f0aa962-82a8-4673-982b-95d4fd30c9cd
-		summarizeBy: none
-		sourceColumn: Start of Month
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column 'End of Month'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 4be7770e-d1c4-4cd6-a6b0-516e54cf1908
-		summarizeBy: none
-		sourceColumn: End of Month
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column 'Days in Month'
-		dataType: int64
-		formatString: 0
-		lineageTag: a26e93b2-1d12-4515-aecc-8a87605e9bf0
-		summarizeBy: none
-		sourceColumn: Days in Month
-
-		annotation SummarizationSetBy = Automatic
-
-	column Day
-		dataType: int64
-		formatString: 0
-		lineageTag: 78b987a1-ac95-4b53-922c-3b71fde0067f
-		summarizeBy: none
-		sourceColumn: Day
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Day Name'
+	/// This column gives you the name of the month that the business activity happend in. Example data: January, February, March, etc.
+	column 'Month name'
 		dataType: string
-		lineageTag: 03a96bbd-d578-4318-89ea-eb32d37b8bc5
+		displayFolder: 01. Columns
+		lineageTag: 55e69dbc-ffb4-4fa5-825f-cf58b02e1bb0
 		summarizeBy: none
-		sourceColumn: Day Name
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Day of Week'
-		dataType: int64
-		formatString: 0
-		lineageTag: d0f3799c-b853-43e6-976b-7a9470a8e437
-		summarizeBy: none
-		sourceColumn: Day of Week
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Day of Year'
-		dataType: int64
-		formatString: 0
-		lineageTag: ff31eeb1-8cc3-4024-918e-d14649d5beac
-		summarizeBy: none
-		sourceColumn: Day of Year
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Month Name'
-		dataType: string
-		lineageTag: b82dbc59-df7c-42d5-aba3-263162ba69db
-		summarizeBy: none
-		sourceColumn: Month Name
-
-		annotation SummarizationSetBy = Automatic
-
-	column Quarter
-		dataType: int64
-		formatString: 0
-		lineageTag: 67fe3084-5b5f-4477-892f-b0854c7fa6b9
-		summarizeBy: none
-		sourceColumn: Quarter
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Start of Quarter'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 46cd9c98-a35a-48fa-8759-86a8b67c4d83
-		summarizeBy: none
-		sourceColumn: Start of Quarter
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column 'End of Quarter'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 25b1efc9-61bd-4434-b76d-4fbc12d1f565
-		summarizeBy: none
-		sourceColumn: End of Quarter
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column 'Week of Year'
-		dataType: int64
-		formatString: 0
-		lineageTag: 661f7899-4de5-4ad5-b209-d683759420dd
-		summarizeBy: none
-		sourceColumn: Week of Year
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Week of Month'
-		dataType: int64
-		formatString: 0
-		lineageTag: 68c617f2-d8dd-4015-b077-f1553dd0989f
-		summarizeBy: none
-		sourceColumn: Week of Month
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Start of Week'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 19e47f44-b086-4055-b7e6-2bbd36347b2c
-		summarizeBy: none
-		sourceColumn: Start of Week
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column 'End of Week'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 8060d158-f483-4e9f-a648-701eae1447c9
-		summarizeBy: none
-		sourceColumn: End of Week
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column 'Fiscal Year'
-		dataType: int64
-		formatString: 0
-		lineageTag: f2e1d475-57f5-4725-aab0-33fb27b839a7
-		summarizeBy: none
-		sourceColumn: Fiscal Year
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Fiscal Quarter'
-		dataType: int64
-		formatString: 0
-		lineageTag: 9f312edc-15bb-4935-ae39-e777645aea3b
-		summarizeBy: none
-		sourceColumn: Fiscal Quarter
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Fiscal Month'
-		dataType: int64
-		formatString: 0
-		lineageTag: a8c6c51a-4e3a-47d0-81ee-aa3296ccd385
-		summarizeBy: none
-		sourceColumn: Fiscal Month
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Day Offset'
-		dataType: int64
-		formatString: 0
-		lineageTag: 6406b9f6-8802-4493-a90c-bbf93696db69
-		summarizeBy: none
-		sourceColumn: Day Offset
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Month Offset'
-		dataType: int64
-		formatString: 0
-		lineageTag: 8dd78479-b0f0-4be2-8f26-bf1759f7bcd6
-		summarizeBy: none
-		sourceColumn: Month Offset
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Year Offset'
-		dataType: int64
-		formatString: 0
-		lineageTag: b504c909-9aa4-4e3b-807b-a43d7295327b
-		summarizeBy: none
-		sourceColumn: Year Offset
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Quarter Offset'
-		dataType: int64
-		formatString: 0
-		lineageTag: f588ae7a-bcf8-40ee-9ae0-d88f34a619ac
-		summarizeBy: none
-		sourceColumn: Quarter Offset
-
-		annotation SummarizationSetBy = Automatic
-
-	column Year-Month
-		dataType: string
-		lineageTag: f84e800a-1b7f-47ee-a287-474d3abdaec2
-		summarizeBy: none
-		sourceColumn: Year-Month
-		sortByColumn: 'Year-Month Code'
+		sourceColumn: Month name
+		sortByColumn: 'Month of year'
 
 		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Year-Month Code'
+	/// This column says what quarter of the year the business activity occured in.
+	column 'Quarter of year'
 		dataType: int64
+		isHidden
 		formatString: 0
-		lineageTag: 20f90c01-957a-4504-a192-7fbef922b23c
+		displayFolder: 07. Other
+		lineageTag: 05b227b5-41aa-4855-aacc-3da37314a197
 		summarizeBy: none
-		sourceColumn: Year-Month Code
+		sourceColumn: Quarter of year
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Year-Quarter code'
-		dataType: int64
-		formatString: 0
-		lineageTag: d9bd9661-d26a-4d4a-b796-d89a32645d2d
+	/// This column contains the start date of the quarter related to the business acitivity.
+	column 'Start of quarter'
+		dataType: dateTime
+		formatString: Short Date
+		displayFolder: 04. Start off
+		lineageTag: 8b9b7910-be37-4422-9ae7-d173f88c4078
 		summarizeBy: none
-		sourceColumn: Year-Quarter code
+		sourceColumn: Start of quarter
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// This column contains the end date of the quarter related to the business acitivity.
+	column 'End of quarter'
+		dataType: dateTime
+		formatString: Short Date
+		displayFolder: 05. End off
+		lineageTag: a062c24d-5947-49a1-95c5-0c2fb02943b1
+		summarizeBy: none
+		sourceColumn: End of quarter
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// This column says what week of the year the business activity occured in.
+	column 'Week of year'
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: 07. Other
+		lineageTag: 2fcf260b-56a4-4aaa-a635-2d211518ccad
+		summarizeBy: none
+		sourceColumn: Week of year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column gives you the week of the current month that is related to the business activity.
+	column 'Week of month'
+		dataType: int64
+		formatString: 0
+		displayFolder: 03. Day-week off
+		lineageTag: 365c2b1e-338e-4d97-b404-b380e4e2cd53
+		summarizeBy: none
+		sourceColumn: Week of month
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column contains the start date of the week related to the business acitivity.
+	column 'Start of week'
+		dataType: dateTime
+		formatString: Short Date
+		displayFolder: 04. Start off
+		lineageTag: d8c69b60-0810-4aab-9f7a-50c25ca11483
+		summarizeBy: none
+		sourceColumn: Start of week
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// This column contains the end date of the week related to the business acitivity.
+	column 'End of week'
+		dataType: dateTime
+		formatString: Short Date
+		displayFolder: 05. End off
+		lineageTag: 079a46a4-a773-470e-adf5-ab2e04db217b
+		summarizeBy: none
+		sourceColumn: End of week
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// This column gives you the day of the current month that is related to the business activity.
+	column 'Day of month'
+		dataType: int64
+		formatString: 0
+		displayFolder: 03. Day-week off
+		lineageTag: 3c34e30e-26a3-4450-a1cd-6cc8cf88cff8
+		summarizeBy: none
+		sourceColumn: Day of month
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column gives you the day of the current year that is related to the business activity.
+	column 'Day of year'
+		dataType: int64
+		formatString: 0
+		displayFolder: 03. Day-week off
+		lineageTag: cf9b2fcc-f102-4e24-bd15-07f8a6d9f1d2
+		summarizeBy: none
+		sourceColumn: Day of year
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column gives you the day of the current week that is related to the business activity.
+	column 'Day of week'
+		dataType: int64
+		displayFolder: 03. Day-week off
+		lineageTag: 593cb126-5c1e-4410-82ec-538d858db148
+		summarizeBy: none
+		sourceColumn: Day of week
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// This column contains the name of the day a business event happend. Examples are: "Monday", "Tuesday", etc.
+	column 'Day name'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: 0891b7f0-d9c0-48a1-acdb-0001d0a6b32c
+		summarizeBy: none
+		sourceColumn: Day name
+		sortByColumn: 'Day of week'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column gives you the day of the current quarter that is related to the business activity.
+	column 'Day of quarter'
+		dataType: int64
+		formatString: 0
+		displayFolder: 03. Day-week off
+		lineageTag: 94f691b2-171b-455b-a53a-7694028217c6
+		summarizeBy: none
+		sourceColumn: Day of quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column is specifically made to be used as a sort-by column. Notify the builder of the report if you can see this column as it should be hidden from end-users.
+	column 'Year quarter sorting'
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: 06. Sorting columns
+		lineageTag: 9261459d-53bc-482e-b16c-3dc27a050af7
+		summarizeBy: none
+		sourceColumn: Year quarter sorting
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column contains the offset by day from today.
+	column 'Day offset'
+		dataType: int64
+		formatString: 0
+		displayFolder: 02. Offsets to today
+		lineageTag: 74dc3972-ec02-4b5d-ba59-d152823dfa22
+		summarizeBy: none
+		sourceColumn: Day offset
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column contains the name of the day a business event happend. Examples are: "Mon", "Tue", etc.
+	column 'Day name short'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: b54c3d8c-0c40-42ba-bc22-9c2666693cab
+		summarizeBy: none
+		sourceColumn: Day name short
+		sortByColumn: 'Day of week'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column is specifically made to be used as a sort-by column. Notify the builder of the report if you can see this column as it should be hidden from end-users.
+	column 'Year month sorting'
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: 06. Sorting columns
+		lineageTag: 6f659998-79fa-413c-baf2-9a9625c35ac4
+		summarizeBy: none
+		sourceColumn: Year month sorting
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column is specifically made to be used as a sort-by column. Notify the builder of the report if you can see this column as it should be hidden from end-users.
+	column 'Year week sorting'
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: 06. Sorting columns
+		lineageTag: a224fc9d-adc7-45c3-987a-1ad8098919d9
+		summarizeBy: none
+		sourceColumn: Year week sorting
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column gives you the name of the week that the related business acitivty occurred in. Example data: W1, W2, ..., W53.
+	column 'Week name'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: ccdb45a1-8009-4d34-ad5d-a1bff6a073fe
+		summarizeBy: none
+		sourceColumn: Week name
+		sortByColumn: 'Week of year'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column gives you the week and year that the business acitivity occurred in. Example data: W1 1991, W50 1991, W53 2025.
+	column 'Week and year'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: 58ad876d-f005-48c0-b685-3396cc2a2138
+		summarizeBy: none
+		sourceColumn: Week and year
+		sortByColumn: 'Year week sorting'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column gives you the short name of the month that the business activity happend in. Example data: Jan, Feb, Mar, etc.
+	column 'Month name short'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: 6d70f41b-79a6-4c84-afa7-6261064cfbf8
+		summarizeBy: none
+		sourceColumn: Month name short
+		sortByColumn: 'Month of year'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column gives you the month and year that the business acitivity occurred in. Example data: Jan 2025, Feb 2025, Oct 2030, etc.
+	column 'Month and year'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: 6662891f-23bb-4ab2-b85f-362c2ac05401
+		summarizeBy: none
+		sourceColumn: Month and year
+		sortByColumn: 'Year month sorting'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column gives you the name of the quarter that a business activity happend in. Example data: Quarter 1, Quarter 2, etc.
 	column 'Quarter name'
 		dataType: string
-		lineageTag: 4cae7c03-15ef-45bd-9a4d-eee3df9d04e1
+		displayFolder: 01. Columns
+		lineageTag: a3edde67-8dd2-4b16-b54b-43b09ba09d8a
 		summarizeBy: none
 		sourceColumn: Quarter name
-
-		annotation SummarizationSetBy = Automatic
-
-	column Year-Quarter
-		dataType: string
-		lineageTag: 62f7e1b1-4ee3-4ced-899e-6d484ec71368
-		summarizeBy: none
-		sourceColumn: Year-Quarter
-		sortByColumn: 'Year-Quarter code'
+		sortByColumn: 'Quarter of year'
 
 		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Week Offset'
-		dataType: int64
-		formatString: 0
-		lineageTag: 7ac37ae8-5119-4217-a369-23458f3a3e4e
+	/// This column gives you the short name of the quarter that a business activity happend in. Example data: Q1, Q2, Q3 and Q4.
+	column 'Quarter name short'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: b466da68-d4a6-4c21-804c-c2657b71c513
 		summarizeBy: none
-		sourceColumn: Week Offset
+		sourceColumn: Quarter name short
+		sortByColumn: 'Quarter of year'
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
-	hierarchy 'Year Hierarchy'
-		lineageTag: 7de6772a-5381-4dfe-aa31-9ecc7a2293fd
+	/// This column gives you the quarter and year that the business acitivity occurred in. Example data: Q1 2025, Q2, 2025, etc.
+	column 'Quarter and year'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: 5f728736-01f2-440a-8b93-6f6aa33688a5
+		summarizeBy: none
+		sourceColumn: Quarter and year
+		sortByColumn: 'Year quarter sorting'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column contains the offset by year from today. So if the current year would be 2025 then 2024 would be -1 and 2026 would be 1.
+	column 'Year offset'
+		dataType: int64
+		formatString: 0
+		displayFolder: 02. Offsets to today
+		lineageTag: 2fedc737-96c9-47da-84b4-5337fcad6c88
+		summarizeBy: none
+		sourceColumn: Year offset
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column contains the offset by quarter from today.
+	column 'Quarter offset'
+		dataType: int64
+		formatString: 0
+		displayFolder: 02. Offsets to today
+		lineageTag: 942d2c4c-aac1-417c-a359-e9e9aa4707b2
+		summarizeBy: none
+		sourceColumn: Quarter offset
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column contains the offset by month from today.
+	column 'Month offset'
+		dataType: int64
+		formatString: 0
+		displayFolder: 02. Offsets to today
+		lineageTag: b2e21edb-59e4-4041-a706-563a2053a154
+		summarizeBy: none
+		sourceColumn: Month offset
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column contains the offset by week from today. So if the current week would be 2025 week 15  then 2025 week 14 would be -1 and 2025 week 16 would be 1.
+	column 'Week offset'
+		dataType: int64
+		formatString: 0
+		displayFolder: 02. Offsets to today
+		lineageTag: 095801e6-bcb4-4a5c-9e9e-f89e551180aa
+		summarizeBy: none
+		sourceColumn: Week offset
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column tells you if the business acitivity is in the present, past or future.
+	column 'Date period'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: 60584505-e236-4ad8-a523-a55da758a424
+		summarizeBy: none
+		sourceColumn: Date period
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column says if the business activity happend in a weekday.
+	column 'Is a weekday'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: eadb9a42-ea46-4c99-be23-ff407f441318
+		summarizeBy: none
+		sourceColumn: Is a weekday
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column says if the business activity happend in the weekend.
+	column 'Is a weekend'
+		dataType: string
+		displayFolder: 01. Columns
+		lineageTag: b843a588-dfa9-4e8a-9e32-ec94c1abc59f
+		summarizeBy: none
+		sourceColumn: Is a weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column is used to create a relationship between fact tables and their dates. This then allows you to use this table to slice and dice.
+	column 'Date ID'
+		dataType: dateTime
+		isHidden
+		isKey
+		formatString: Short Date
+		isAvailableInMdx: false
+		displayFolder: 07. Other
+		lineageTag: 218fa307-4cd8-4371-92ba-4ed4fb35800a
+		summarizeBy: none
+		sourceColumn: Date ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["DATECOLUMN_FORMATSTRING","RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
+
+	/// This hierarchy contains the year -> quarter -> month -> week -> date of the business activity.
+	hierarchy '00. Hierarchy'
+		lineageTag: 0ef27210-b2d7-4f3a-8ab1-d7db3802c567
 
 		level Year
-			lineageTag: 0485fcad-7bfd-4198-b212-2aebc34980fb
+			lineageTag: 5dcc545a-10cf-4ea2-8d7d-12a6ce448379
 			column: Year
 
-		level Year-Quarter
-			lineageTag: 7844694b-f902-40b4-8837-2842697a3620
-			column: Year-Quarter
+		level 'Quarter name short'
+			lineageTag: 7c89e5ea-9cf2-4983-b18f-4f2f03ade760
+			column: 'Quarter name short'
 
-		level Year-Month
-			lineageTag: e42a76f8-fa13-4877-b3f4-be18807d1729
-			column: Year-Month
+		level 'Month name short'
+			lineageTag: 69539773-4045-4e97-9a7f-26dbf194c10d
+			column: 'Month name short'
 
-	partition 'DIM Date' = m
+		level 'Week name'
+			lineageTag: 71743cbb-86b6-45f8-a256-aa8d4e645be5
+			column: 'Week name'
+
+		level Date
+			lineageTag: fbff4ca8-1a7d-4d76-a45f-2ed954f1d027
+			column: Date
+
+	partition 'Dim Date' = m
 		mode: import
 		source =
 				let
-				    // configurations start
-				    Today=Date.From(DateTime.LocalNow()), // today's date
-				    FromYear = 2018, // set the start year of the date dimension. dates start from 1st of January of this year
-				    ToYear=2050, // set the end year of the date dimension. dates end at 31st of December of this year
-				    StartofFiscalYear=7, // set the month number that is start of the financial year. example; if fiscal year start is July, value is 7
-				    firstDayofWeek=Day.Monday, // set the week's start day, values: Day.Monday, Day.Sunday....
-				    // configuration end
-				    FromDate=#date(FromYear,1,1),
-				    ToDate=#date(ToYear,12,31),
-				    Source=List.Dates(
+				    Source = "",
+				    Today = Date.From(DateTime.LocalNow()),
+				    FromYear = 1900,
+				    ToYear = 2100,
+				    FromDate = #date(FromYear,1,1),
+				    ToDate = #date(ToYear,12,31),
+				    ListOfDates = List.Dates(
 				        FromDate,
 				        Duration.Days(ToDate-FromDate)+1,
 				        #duration(1,0,0,0)
 				    ),
-				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
-				    #"Renamed Columns" = Table.RenameColumns(#"Converted to Table",{{"Column1", "Date"}}),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date", type date}}),
-				    #"Inserted Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([Date]), Int64.Type),
+				    #"Converted to Date Table" = Table.FromList(ListOfDates, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Converted to Date Table",{{"Column1", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Column1", "Date"}}),
+				    #"Inserted Age" = Table.AddColumn(#"Renamed Columns", "Day offset", each [Date] - Date.From(DateTime.LocalNow()), type duration),
+				    #"Inserted Year" = Table.AddColumn(#"Inserted Age", "Year", each Date.Year([Date]), Int64.Type),
 				    #"Inserted Start of Year" = Table.AddColumn(#"Inserted Year", "Start of Year", each Date.StartOfYear([Date]), type date),
 				    #"Inserted End of Year" = Table.AddColumn(#"Inserted Start of Year", "End of Year", each Date.EndOfYear([Date]), type date),
 				    #"Inserted Month" = Table.AddColumn(#"Inserted End of Year", "Month", each Date.Month([Date]), Int64.Type),
 				    #"Inserted Start of Month" = Table.AddColumn(#"Inserted Month", "Start of Month", each Date.StartOfMonth([Date]), type date),
 				    #"Inserted End of Month" = Table.AddColumn(#"Inserted Start of Month", "End of Month", each Date.EndOfMonth([Date]), type date),
 				    #"Inserted Days in Month" = Table.AddColumn(#"Inserted End of Month", "Days in Month", each Date.DaysInMonth([Date]), Int64.Type),
-				    #"Inserted Day" = Table.AddColumn(#"Inserted Days in Month", "Day", each Date.Day([Date]), Int64.Type),
-				    #"Inserted Day Name" = Table.AddColumn(#"Inserted Day", "Day Name", each Date.DayOfWeekName([Date]), type text),
-				    #"Inserted Day of Week" = Table.AddColumn(#"Inserted Day Name", "Day of Week", each Date.DayOfWeek([Date],firstDayofWeek), Int64.Type),
-				    #"Inserted Day of Year" = Table.AddColumn(#"Inserted Day of Week", "Day of Year", each Date.DayOfYear([Date]), Int64.Type),
-				    #"Inserted Month Name" = Table.AddColumn(#"Inserted Day of Year", "Month Name", each Date.MonthName([Date]), type text),
+				    #"Inserted Month Name" = Table.AddColumn(#"Inserted Days in Month", "Month Name", each Date.MonthName([Date]), type text),
 				    #"Inserted Quarter" = Table.AddColumn(#"Inserted Month Name", "Quarter", each Date.QuarterOfYear([Date]), Int64.Type),
 				    #"Inserted Start of Quarter" = Table.AddColumn(#"Inserted Quarter", "Start of Quarter", each Date.StartOfQuarter([Date]), type date),
 				    #"Inserted End of Quarter" = Table.AddColumn(#"Inserted Start of Quarter", "End of Quarter", each Date.EndOfQuarter([Date]), type date),
-				    #"Inserted Week of Year" = Table.AddColumn(#"Inserted End of Quarter", "Week of Year", each Date.WeekOfYear([Date],firstDayofWeek), Int64.Type),
-				    #"Inserted Week of Month" = Table.AddColumn(#"Inserted Week of Year", "Week of Month", each Date.WeekOfMonth([Date],firstDayofWeek), Int64.Type),
-				    #"Inserted Start of Week" = Table.AddColumn(#"Inserted Week of Month", "Start of Week", each Date.StartOfWeek([Date],firstDayofWeek), type date),
-				    #"Inserted End of Week" = Table.AddColumn(#"Inserted Start of Week", "End of Week", each Date.EndOfWeek([Date],firstDayofWeek), type date),
-				    FiscalMonthBaseIndex=13-StartofFiscalYear,
-				    adjustedFiscalMonthBaseIndex=if(FiscalMonthBaseIndex>=12 or FiscalMonthBaseIndex<0) then 0 else FiscalMonthBaseIndex,
-				    #"Added Custom" = Table.AddColumn(#"Inserted End of Week", "FiscalBaseDate", each Date.AddMonths([Date],adjustedFiscalMonthBaseIndex)),
-				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"FiscalBaseDate", type date}}),
-				    #"Inserted Year1" = Table.AddColumn(#"Changed Type1", "Year.1", each Date.Year([FiscalBaseDate]), Int64.Type),
-				    #"Renamed Columns1" = Table.RenameColumns(#"Inserted Year1",{{"Year.1", "Fiscal Year"}}),
-				    #"Inserted Quarter1" = Table.AddColumn(#"Renamed Columns1", "Quarter.1", each Date.QuarterOfYear([FiscalBaseDate]), Int64.Type),
-				    #"Renamed Columns2" = Table.RenameColumns(#"Inserted Quarter1",{{"Quarter.1", "Fiscal Quarter"}}),
-				    #"Inserted Month1" = Table.AddColumn(#"Renamed Columns2", "Month.1", each Date.Month([FiscalBaseDate]), Int64.Type),
-				    #"Renamed Columns3" = Table.RenameColumns(#"Inserted Month1",{{"Month.1", "Fiscal Month"}}),
-				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns3",{"FiscalBaseDate"}),
-				    #"Inserted Age" = Table.AddColumn(#"Removed Columns", "Age", each [Date]-Today, type duration),
-				    #"Extracted Days" = Table.TransformColumns(#"Inserted Age",{{"Age", Duration.Days, Int64.Type}}),
-				    #"Renamed Columns4" = Table.RenameColumns(#"Extracted Days",{{"Age", "Day Offset"}}),
-				    #"Added Custom1" = Table.AddColumn(#"Renamed Columns4", "Month Offset", each (([Year]-Date.Year(Today))*12)
-				+([Month]-Date.Month(Today))),
-				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom1",{{"Month Offset", Int64.Type}}),
-				    #"Added Custom2" = Table.AddColumn(#"Changed Type2", "Year Offset", each [Year]-Date.Year(Today)),
-				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom2",{{"Year Offset", Int64.Type}}),
-				    #"Added Custom3" = Table.AddColumn(#"Changed Type3", "Quarter Offset", each (([Year]-Date.Year(Today))*4)
+				    #"Inserted Week of Year" = Table.AddColumn(#"Inserted End of Quarter", "Week of Year", each Date.WeekOfYear([Date]), Int64.Type),
+				    #"Inserted Week of Month" = Table.AddColumn(#"Inserted Week of Year", "Week of Month", each Date.WeekOfMonth([Date]), Int64.Type),
+				    #"Inserted Start of Week" = Table.AddColumn(#"Inserted Week of Month", "Start of Week", each Date.StartOfWeek([Date]), type date),
+				    #"Inserted End of Week" = Table.AddColumn(#"Inserted Start of Week", "End of Week", each Date.EndOfWeek([Date]), type date),
+				    #"Inserted Day" = Table.AddColumn(#"Inserted End of Week", "Day of month", each Date.Day([Date]), Int64.Type),
+				    #"Inserted Day of Week" = Table.AddColumn(#"Inserted Day", "Day of Week", each Date.DayOfWeek([Date]), Int64.Type),
+				    #"Inserted Day of Year" = Table.AddColumn(#"Inserted Day of Week", "Day of Year", each Date.DayOfYear([Date]), Int64.Type),
+				    #"Added - Day of week" = Table.AddColumn(#"Inserted Day of Year", "Day of week", each [Day of Week] + 1, type number),
+				    #"Added - Day name" = Table.AddColumn(#"Added - Day of week", "Day name", each if [Day of week] = 1 then "Monday" else if [Day of week] = 2 then "Tuesday" else if [Day of week] = 3 then "Wednesday" else if [Day of week] = 4 then "Thursday" else if [Day of week] = 5 then "Friday" else if [Day of week] = 6 then "Saturday" else if [Day of week] = 7 then "Sunday" else null),
+				    #"Added - Day name short" = Table.AddColumn(#"Added - Day name", "Day name short", each if [Day of week] = 1 then "Mon" else if [Day of week] = 2 then "Tue" else if [Day of week] = 3 then "Wed" else if [Day of week] = 4 then "Thu" else if [Day of week] = 5 then "Fri" else if [Day of week] = 6 then "Sat" else if [Day of week] = 7 then "Sun" else null),
+				    #"Added - Day of quarter" = Table.AddColumn(#"Added - Day name short", "Day of quarter", each Int16.From([Date] - [Start of Quarter]) + 1),
+				    #"Added - Year quarter sorting" = Table.AddColumn(#"Added - Day of quarter", "Year quarter sorting", each Text.Combine({Text.From([Year]), Text.From([Quarter])})),
+				    #"Added - Year month sorting" = Table.AddColumn(#"Added - Year quarter sorting", "year month sorting", each [Year]*100 + [Month]),
+				    #"Added - Year week sorting" = Table.AddColumn(#"Added - Year month sorting", "Year week sorting", each [Year] * 100 + [Week of Year]),
+				    #"Added - Week name" = Table.AddColumn(#"Added - Year week sorting", "Week name", each Text.Combine({"W", Text.From(00 + [Week of Year])})),
+				    #"Added - Week and year" = Table.AddColumn(#"Added - Week name", "Week and year", each Text.Combine({[Week name], " ", Text.From([Year])})),
+				    #"Added - Month name short" = Table.AddColumn(#"Added - Week and year", "Month name short", each if [Month] = 1 then "Jan" else if [Month] = 2 then "Feb" else if [Month] = 3 then "Mar" else if [Month] = 4 then "Apr" else if [Month] = 5 then "May" else if [Month] = 6 then "Jun" else if [Month] = 7 then "Jul" else if [Month] = 8 then "Aug" else if [Month] = 9 then "Sep" else if [Month] = 10 then "Oct" else if [Month] = 11 then "Nov" else if [Month] = 12 then "Dec" else null),
+				    #"Added - Month and year" = Table.AddColumn(#"Added - Month name short", "Month and year", each Text.Combine({[Month name short], " ", Text.From([Year])})),
+				    #"Added - Quarter name" = Table.AddColumn(#"Added - Month and year", "Quarter name", each Text.Combine({"Quarter ", Text.From([Quarter])})),
+				    #"Added - Qaurter name short" = Table.AddColumn(#"Added - Quarter name", "Quarter name short", each Text.Combine({"Q", Text.From([Quarter])})),
+				    #"Added - Quarter and year" = Table.AddColumn(#"Added - Qaurter name short", "Quarter and year", each Text.Combine({[Quarter name short], " ", Text.From([Year])})),
+				    #"Added - Year offset" = Table.AddColumn(#"Added - Quarter and year", "Year offset", each [Year] - Date.Year(Date.From(DateTime.LocalNow()))),
+				    #"Added - Quarter offset" = Table.AddColumn(#"Added - Year offset", "Quarter offset", each (([Year]-Date.Year(Today))*4)
 				+([Quarter]-Date.QuarterOfYear(Today))),
-				    #"Changed Type4" = Table.TransformColumnTypes(#"Added Custom3",{{"Quarter Offset", Int64.Type}}),
-				    #"Added Custom4" = Table.AddColumn(#"Changed Type4", "Year-Month", each Date.ToText([Date],"MMM yyyy")),
-				    #"Added Custom10" = Table.AddColumn(#"Added Custom4", "Week Offset", each (Date.StartOfWeek([Date])-Date.StartOfWeek(DateTime.Date(DateTime.LocalNow())))/7),
-				    #"Changed Type9" = Table.TransformColumnTypes(#"Added Custom10",{{"Week Offset", Int64.Type}}),
-				    #"Added Custom5" = Table.AddColumn(#"Changed Type9", "Year-Month Code", each Date.ToText([Date],"yyyyMM")),
-				    #"Changed Type5" = Table.TransformColumnTypes(#"Added Custom5",{{"Year-Month", type text}, {"Year-Month Code", Int64.Type}}),
-				    #"Added Custom6" = Table.AddColumn(#"Changed Type5", "Custom", each [Year] & [Quarter]),
-				    #"Removed Columns1" = Table.RemoveColumns(#"Added Custom6",{"Custom"}),
-				    #"Added Custom7" = Table.AddColumn(#"Removed Columns1", "Year-Quarter code", each Number.ToText([Year]) & Number.ToText ([Quarter])),
-				    #"Changed Type6" = Table.TransformColumnTypes(#"Added Custom7",{{"Year-Quarter code", Int64.Type}}),
-				    #"Added Custom8" = Table.AddColumn(#"Changed Type6", "Quarter name", each "Q" & Number.ToText([Quarter])),
-				    #"Changed Type7" = Table.TransformColumnTypes(#"Added Custom8",{{"Quarter name", type text}}),
-				    #"Added Custom9" = Table.AddColumn(#"Changed Type7", "Year-Quarter", each [Quarter name] & " " & Number.ToText([Year])),
-				    #"Changed Type8" = Table.TransformColumnTypes(#"Added Custom9",{{"Year-Quarter", type text}})
+				    #"Added - Month offset" = Table.AddColumn(#"Added - Quarter offset", "Month offset", each (([Year]-Date.Year(Today))*12)
+				+([Month]-Date.Month(Today))),
+				    #"Added - Week offset" = Table.AddColumn(#"Added - Month offset", "Week offset", each (Date.StartOfWeek([Date])-Date.StartOfWeek(DateTime.Date(DateTime.LocalNow())))/7),
+				    #"Added - Date period" = Table.AddColumn(#"Added - Week offset", "Date period", each if [Day offset] < #duration(0, 0, 0, 0) then "Past" else if [Day offset] = #duration(0, 0, 0, 0) then "Present" else if [Day offset] > #duration(0, 0, 0, 0) then "Future" else null),
+				    #"Added - Is a weekday" = Table.AddColumn(#"Added - Date period", "Is a weekday", each if [Day name] = "Saturday" then "No" else if [Day name] = "Sunday" then "No" else "Yes"),
+				    #"Added - Is a weekend" = Table.AddColumn(#"Added - Is a weekday", "Is a weekend", each if [Is a weekday] = "No" then "Yes" else "No"),
+				    #"Added - Date ID" = Table.DuplicateColumn(#"Added - Is a weekend", "Date", "Date ID"),
+				    #"Removed unnecessary or duplicate columns" = Table.RemoveColumns(#"Added - Date ID",{"Day of Week"}),
+				    #"Changing datetypes" = Table.TransformColumnTypes(#"Removed unnecessary or duplicate columns",{{"Day offset", Int64.Type}, {"Day of week", Int64.Type}, {"Day name", type text}, {"Day name short", type text}, {"Day of quarter", Int64.Type}, {"Year quarter sorting", Int64.Type}, {"year month sorting", Int64.Type}, {"Year week sorting", Int64.Type}, {"Week name", type text}, {"Week and year", type text}, {"Month name short", type text}, {"Month and year", type text}, {"Quarter name", type text}, {"Quarter name short", type text}, {"Quarter and year", type text}, {"Year offset", Int64.Type}, {"Quarter offset", Int64.Type}, {"Month offset", Int64.Type}, {"Week offset", Int64.Type}, {"Date period", type text}, {"Is a weekday", type text}, {"Is a weekend", type text}, {"Date", type date}, {"Start of Year", type date}, {"End of Year", type date}}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Changing datetypes",{"Date ID", "Date", "Day name", "Day name short", "Week name", "Week and year", "Month Name", "Month name short", "Month and year", "Quarter name", "Quarter name short", "Quarter and year", "Date period", "Is a weekday", "Is a weekend", "Year", "Days in Month", "Start of Week", "End of Week", "Start of Month", "End of Month", "Start of Quarter", "End of Quarter", "Start of Year", "End of Year", "Day of week", "Day of month", "Day of quarter", "Day of Year", "Week of Year", "Week of Month", "Month", "Quarter", "Day offset", "Week offset", "Month offset", "Quarter offset", "Year offset", "Year week sorting", "year month sorting", "Year quarter sorting"}),
+				    #"Renaming columns" = Table.RenameColumns(#"Reordered Columns",{{"Start of Year", "Start of year"}, {"End of Year", "End of year"}, {"Start of Month", "Start of month"}, {"End of Month", "End of month"}, {"Days in Month", "Days in month"}, {"Month Name", "Month name"}, {"Start of Quarter", "Start of quarter"}, {"End of Quarter", "End of quarter"}, {"Week of Year", "Week of year"}, {"Week of Month", "Week of month"}, {"Start of Week", "Start of week"}, {"End of Week", "End of week"}, {"year month sorting", "Year month sorting"}, {"Day of Year", "Day of year"}, {"Month", "Month of year"}, {"Quarter", "Quarter of year"}})
 				in
-				    #"Changed Type8"
+				    #"Renaming columns"
 
 		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["MINIMIZE_POWER_QUERY_TRANSFORMATIONS"]}
 

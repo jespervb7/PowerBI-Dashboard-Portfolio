@@ -62,19 +62,6 @@
         },
         {
           "location": {
-            "x": 223,
-            "y": 169
-          },
-          "nodeIndex": "DIM Date",
-          "nodeLineageTag": "6c72e472-9148-4101-b3bd-14245341154a",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 7
-        },
-        {
-          "location": {
             "x": 1191,
             "y": 215
           },
@@ -107,6 +94,19 @@
           "nodeIndex": "(Param) Date Hierarchy",
           "size": {
             "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 716,
+            "y": 644
+          },
+          "nodeIndex": "Dim Date",
+          "nodeLineageTag": "9a5a13a8-4d2d-420b-8fee-acf30fbc827a",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0

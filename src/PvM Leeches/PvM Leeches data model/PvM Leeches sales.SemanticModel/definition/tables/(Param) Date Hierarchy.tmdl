@@ -1,3 +1,4 @@
+/// Parrameter table to be used for easy business filtering.
 table '(Param) Date Hierarchy'
 	lineageTag: 1d6b3650-b37b-4a18-8a87-0a47576ad210
 
@@ -9,6 +10,8 @@ table '(Param) Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["OBJECTS_WITH_NO_DESCRIPTION"]}
+
 	column Value2
 		lineageTag: 889e8a84-0bae-441f-9ba1-87201423f636
 		summarizeBy: none
@@ -17,14 +20,18 @@ table '(Param) Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["OBJECTS_WITH_NO_DESCRIPTION"]}
+
 	column Value3
 		formatString: 0
 		lineageTag: 6ee44310-c4f4-46b2-ae22-18a28e260a47
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Value3]
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["OBJECTS_WITH_NO_DESCRIPTION"]}
 
 	partition '(Param) Date Hierarchy' = calculated
 		mode: import
@@ -37,4 +44,6 @@ table '(Param) Date Hierarchy'
 				}
 
 	annotation PBI_Id = 9b2c8bea071141269adacf0dbb3cbd5c
+
+	annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["ENSURE_TABLES_HAVE_RELATIONSHIPS"]}
 

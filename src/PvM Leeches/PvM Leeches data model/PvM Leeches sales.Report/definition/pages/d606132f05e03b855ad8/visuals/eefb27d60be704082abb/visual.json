@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "eefb27d60be704082abb",
   "position": {
     "x": 1113.2855680655066,
     "y": 99.242579324462625,
-    "z": 1005,
+    "z": 6000,
     "height": 133.63357215967244,
     "width": 259.40634595701124,
-    "tabOrder": 4005
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -17,39 +17,106 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "DIM Date"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
                     }
                   },
-                  "Property": "Date"
+                  "Level": "Year"
                 }
               },
-              "queryRef": "DIM Date.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "Dim Date.00. Hierarchy.Year",
+              "nativeQueryRef": "00. Hierarchy Year",
               "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Quarter name short"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Quarter name short",
+              "nativeQueryRef": "00. Hierarchy Quarter name short",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Month name short"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Month name short",
+              "nativeQueryRef": "00. Hierarchy Month name short",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Week name"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Week name",
+              "nativeQueryRef": "00. Hierarchy Week name",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Date"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Date",
+              "nativeQueryRef": "00. Hierarchy Date",
+              "active": false
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DIM Date"
-                  }
-                },
-                "Property": "Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
@@ -73,7 +140,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Between'"
+                  "Value": "'Basic'"
                 }
               }
             }
@@ -121,66 +188,6 @@
                 "Literal": {
                   "Value": "true"
                 }
-              }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "d",
-                    "Entity": "DIM Date",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "And": {
-                        "Left": {
-                          "Comparison": {
-                            "ComparisonKind": 2,
-                            "Left": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "d"
-                                  }
-                                },
-                                "Property": "Date"
-                              }
-                            },
-                            "Right": {
-                              "Literal": {
-                                "Value": "datetime'2019-01-16T00:00:00'"
-                              }
-                            }
-                          }
-                        },
-                        "Right": {
-                          "Comparison": {
-                            "ComparisonKind": 3,
-                            "Left": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "d"
-                                  }
-                                },
-                                "Property": "Date"
-                              }
-                            },
-                            "Right": {
-                              "Literal": {
-                                "Value": "datetime'2025-03-27T00:00:00'"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                ]
               }
             }
           }
@@ -324,15 +331,20 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "c21b15d632e0a26ddee0",
+        "name": "9fe67cd9b9ea3ed7d252",
         "field": {
-          "Column": {
+          "HierarchyLevel": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "DIM Date"
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
               }
             },
-            "Property": "Date"
+            "Level": "Year"
           }
         },
         "type": "Advanced",
@@ -341,7 +353,7 @@
           "From": [
             {
               "Name": "d",
-              "Entity": "DIM Date",
+              "Entity": "Dim Date",
               "Type": 0
             }
           ],
@@ -351,23 +363,23 @@
                 "Comparison": {
                   "ComparisonKind": 1,
                   "Left": {
-                    "Column": {
+                    "HierarchyLevel": {
                       "Expression": {
-                        "SourceRef": {
-                          "Source": "d"
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Hierarchy": "00. Hierarchy"
                         }
                       },
-                      "Property": "Date"
+                      "Level": "Year"
                     }
                   },
                   "Right": {
-                    "DateSpan": {
-                      "Expression": {
-                        "Literal": {
-                          "Value": "datetime'2019-01-15T00:00:00'"
-                        }
-                      },
-                      "TimeUnit": 5
+                    "Literal": {
+                      "Value": "2018L"
                     }
                   }
                 }
@@ -375,55 +387,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "792d53903a1b5d21b063",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM Date"
-              }
-            },
-            "Property": "Day Offset"
-          }
-        },
-        "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DIM Date",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 4,
-                  "Left": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "d"
-                        }
-                      },
-                      "Property": "Day Offset"
-                    }
-                  },
-                  "Right": {
-                    "Literal": {
-                      "Value": "0L"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
       }
     ]
   }

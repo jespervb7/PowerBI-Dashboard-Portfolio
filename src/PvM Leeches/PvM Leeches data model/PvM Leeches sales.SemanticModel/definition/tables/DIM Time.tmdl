@@ -1,6 +1,8 @@
+/// This table contains information about time.
 table 'DIM Time'
 	lineageTag: 90e34d1e-3aaf-43ba-bd0d-46eca18b320f
 
+	/// The time represented in readable format.
 	column Time
 		dataType: dateTime
 		isKey
@@ -15,6 +17,7 @@ table 'DIM Time'
 
 		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
 
+	/// The hour something happend in.
 	column Hour
 		dataType: int64
 		formatString: 0
@@ -24,6 +27,7 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// In what minute did something happen.
 	column Minute
 		dataType: int64
 		formatString: 0
@@ -33,8 +37,9 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// In what second did something happen.
 	column Second
-		dataType: double
+		dataType: int64
 		lineageTag: d67b601b-97fe-4ec5-8f37-230bf2ef5091
 		summarizeBy: none
 		sourceColumn: Second
@@ -43,6 +48,7 @@ table 'DIM Time'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Shows if the time was in PM or AM.
 	column AM/PM
 		dataType: string
 		lineageTag: 90c929b5-af7c-4310-8035-3edb596d1f4c
@@ -51,6 +57,7 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// In what hour did something occur.
 	column 'Hour Label'
 		dataType: string
 		lineageTag: 433d7fda-ac3c-4997-9b38-5d30742f9706
@@ -59,6 +66,7 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// The label of the minute, in which minute did something occur.
 	column 'Minute Label'
 		dataType: string
 		lineageTag: 51b1d55d-6796-49e6-8d17-cae2db180f9a
@@ -67,6 +75,7 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// In what second did something occur.
 	column 'Second Label'
 		dataType: string
 		lineageTag: 13864511-6bf0-48d7-ae3f-d60c6d3096fa
@@ -75,8 +84,9 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// The uniqueidentifier of this row.
 	column TimeKey
-		dataType: double
+		dataType: int64
 		lineageTag: a443344a-f076-4c1a-9f8d-13dc70c0d138
 		summarizeBy: none
 		sourceColumn: TimeKey
@@ -85,8 +95,9 @@ table 'DIM Time'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Bins the data in 12 hour bins.
 	column 'Hour Bin 12'
-		dataType: double
+		dataType: int64
 		lineageTag: 249808a7-fc14-4d49-813d-125c07826927
 		summarizeBy: none
 		sourceColumn: Hour Bin 12
@@ -95,6 +106,7 @@ table 'DIM Time'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Bins the data in 8 hour bins.
 	column 'Hour Bin 8'
 		dataType: int64
 		formatString: 0
@@ -104,6 +116,7 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Bins the data in 6 hour bins.
 	column 'Hour Bin 6'
 		dataType: int64
 		formatString: 0
@@ -113,6 +126,7 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Bins the data in 4 hour bins.
 	column 'Hour Bin 4'
 		dataType: int64
 		formatString: 0
@@ -122,6 +136,7 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Bins the data in 3 hour bins.
 	column 'Hour Bin 3'
 		dataType: int64
 		formatString: 0
@@ -131,6 +146,7 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Bins the data in 2 hour bins.
 	column 'Hour Bin 2'
 		dataType: int64
 		formatString: 0
@@ -140,8 +156,9 @@ table 'DIM Time'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Bins the data in 30 minute bins.
 	column 'Minute Bin 30'
-		dataType: double
+		dataType: int64
 		lineageTag: 13d91628-b323-4d09-a187-72b243a28d93
 		summarizeBy: none
 		sourceColumn: Minute Bin 30
@@ -150,8 +167,9 @@ table 'DIM Time'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Bins the data in 15 minute bins.
 	column 'Minute Bin 15'
-		dataType: double
+		dataType: int64
 		lineageTag: 7ad2d6aa-beeb-417c-9829-fd313b1a7c1b
 		summarizeBy: none
 		sourceColumn: Minute Bin 15
@@ -160,8 +178,9 @@ table 'DIM Time'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Bins the data in 10 minute bins.
 	column 'Minute Bin 10'
-		dataType: double
+		dataType: int64
 		lineageTag: 3b0a9148-b86d-480d-9f9b-69042e439a37
 		summarizeBy: none
 		sourceColumn: Minute Bin 10
@@ -220,9 +239,10 @@ table 'DIM Time'
 				    #"Renamed Columns13" = Table.RenameColumns(#"Multiplied Column1",{{"Integer-Division", "Minute Bin 15"}}),
 				    #"Inserted Integer-Division7" = Table.AddColumn(#"Renamed Columns13", "Integer-Division", each Number.IntegerDivide([Minute], 10), Int64.Type),
 				    #"Multiplied Column2" = Table.TransformColumns(#"Inserted Integer-Division7", {{"Integer-Division", each _ * 10, type number}}),
-				    #"Renamed Columns14" = Table.RenameColumns(#"Multiplied Column2",{{"Integer-Division", "Minute Bin 10"}})
+				    #"Renamed Columns14" = Table.RenameColumns(#"Multiplied Column2",{{"Integer-Division", "Minute Bin 10"}}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Renamed Columns14",{{"Second", Int64.Type}, {"TimeKey", Int64.Type}, {"Hour Bin 12", Int64.Type}, {"Minute Bin 30", Int64.Type}, {"Minute Bin 15", Int64.Type}, {"Minute Bin 10", Int64.Type}})
 				in
-				    #"Renamed Columns14"
+				    #"Changed Type3"
 
 		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["MINIMIZE_POWER_QUERY_TRANSFORMATIONS"]}
 

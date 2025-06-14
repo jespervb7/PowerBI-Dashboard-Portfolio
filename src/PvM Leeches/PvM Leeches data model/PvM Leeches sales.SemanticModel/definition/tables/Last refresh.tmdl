@@ -1,6 +1,8 @@
+/// This table has information about the last time it was refreshed.
 table 'Last refresh'
 	lineageTag: 4e6f2728-dcc9-4665-bcd4-5ad26a4b114e
 
+	/// Contains the date of the last refresh.
 	column 'Datum laatste verversing'
 		dataType: dateTime
 		formatString: Long Date

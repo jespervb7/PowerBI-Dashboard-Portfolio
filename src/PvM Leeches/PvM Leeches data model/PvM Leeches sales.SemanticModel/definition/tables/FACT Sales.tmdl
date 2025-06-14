@@ -1,10 +1,11 @@
+/// This table contains information about the sales that have been made.
 table 'FACT Sales'
 	lineageTag: d8dad6f6-f7aa-436f-9f31-3849f5912f76
 
 	column 'Date ID'
 		dataType: dateTime
 		isHidden
-		formatString: Long Date
+		formatString: mm/dd/yyyy
 		isAvailableInMdx: false
 		lineageTag: 85d56d60-5305-4327-a98a-77dcf8a3c0ad
 		summarizeBy: none
@@ -35,6 +36,7 @@ table 'FACT Sales'
 
 		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
 
+	/// This column contains the unique identifier for each discord customer that was part of the sale.
 	column 'Customer Discord ID'
 		dataType: int64
 		formatString: 0
@@ -71,6 +73,7 @@ table 'FACT Sales'
 
 		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
 
+	/// The name of the customer on the sale.
 	column 'Customer Name'
 		dataType: string
 		lineageTag: 29e2d58c-b99d-4381-9445-14c6df774096
@@ -79,8 +82,9 @@ table 'FACT Sales'
 
 		annotation SummarizationSetBy = Automatic
 
+	/// The amount that was sold.
 	column 'Amount Sold'
-		dataType: double
+		dataType: decimal
 		formatString: #,0
 		lineageTag: a799a8ac-7dab-4c0e-81f6-9ebdf63dfc09
 		summarizeBy: none
@@ -89,11 +93,12 @@ table 'FACT Sales'
 		annotation SummarizationSetBy = Automatic
 
 	column 'Total gp'
-		dataType: double
+		dataType: decimal
 		isHidden
 		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		isAvailableInMdx: false
 		lineageTag: 72a47b13-5fbf-4811-a7f5-c059905982ac
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Total gp
 
 		annotation SummarizationSetBy = Automatic
@@ -115,9 +120,10 @@ table 'FACT Sales'
 				    #"Replaced Value" = Table.ReplaceValue(#"Reordered Columns","",-1,Replacer.ReplaceValue,{"Customer Discord ID"}),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"Date ID", type date}, {"Time ID", type time}, {"Customer Discord ID", Int64.Type}, {"Seller ID", Int64.Type}, {"Sale ID", type text}, {"Customer Name", type text}, {"Amount Sold", type number}, {"Total gp", type number}}),
 				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Type", {{"Customer Discord ID", -1}}),
-				    #"Uppercased Text" = Table.TransformColumns(#"Replaced Errors",{{"Sale ID", Text.Upper, type text}})
+				    #"Uppercased Text" = Table.TransformColumns(#"Replaced Errors",{{"Sale ID", Text.Upper, type text}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Uppercased Text",{{"Amount Sold", Currency.Type}, {"Total gp", Currency.Type}})
 				in
-				    #"Uppercased Text"
+				    #"Changed Type1"
 
 	annotation PBI_NavigationStepName = Navigation
 
