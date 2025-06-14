@@ -1,0 +1,187 @@
+/// This table holds all the measures of this model.
+table _Measures
+	lineageTag: 397a008b-58f7-4d24-b4c7-ab8fb6859c59
+
+	/// This measure helps identify if the model has been refreshed with actual data.
+	measure 'Is the data up to date?' =
+			
+			// This measure determines the header information which will be used in the dashboard. Displaying to the users of the dashboard if there is something wrong
+			// Retrieves the latest refresh date
+			VAR LatestRefreshDate =
+			    MAX ( 'Last refresh'[Datum laatste verversing] ) // Gets the latest date out of the fact table, this assumes your fact table doesn't contain dates that are in the future.
+			VAR LastDateInFct =
+			    CALCULATE ( MAX ( DIM_date[Date] ), ALL ( DIM_date[Date] ) ) // Checks if the data is refreshed compared to the fact table
+			VAR DataIsUpToDate =
+			    IF ( LastDateInFct >= TODAY () - 1, "Yes", "No" ) // Checks if the dashboard is refreshed in the Power BI Service.
+			VAR DashboardIsRefreshed =
+			    IF ( LatestRefreshDate = TODAY (), "Yes", "No" ) // Final checks for the status
+			VAR DashboardRefreshStatus =
+			    SWITCH (
+			        TRUE (),
+			        DashboardIsRefreshed = "No", "⚠ Dashboard has problems with refreshing ⚠",
+			        DataIsUpToDate = "No",
+			            "⚠ Dashboard has refreshed, but there is some error with the data on the background ⚠",
+			        DataIsUpToDate = "Yes", "Dashboard is up to date"
+			    )
+			RETURN
+			    DashboardRefreshStatus
+		formatString: #,0
+		displayFolder: Technical measures for end-users
+		lineageTag: 9f8aaa55-1638-4e78-a3f1-d77a957be221
+
+	/// The total amount of sellers.
+	measure 'Total sellers' = DISTINCTCOUNT('FACT Sales'[Seller ID])
+		formatString: #,0
+		displayFolder: Sellers
+		lineageTag: 68d88367-9012-4d49-86b3-61b72d52af69
+
+	/// The total amount of GP
+	measure 'Total GP' = SUM('FACT Sales'[Total gp])
+		formatString: #,0
+		displayFolder: GP
+		lineageTag: cafcdacb-36ee-445e-816d-ddd48ffeddb6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// The total amount of customers.
+	measure 'Total customers' = DISTINCTCOUNT('FACT Sales'[Customer Name])
+		formatString: #,0
+		displayFolder: Customers
+		lineageTag: c50dca5b-f431-4d1f-a4e5-650093470cac
+
+	/// The total amount of orders.
+	measure 'Total orders' = COUNTROWS('FACT Sales')
+		formatString: #,0
+		displayFolder: Orders
+		lineageTag: 2541fe9e-26b5-4126-ac1d-06820ec0fda5
+
+	/// The total amount of GP that was made last month
+	measure 'Total GP last month' = CALCULATE([Total GP], 'DIM Date'[Month Offset] = -1, ALL('DIM Date'[Date]))
+		formatString: #,0
+		displayFolder: GP
+		lineageTag: 2bcd609f-fcba-4eb4-9a97-8bab6809afea
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// The total GP that was made this month.
+	measure 'Total GP month to date' = CALCULATE([Total GP], 'DIM Date'[Month Offset] = 0, ALL('DIM Date'[Date]))
+		formatString: #,0
+		displayFolder: GP
+		lineageTag: b48b47cb-4262-4ac9-87a4-d5244845b802
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Shows a text that contains the GP Month over Month (MoM) difference.
+	measure 'Reference label - GP MoM difference' = ```
+			
+			
+			VAR previous_month = [Total GP last month]
+			
+			VAR current_month = [Total GP month to date]
+			
+			VAR difference = current_month - previous_month
+			
+			VAR difference_formatted = 
+			
+			    SWITCH(
+			        TRUE(),
+			        difference >= 1e12, FORMAT(DIVIDE(difference, 1e12), "#,##0.00") & "T",
+			        difference >= 1e9, FORMAT(DIVIDE(difference, 1e9), "#,##0.00") & "B",
+			        difference >= 1e6, FORMAT(DIVIDE(difference, 1e6), "###0.00") & "M",
+			        FORMAT(difference, "#,##0")
+			    )
+			
+			VAR difference_percentage = FORMAT(DIVIDE((current_month - previous_month), previous_month), "0.0%")
+			
+			VAR arrow = IF(
+			    difference >= 0, 
+			    "▲", 
+			    "▼"
+			)
+			
+			VAR result = "MoM Change - " & difference_formatted & " (" & arrow & " " & difference_percentage & ")"
+			
+			RETURN result
+			```
+		formatString: #,0
+		displayFolder: GP
+		lineageTag: f2c58f0e-decf-4cbe-8143-7daa8700284a
+
+	/// The total GP in text format with dynamic formatting.
+	measure 'Total GP Text' = ```
+			
+			VAR gpValue = [Total GP]
+			RETURN 
+			    SWITCH(
+			        TRUE(),
+			        gpValue >= 1e12, "Total GP: " & FORMAT(gpValue / 1e12, "#,##0.00") & "T",
+			        gpValue >= 1e9, "Total GP: " & FORMAT(gpValue / 1e9, "#,##0.00") & "B",
+			        gpValue >= 1e6, "Total GP: " & FORMAT(gpValue / 1e6, "###0.00") & "M",
+			        "Total GP: " & FORMAT(gpValue, "#,##0")
+			    )
+			
+			```
+		formatString: #,0
+		displayFolder: GP
+		lineageTag: d17d66d9-6ae7-4e5d-a9b7-bbf4ad6faf73
+
+	/// The GP Month over Month (MoM) difference.
+	measure 'GP MoM difference' =
+			
+			
+			VAR previous_month = [Total GP last month]
+			
+			VAR current_month = [Total GP month to date]
+			
+			VAR result = current_month - previous_month
+			
+			RETURN result
+		formatString: #,0
+		displayFolder: GP
+		lineageTag: ada9f2b1-6f82-44d1-a0ca-9c31592a97d4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Shows the current filtered period for easy reference for users.
+	measure 'INFO - Currently filtered period' =
+			
+			
+			VAR min_date = MIN('DIM Date'[Date])
+			
+			VAR max_date = MAX('DIM Date'[Date])
+			
+			VAR result = "Dates from " & min_date & " to " & max_date
+			
+			RETURN result
+		formatString: #,0
+		lineageTag: 28d54d85-6281-4d8d-93e2-f7028c37ec56
+
+	column Column1
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 654edbc1-1360-4061-becf-bd9a90ebe214
+		summarizeBy: none
+		sourceColumn: Column1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["UNNECESSARY_COLUMNS"]}
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["ENSURE_TABLES_HAVE_RELATIONSHIPS"]}
+
+	annotation PBI_NavigationStepName = Navigation
+

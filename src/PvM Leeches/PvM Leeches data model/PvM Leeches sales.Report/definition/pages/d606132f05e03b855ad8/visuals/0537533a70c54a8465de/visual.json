@@ -1,0 +1,171 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "0537533a70c54a8465de",
+  "position": {
+    "x": 25.547594677584438,
+    "y": 417.60491299897643,
+    "z": 7000,
+    "height": 258.42374616171952,
+    "width": 1877.7482088024562,
+    "tabOrder": -9998000
+  },
+  "visual": {
+    "visualType": "areaChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Year"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Year",
+              "nativeQueryRef": "00. Hierarchy Year",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Quarter name short"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Quarter name short",
+              "nativeQueryRef": "00. Hierarchy Quarter name short",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Month name short"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Month name short",
+              "nativeQueryRef": "00. Hierarchy Month name short",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Week name"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Week name",
+              "nativeQueryRef": "00. Hierarchy Week name",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Date"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Date",
+              "nativeQueryRef": "00. Hierarchy Date",
+              "active": false
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total GP"
+                }
+              },
+              "queryRef": "_Measures.Total GP",
+              "nativeQueryRef": "Total GP"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "optimizeLabelDisplay": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelContainerMaxWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "191D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

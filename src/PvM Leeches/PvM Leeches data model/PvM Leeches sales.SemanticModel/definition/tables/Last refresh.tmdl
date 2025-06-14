@@ -1,0 +1,39 @@
+/// This table has information about the last time it was refreshed.
+table 'Last refresh'
+	lineageTag: 4e6f2728-dcc9-4665-bcd4-5ad26a4b114e
+
+	/// Contains the date of the last refresh.
+	column 'Datum laatste verversing'
+		dataType: dateTime
+		formatString: Long Date
+		isAvailableInMdx: false
+		lineageTag: d533e03f-1de1-4e1a-968f-ef952467fc33
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: Datum laatste verversing
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Last refresh' = m
+		mode: import
+		source =
+				let
+				    Source = DateTime.LocalNow(),
+				    #"Converted to Table" = #table(1, {{Source}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Converted to Table",{{"Column1", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Column1", "Datum laatste verversing"}})
+				in
+				    #"Renamed Columns"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["ENSURE_TABLES_HAVE_RELATIONSHIPS"]}
+

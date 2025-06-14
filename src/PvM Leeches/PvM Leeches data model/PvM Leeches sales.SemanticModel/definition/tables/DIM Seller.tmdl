@@ -1,0 +1,44 @@
+/// This table contains information about the customer of the sale.
+table 'DIM Seller'
+	lineageTag: f3d4ed91-c30a-42a8-b7e0-b411524cc70e
+
+	column 'Seller ID'
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 6e409644-e91b-4168-b40d-ed78af41619a
+		summarizeBy: none
+		sourceColumn: Seller ID
+
+		annotation SummarizationSetBy = Automatic
+
+	/// The name of the seller.
+	column Name
+		dataType: string
+		lineageTag: 71144fee-f3ae-49fe-811e-0e5e64b8a6d6
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM Seller' = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1qkZ0mTyY4buSiOf0rg15G11BPd_nI6g_GtgU4KbFgPQ/edit?gid=0#gid=0"),
+				    #"Seller IDs_Table" = Source{[name="Seller IDs",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Seller IDs_Table", [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"Discord ID", "Name"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"Discord ID", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Discord ID", "Seller ID"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Seller ID", Int64.Type}, {"Name", type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type1", each ([Seller ID] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

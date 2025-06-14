@@ -1,0 +1,137 @@
+/// This table contains information about the sale that was made.
+table 'DIM Sale'
+	lineageTag: 0541f059-01f6-4b66-8630-cdf45d84de8e
+
+	/// This column contains the unique identifier for a row.
+	column 'Sale ID'
+		dataType: string
+		isHidden
+		isKey
+		lineageTag: 86681249-3d9e-4629-84ed-26022d349165
+		summarizeBy: none
+		sourceColumn: Sale ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
+
+	/// The type of service that was provided. This is a grouping, similiar to Token farming.
+	column 'Service Type'
+		dataType: string
+		lineageTag: 22756e4f-7df8-4855-a30a-db855ffff445
+		summarizeBy: none
+		sourceColumn: Service Type
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column specifies what mode this service is done in. Possible options are hardmode, normal mode, storymode.
+	column 'Boss mode'
+		dataType: string
+		lineageTag: 61f36f8e-76de-4c0b-b451-b36f33d99f8c
+		summarizeBy: none
+		sourceColumn: Boss mode
+
+		annotation SummarizationSetBy = Automatic
+
+	/// The name of the boss that this service falls under.
+	column Boss
+		dataType: string
+		lineageTag: 1166d2f3-0d8a-49ca-8250-3e587f00edc7
+		summarizeBy: none
+		sourceColumn: Boss
+
+		annotation SummarizationSetBy = Automatic
+
+	/// A grouped collection of bosses. For example, GWD1 bosses.
+	column 'Grouped Bosses'
+		dataType: string
+		lineageTag: 7e616cb8-6bbb-4e08-a441-4ac24da30b4c
+		summarizeBy: none
+		sourceColumn: Grouped Bosses
+
+		annotation SummarizationSetBy = Automatic
+
+	/// The account this service can be sold for.
+	column 'Account Type'
+		dataType: string
+		lineageTag: 14596e34-2810-423c-bb73-bf71ea47e6da
+		summarizeBy: none
+		sourceColumn: Account Type
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Boolean column that specifies if a sale is part of an achievement.
+	column Achievement
+		dataType: string
+		lineageTag: 3b4229b0-9a05-407f-91db-076e6179c08c
+		summarizeBy: none
+		sourceColumn: Achievement
+
+		annotation SummarizationSetBy = Automatic
+
+	/// This column is used for reference how many times quanity is part of the amount.
+	column 'Amount of boss kills'
+		dataType: decimal
+		lineageTag: 8f34911e-6a25-406f-8dca-712468773f7f
+		summarizeBy: none
+		sourceColumn: Amount of boss kills
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Boolean column that tells you if a sale is part of reaper crew. Reaper crew is an achievement in runescape that can be obtained by killing each boss once.
+	column Reaper
+		dataType: string
+		lineageTag: 8c0cb54d-3535-48b1-aea5-bcfb4eed4b84
+		summarizeBy: none
+		sourceColumn: Reaper
+
+		annotation SummarizationSetBy = Automatic
+
+	/// A boolean column that identifies if a sale is part of Daredevil.
+	column Daredevil
+		dataType: string
+		lineageTag: 69d75677-d447-47a5-b5c7-7d01e373fdbf
+		summarizeBy: none
+		sourceColumn: Daredevil
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Sales hierarchy'
+		lineageTag: d371e025-c41a-45f6-86b5-49b6ec8f5aff
+
+		level 'Grouped Bosses'
+			lineageTag: 56e4344b-b28d-4b86-b86d-16c4c928a223
+			column: 'Grouped Bosses'
+
+		level Boss
+			lineageTag: a9cdb324-7c1b-4c00-a498-6ed46f9e9dde
+			column: Boss
+
+		level 'Sale ID'
+			lineageTag: 5ec3439c-9fe8-4e81-a86e-d230bea45e5a
+			column: 'Sale ID'
+
+	partition 'DIM Sale' = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/16hdWVx1aC0EQIDPvsoARtG7PiyxUjmKf0HDhJ0vj4Ms/edit?gid=0#gid=0"),
+				    #"Sale types_Table" = Source{[name="Sale types",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Sale types_Table", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ID", type text}, {"Service Type", type text}, {"Boss mode", type text}, {"Boss", type text}, {"Grouped Bosses", type text}, {"Account Type", type text}, {"Achievement", type text}, {"Amount of boss kills", type number}, {"Reaper", type text}, {"Daredevil", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"ID", "Sale ID"}}),
+				    #"Uppercased Text" = Table.TransformColumns(#"Renamed Columns",{{"Sale ID", Text.Upper, type text}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Uppercased Text", {"Sale ID"})
+				in
+				    #"Removed Duplicates"
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["MINIMIZE_POWER_QUERY_TRANSFORMATIONS"]}
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

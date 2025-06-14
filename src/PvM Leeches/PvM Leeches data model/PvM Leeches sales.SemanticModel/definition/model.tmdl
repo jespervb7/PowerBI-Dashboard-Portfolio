@@ -1,0 +1,33 @@
+/// This model contains information about the leech selling service called PvM Leeches in the game Runescape 3.
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["_Measures","Last refresh","FACT Sales","DIM Time","DIM Seller","DIM Sale","Dim Date"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.144.679.0 (25.06)+ef40146207b86a826d1c72a7727a743ee37450e9
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode","TMDLView_Desktop"]
+
+annotation __TEdtr = 1
+
+annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["DATE/CALENDAR_TABLES_SHOULD_BE_MARKED_AS_A_DATE_TABLE","REDUCE_USAGE_OF_CALCULATED_TABLES"]}
+
+ref table _Measures
+ref table 'Last refresh'
+ref table 'FACT Sales'
+ref table 'DIM Time'
+ref table 'DIM Seller'
+ref table 'DIM Sale'
+ref table '(Param) Date Hierarchy'
+ref table 'Dim Date'
+
+ref cultureInfo en-US
+
