@@ -10,50 +10,7 @@
     "activeSection": "ReportSection1e7d49e29db0cc121636",
     "sections": {
       "ReportSection1e7d49e29db0cc121636": {
-        "visualContainers": {
-          "8614b1a0c0035d7d0a03": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "91e097e5b00dc9c6d93c": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "a3d04e8ada199d5b0012": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "ff89bd98e87608712057": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "c6ff8e525666b0860302": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "411612d714478c901597": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "cf17ca35e56108ec62a0": {
-            "singleVisual": {
-              "visualType": "textbox",
-              "objects": {}
-            }
-          }
-        },
+        "visualContainers": {},
         "visualContainerGroups": {
           "7ed6268d1d4784a99f60": {
             "isHidden": false
