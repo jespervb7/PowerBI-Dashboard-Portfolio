@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["_Measures","Last refresh","FACT Sales","DIM Time","DIM Date","DIM Seller","DIM Sale"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.142.1277.0 (25.04)+014fde450f93691fc9537f0758d73d1c5df153ef
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode","TMDLView_Desktop"]
+
+annotation __TEdtr = 1
+
+ref table _Measures
+ref table 'Last refresh'
+ref table 'FACT Sales'
+ref table 'DIM Time'
+ref table 'DIM Date'
+ref table 'DIM Seller'
+ref table 'DIM Sale'
+ref table '(Param) Date Hierarchy'
+
+ref cultureInfo en-US
+

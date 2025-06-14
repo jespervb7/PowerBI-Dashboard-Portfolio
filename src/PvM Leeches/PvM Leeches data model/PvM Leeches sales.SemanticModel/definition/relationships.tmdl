@@ -1,0 +1,16 @@
+relationship e85e79dc-94a0-0f6f-b0a0-aea373e1bff8
+	fromColumn: 'FACT Sales'.'Date ID'
+	toColumn: 'DIM Date'.Date
+
+relationship 48c1d891-96ab-7a63-b3cf-c2db6443982a
+	fromColumn: 'FACT Sales'.'Time ID'
+	toColumn: 'DIM Time'.Time
+
+relationship 27597512-6add-f7bc-4ecd-25130c484632
+	fromColumn: 'FACT Sales'.'Seller ID'
+	toColumn: 'DIM Seller'.'Seller ID'
+
+relationship 8aaf5109-5df4-3fe3-acb6-f667e2868ce1
+	fromColumn: 'FACT Sales'.'Sale ID'
+	toColumn: 'DIM Sale'.'Sale ID'
+

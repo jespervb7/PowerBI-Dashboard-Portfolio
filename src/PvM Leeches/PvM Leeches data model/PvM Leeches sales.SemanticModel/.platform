@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "PvM Leeches sales"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7b9bd30c-8824-416b-ae9a-b8ba55cb9b69"
+  }
+}

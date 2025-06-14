@@ -1,0 +1,125 @@
+table 'FACT Sales'
+	lineageTag: d8dad6f6-f7aa-436f-9f31-3849f5912f76
+
+	column 'Date ID'
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		isAvailableInMdx: false
+		lineageTag: 85d56d60-5305-4327-a98a-77dcf8a3c0ad
+		summarizeBy: none
+		sourceColumn: Date ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
+
+	column 'Time ID'
+		dataType: dateTime
+		isHidden
+		formatString: Long Time
+		isAvailableInMdx: false
+		lineageTag: 126bf6ba-bdb1-4206-ae3a-79d1f63a24fd
+		summarizeBy: none
+		sourceColumn: Time ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
+
+	column 'Customer Discord ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 44835450-5807-4cbd-9ed9-da449ea454b8
+		summarizeBy: none
+		sourceColumn: Customer Discord ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seller ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 5f090e4e-a60e-45cb-bd06-94a69583e550
+		summarizeBy: none
+		sourceColumn: Seller ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sale ID'
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 4040e7b8-b8ac-46af-b2b3-35614404fcbb
+		summarizeBy: none
+		sourceColumn: Sale ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE"]}
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: 29e2d58c-b99d-4381-9445-14c6df774096
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amount Sold'
+		dataType: double
+		formatString: #,0
+		lineageTag: a799a8ac-7dab-4c0e-81f6-9ebdf63dfc09
+		summarizeBy: none
+		sourceColumn: Amount Sold
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total gp'
+		dataType: double
+		isHidden
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 72a47b13-5fbf-4811-a7f5-c059905982ac
+		summarizeBy: none
+		sourceColumn: Total gp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	partition 'FACT Sales' = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1qkZ0mTyY4buSiOf0rg15G11BPd_nI6g_GtgU4KbFgPQ/edit?gid=0#gid=0"),
+				    #"Completed log_Table" = Source{[name="Completed log",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Completed log_Table", [PromoteAllScalars=true]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Sale value", "", "_1", "_2"}),
+				    #"Split Column by Position" = Table.SplitColumn(Table.TransformColumnTypes(#"Removed Columns", {{"Date of Sale", type text}}, "en-GB"), "Date of Sale", Splitter.SplitTextByPositions({0, 11}, false), {"Date of Sale.1", "Date of Sale.2"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Split Column by Position",{{"Date of Sale.1", "Date ID"}, {"Date of Sale.2", "Time ID"}, {"RSN", "Customer Name"}, {"Sales type", "Sale ID"}, {"Customer ID", "Customer Discord ID"}, {"Salesperson ID", "Seller ID"}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each ([Date ID] <> "")),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Filtered Rows",{"Date ID", "Time ID", "Customer Discord ID", "Seller ID", "Sale ID", "Customer Name", "Amount Sold", "Total gp"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Reordered Columns","",-1,Replacer.ReplaceValue,{"Customer Discord ID"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"Date ID", type date}, {"Time ID", type time}, {"Customer Discord ID", Int64.Type}, {"Seller ID", Int64.Type}, {"Sale ID", type text}, {"Customer Name", type text}, {"Amount Sold", type number}, {"Total gp", type number}}),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Type", {{"Customer Discord ID", -1}}),
+				    #"Uppercased Text" = Table.TransformColumns(#"Replaced Errors",{{"Sale ID", Text.Upper, type text}})
+				in
+				    #"Uppercased Text"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

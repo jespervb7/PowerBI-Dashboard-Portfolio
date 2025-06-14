@@ -1,0 +1,125 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 276,
+            "y": 0
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "397a008b-58f7-4d24-b4c7-ab8fb6859c59",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 18,
+            "y": 0
+          },
+          "nodeIndex": "Last refresh",
+          "nodeLineageTag": "4e6f2728-dcc9-4665-bcd4-5ad26a4b114e",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 707,
+            "y": 304.75
+          },
+          "nodeIndex": "FACT Sales",
+          "nodeLineageTag": "d8dad6f6-f7aa-436f-9f31-3849f5912f76",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 150,
+            "y": 694
+          },
+          "nodeIndex": "DIM Time",
+          "nodeLineageTag": "90e34d1e-3aaf-43ba-bd0d-46eca18b320f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 223,
+            "y": 169
+          },
+          "nodeIndex": "DIM Date",
+          "nodeLineageTag": "6c72e472-9148-4101-b3bd-14245341154a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1191,
+            "y": 215
+          },
+          "nodeIndex": "DIM Seller",
+          "nodeLineageTag": "f3d4ed91-c30a-42a8-b7e0-b411524cc70e",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1216,
+            "y": 503
+          },
+          "nodeIndex": "DIM Sale",
+          "nodeLineageTag": "0541f059-01f6-4b66-8630-cdf45d84de8e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1482,
+            "y": 397
+          },
+          "nodeIndex": "(Param) Date Hierarchy",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

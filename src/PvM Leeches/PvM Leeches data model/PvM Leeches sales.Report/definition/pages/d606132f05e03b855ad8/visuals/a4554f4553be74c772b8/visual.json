@@ -1,0 +1,144 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "a4554f4553be74c772b8",
+  "position": {
+    "x": 25.547594677584438,
+    "y": 698.62845445240521,
+    "z": 1007,
+    "height": 364.54452405322411,
+    "width": 899.078812691914,
+    "tabOrder": 4007
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM Date"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "DIM Date.Date",
+              "nativeQueryRef": "Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM Seller"
+                    }
+                  },
+                  "Property": "Name"
+                }
+              },
+              "queryRef": "DIM Seller.Name",
+              "nativeQueryRef": "Seller name",
+              "displayName": "Seller name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT Sales"
+                    }
+                  },
+                  "Property": "Customer Name"
+                }
+              },
+              "queryRef": "FACT Sales.Customer Name",
+              "nativeQueryRef": "Customer Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM Sale"
+                    }
+                  },
+                  "Property": "Sale ID"
+                }
+              },
+              "queryRef": "DIM Sale.Sale ID",
+              "nativeQueryRef": "Sale ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT Sales"
+                    }
+                  },
+                  "Property": "Amount Sold"
+                }
+              },
+              "queryRef": "FACT Sales.Amount Sold",
+              "nativeQueryRef": "Amount Sold"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total GP"
+                }
+              },
+              "queryRef": "_Measures.Total GP",
+              "nativeQueryRef": "Total GP"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM Date"
+                  }
+                },
+                "Property": "Date"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "236.90582273346786D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM Sale.Sale ID"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

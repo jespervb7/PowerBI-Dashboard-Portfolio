@@ -1,0 +1,40 @@
+table '(Param) Date Hierarchy'
+	lineageTag: 1d6b3650-b37b-4a18-8a87-0a47576ad210
+
+	column Value1
+		lineageTag: 97682b81-f7c5-46e5-83c2-4a2766fe0095
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value2
+		lineageTag: 889e8a84-0bae-441f-9ba1-87201423f636
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value3
+		formatString: 0
+		lineageTag: 6ee44310-c4f4-46b2-ae22-18a28e260a47
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '(Param) Date Hierarchy' = calculated
+		mode: import
+		source =
+				{
+				    ("W", NAMEOF('DIM Date'[Week Offset]), 0),
+				    ("M", NAMEOF('DIM Date'[Month Offset]), 1),
+				    ("Q", NAMEOF('DIM Date'[Quarter Offset]), 2),
+				    ("Y", NAMEOF('DIM Date'[Year Offset]), 3)
+				}
+
+	annotation PBI_Id = 9b2c8bea071141269adacf0dbb3cbd5c
+
