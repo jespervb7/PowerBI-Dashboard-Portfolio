@@ -4,7 +4,7 @@
   "artifacts": [
     {
       "report": {
-        "path": "test_template_visuals.Report"
+        "path": "test_template_visual.Report"
       }
     }
   ],
