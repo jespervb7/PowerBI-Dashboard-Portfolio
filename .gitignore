@@ -4,3 +4,4 @@
 fabric_cicd.*.log
 
 _tools/
+data/*
