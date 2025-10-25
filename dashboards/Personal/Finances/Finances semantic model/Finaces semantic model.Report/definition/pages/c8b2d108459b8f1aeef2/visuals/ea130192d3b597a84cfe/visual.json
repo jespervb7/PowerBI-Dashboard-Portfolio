@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "ea130192d3b597a84cfe",
+  "position": {
+    "x": 358.4402079722704,
+    "y": 66.4471403812825,
+    "z": 0,
+    "height": 213.37954939341424,
+    "width": 422.07972270363956
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact bank transactions"
+                    }
+                  },
+                  "Property": "Incoming transaction"
+                }
+              },
+              "queryRef": "Fact bank transactions.Incoming transaction",
+              "nativeQueryRef": "Incoming transaction"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4f1390f5c465e924b69d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact bank transactions"
+              }
+            },
+            "Property": "Incoming transaction"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
