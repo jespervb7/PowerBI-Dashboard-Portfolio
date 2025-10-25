@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "City_Park8430776666232931.json",
+      "name": "Prototype_theme16336693962572224.json",
       "reportVersionAtImport": {
         "visual": "2.1.0",
         "report": "3.0.0",
@@ -52,8 +52,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "City_Park8430776666232931.json",
-          "path": "City_Park8430776666232931.json",
+          "name": "Prototype_theme16336693962572224.json",
+          "path": "Prototype_theme16336693962572224.json",
           "type": "CustomTheme"
         }
       ]

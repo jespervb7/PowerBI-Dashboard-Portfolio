@@ -1,0 +1,181 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "7d3aad7f51f30f7820e3",
+  "position": {
+    "x": 1474.0034662045061,
+    "y": 489.46273830155985,
+    "z": 3001,
+    "height": 522.21837088388224,
+    "width": 422.07972270363956,
+    "tabOrder": 3001
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact bank transactions"
+                    }
+                  },
+                  "Property": "company_name"
+                }
+              },
+              "queryRef": "Fact bank transactions.company_name",
+              "nativeQueryRef": "company_name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact bank transactions"
+                    }
+                  },
+                  "Property": "Name / Description"
+                }
+              },
+              "queryRef": "Fact bank transactions.Name / Description",
+              "nativeQueryRef": "Name / Description",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact bank transactions"
+                    }
+                  },
+                  "Property": "Incoming transaction"
+                }
+              },
+              "queryRef": "Fact bank transactions.Incoming transaction",
+              "nativeQueryRef": "Incoming transaction"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact bank transactions"
+                    }
+                  },
+                  "Property": "Outgoing transaction"
+                }
+              },
+              "queryRef": "Fact bank transactions.Outgoing transaction",
+              "nativeQueryRef": "Outgoing transaction"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Fact bank transactions"
+                  }
+                },
+                "Property": "Incoming transaction"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "123.16990042674252D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact bank transactions.company_name"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "78315904330af26481d8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact bank transactions"
+              }
+            },
+            "Property": "Incoming transaction"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "65c5b2f71103770e4b49",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact bank transactions"
+              }
+            },
+            "Property": "Outgoing transaction"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "25a3733b2971a2f97649",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact bank transactions"
+              }
+            },
+            "Property": "company_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "65df976f1d0b7fda9fd1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact bank transactions"
+              }
+            },
+            "Property": "Name / Description"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

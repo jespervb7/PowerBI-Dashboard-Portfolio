@@ -1,5 +1,5 @@
 {
-  "name": "City Park",
+  "name": "Prototype theme",
   "dataColors": [
     "#73B761",
     "#4A588A",
@@ -482,6 +482,37 @@
     "#0D2E25",
     "#54484E"
   ],
+  "visualStyles": {
+    "page": {
+      "*": {
+        "pageSize": [
+          {
+            "pageSizeTypes": "Custom",
+            "pageSizeHeight": 1080,
+            "pageSizeWidth": 1920
+          }
+        ]
+      }
+    },
+    "*": {
+      "*": {
+        "border": [
+          {
+            "radius": 5,
+            "show": true
+          }
+        ]
+      }
+    }
+  },
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI (Bold)"
+    },
+    "largeTitle": {
+      "fontFace": "Segoe UI (Bold)"
+    }
+  },
   "background": "#FFFFFF",
   "foreground": "#070f25",
   "tableAccent": "#0F1934"

@@ -4,10 +4,9 @@
   "position": {
     "x": 36.499133448873486,
     "y": 368.734835355286,
-    "z": 2,
+    "z": 2000,
     "height": 665.40727902946276,
-    "width": 1856.7764298093589,
-    "tabOrder": 1
+    "width": 1856.7764298093589
   },
   "visual": {
     "visualType": "tableEx",
@@ -181,107 +180,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "08aa7b8c3b3f185b0efc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Date"
-              }
-            },
-            "Property": "Date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a9e5e22f9c5ddd0420e2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Date"
-              }
-            },
-            "Property": "Day name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2e2ce2dc1e471906c87e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "company_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "81ba2f2d5cb7606ac50f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Type of transaction"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2c6f3779cfae56037d6b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Name / Description"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d71db6b23eee9bf2f697",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Amount"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e46f0cd429d7d6b26bd8",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Notifications"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

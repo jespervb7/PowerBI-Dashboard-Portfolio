@@ -240,8 +240,6 @@
       {
         "name": "028bc1be566a250b304d",
         "boundFilter": "f8ff287bfd73691661b2",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "HierarchyLevel": {
             "Expression": {
@@ -261,8 +259,6 @@
       {
         "name": "dab05bbe7bc56d81465b",
         "boundFilter": "050aeef7485814e9db4c",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "HierarchyLevel": {
             "Expression": {
@@ -282,8 +278,6 @@
       {
         "name": "b65e98f754063917d5b0",
         "boundFilter": "2b668f85e9d1ec83a80e",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "HierarchyLevel": {
             "Expression": {
@@ -303,8 +297,6 @@
       {
         "name": "8a7dac8f64624f9d88d3",
         "boundFilter": "6567b693a517a203cf47",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "HierarchyLevel": {
             "Expression": {
@@ -324,8 +316,6 @@
       {
         "name": "3eee84711bd1924d9f14",
         "boundFilter": "62a477bac974e7f87fec",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "HierarchyLevel": {
             "Expression": {
@@ -345,8 +335,6 @@
       {
         "name": "e62c4cff966212786387",
         "boundFilter": "800e3e41662d8100613c",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {
@@ -361,8 +349,6 @@
       {
         "name": "3042a0628aac56356f3d",
         "boundFilter": "7a1a0c846095ac10ccea",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {

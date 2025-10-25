@@ -6,7 +6,8 @@
     "y": 66.4471403812825,
     "z": 0,
     "height": 213.37954939341424,
-    "width": 422.07972270363956
+    "width": 422.07972270363956,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -48,23 +49,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4f1390f5c465e924b69d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Incoming transaction"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

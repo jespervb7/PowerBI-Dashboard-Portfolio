@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "b9b754b01f7ef574349c",
   "position": {
-    "x": 304.15944540727907,
-    "y": 340.65857885615253,
-    "z": 2001,
+    "x": 38.370883882149052,
+    "y": 489.46273830155985,
+    "z": 3000,
     "height": 522.21837088388224,
-    "width": 1415.0433275563259,
-    "tabOrder": 1
+    "width": 1415.0433275563259
   },
   "visual": {
     "visualType": "lineChart",
@@ -151,12 +150,54 @@
         }
       }
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "8a328b0eeee4994c620f",
+        "name": "e8a748e6a37befd4c8d8",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -175,7 +216,7 @@
         "type": "Advanced"
       },
       {
-        "name": "8428a0deec96fdc317c8",
+        "name": "958f92725c6fc938e8ec",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -194,7 +235,7 @@
         "type": "Categorical"
       },
       {
-        "name": "d35c28f5eebd78a18266",
+        "name": "b8f445408580cad184ad",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -213,7 +254,7 @@
         "type": "Categorical"
       },
       {
-        "name": "e017798557d8cd1a744e",
+        "name": "958121ba436133debe4c",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -232,7 +273,7 @@
         "type": "Categorical"
       },
       {
-        "name": "98266f971ee70d1a1719",
+        "name": "72a6d2f7739d3406ecea",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -251,7 +292,7 @@
         "type": "Categorical"
       },
       {
-        "name": "f513d46baf99bde19a20",
+        "name": "6f76c482f087747e195b",
         "field": {
           "Measure": {
             "Expression": {
@@ -265,7 +306,7 @@
         "type": "Advanced"
       },
       {
-        "name": "66302d394009858450e6",
+        "name": "2cae467e15ce80a93ae4",
         "field": {
           "Measure": {
             "Expression": {
