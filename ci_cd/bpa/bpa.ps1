@@ -1,5 +1,5 @@
 param (
-    $src = @("**\*.SemanticModel", "**\*.Report")        
+    $src = @("**\*.SemanticModel")        
 )
   
 $currentFolder = (Split-Path $MyInvocation.MyCommand.Definition -Parent)
@@ -101,29 +101,5 @@ foreach ($srcPath in $src) {
                 throw "Error running rules for: '$itemPath'"
             }                
         }
-        # Report
-        elseif ($itemFile.Extension -eq ".pbir") {
-
-            $itemPath = "$($itemFile.Directory.FullName)\definition"
-
-            if (!(Test-Path $itemPath)) {
-                Write-Warning "Cannot find report PBIR definition. If you are using PBIR-Legacy (report.json), please convert it to PBIR using Power BI Desktop."
-                continue
-            }
-
-            Write-Host "Running PBI Inspector BPA rules for: '$itemPath'"
-
-            $process = Start-Process -FilePath $pbiInspectorEXE -ArgumentList "-pbipreport ""$itemPath"" -rules ""$pbiInspectorRulesPath"" -formats ""GitHub""" -NoNewWindow -Wait -PassThru    
-
-            if ($process.ExitCode -ne 0) {
-                throw "Error running BPA rules for: '$itemPath'"
-            }    
-        }
-        else {
-            throw "Unsupported file type: $($itemFile.Extension)"
-        }        
-    }
-
-}
 
 #endregion
