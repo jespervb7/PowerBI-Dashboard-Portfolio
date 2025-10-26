@@ -1,0 +1,4 @@
+relationship e84a8708-712d-d5ab-3ccd-0c906978291a
+	fromColumn: 'Fact bank transactions'.'Date ID'
+	toColumn: 'Dim Date'.'Date ID'
+

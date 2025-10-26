@@ -2,5 +2,6 @@
 **/.pbi/cache.abf
 
 fabric_cicd.*.log
-
+config.py
 _tools/
+data/*

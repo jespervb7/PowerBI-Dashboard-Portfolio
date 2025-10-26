@@ -1,0 +1,539 @@
+table Table
+	lineageTag: 00018baf-0ced-4516-b8bf-9a61f5133301
+
+	measure DumpFilters = ```
+			VAR MaxFilters = 3 RETURN IF (
+			    ISFILTERED ( 'Fact bank transactions'[Name / Description] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Name / Description] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Name / Description] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Name / Description], ", " )
+			    VAR ___x = "'Fact bank transactions'[Name / Description] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Account] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Account] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Account] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Account], ", " )
+			    VAR ___x = "'Fact bank transactions'[Account] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Counterparty] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Counterparty] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Counterparty] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Counterparty], ", " )
+			    VAR ___x = "'Fact bank transactions'[Counterparty] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Code] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Code] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Code] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Code], ", " )
+			    VAR ___x = "'Fact bank transactions'[Code] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Debit/credit] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Debit/credit] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Debit/credit] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Debit/credit], ", " )
+			    VAR ___x = "'Fact bank transactions'[Debit/credit] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Amount (EUR)] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Amount (EUR)] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Amount (EUR)] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Amount (EUR)], ", " )
+			    VAR ___x = "'Fact bank transactions'[Amount (EUR)] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Transaction type] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Transaction type] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Transaction type] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Transaction type], ", " )
+			    VAR ___x = "'Fact bank transactions'[Transaction type] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Notifications] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Notifications] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Notifications] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Notifications], ", " )
+			    VAR ___x = "'Fact bank transactions'[Notifications] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Resulting balance] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Resulting balance] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Resulting balance] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Resulting balance], ", " )
+			    VAR ___x = "'Fact bank transactions'[Resulting balance] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Tag] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Tag] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Tag] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Tag], ", " )
+			    VAR ___x = "'Fact bank transactions'[Tag] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Hash value] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Hash value] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Hash value] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Hash value], ", " )
+			    VAR ___x = "'Fact bank transactions'[Hash value] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Hash banking identification] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Hash banking identification] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Hash banking identification] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Hash banking identification], ", " )
+			    VAR ___x = "'Fact bank transactions'[Hash banking identification] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Type of transaction] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Type of transaction] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Type of transaction] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Type of transaction], ", " )
+			    VAR ___x = "'Fact bank transactions'[Type of transaction] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[company_name] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[company_name] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[company_name] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[company_name], ", " )
+			    VAR ___x = "'Fact bank transactions'[company_name] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Fact bank transactions'[Date ID] ), 
+			    VAR ___f = FILTERS ( 'Fact bank transactions'[Date ID] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Fact bank transactions'[Date ID] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Fact bank transactions'[Date ID], ", " )
+			    VAR ___x = "'Fact bank transactions'[Date ID] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Date] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Date] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Date] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Date], ", " )
+			    VAR ___x = "'Dim Date'[Date] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Year], ", " )
+			    VAR ___x = "'Dim Date'[Year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Start of year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Start of year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Start of year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Start of year], ", " )
+			    VAR ___x = "'Dim Date'[Start of year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[End of year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[End of year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[End of year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[End of year], ", " )
+			    VAR ___x = "'Dim Date'[End of year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Month of year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Month of year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Month of year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Month of year], ", " )
+			    VAR ___x = "'Dim Date'[Month of year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Start of month] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Start of month] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Start of month] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Start of month], ", " )
+			    VAR ___x = "'Dim Date'[Start of month] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[End of month] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[End of month] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[End of month] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[End of month], ", " )
+			    VAR ___x = "'Dim Date'[End of month] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Days in month] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Days in month] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Days in month] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Days in month], ", " )
+			    VAR ___x = "'Dim Date'[Days in month] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Month name] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Month name] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Month name] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Month name], ", " )
+			    VAR ___x = "'Dim Date'[Month name] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Quarter of year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Quarter of year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Quarter of year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Quarter of year], ", " )
+			    VAR ___x = "'Dim Date'[Quarter of year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Start of quarter] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Start of quarter] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Start of quarter] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Start of quarter], ", " )
+			    VAR ___x = "'Dim Date'[Start of quarter] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[End of quarter] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[End of quarter] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[End of quarter] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[End of quarter], ", " )
+			    VAR ___x = "'Dim Date'[End of quarter] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Week of year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Week of year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Week of year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Week of year], ", " )
+			    VAR ___x = "'Dim Date'[Week of year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Week of month] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Week of month] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Week of month] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Week of month], ", " )
+			    VAR ___x = "'Dim Date'[Week of month] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Start of week] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Start of week] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Start of week] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Start of week], ", " )
+			    VAR ___x = "'Dim Date'[Start of week] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[End of week] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[End of week] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[End of week] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[End of week], ", " )
+			    VAR ___x = "'Dim Date'[End of week] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Day of month] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Day of month] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Day of month] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Day of month], ", " )
+			    VAR ___x = "'Dim Date'[Day of month] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Day of year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Day of year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Day of year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Day of year], ", " )
+			    VAR ___x = "'Dim Date'[Day of year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Day of week] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Day of week] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Day of week] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Day of week], ", " )
+			    VAR ___x = "'Dim Date'[Day of week] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Day name] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Day name] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Day name] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Day name], ", " )
+			    VAR ___x = "'Dim Date'[Day name] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Day of quarter] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Day of quarter] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Day of quarter] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Day of quarter], ", " )
+			    VAR ___x = "'Dim Date'[Day of quarter] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Year quarter sorting] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Year quarter sorting] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Year quarter sorting] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Year quarter sorting], ", " )
+			    VAR ___x = "'Dim Date'[Year quarter sorting] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Day offset] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Day offset] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Day offset] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Day offset], ", " )
+			    VAR ___x = "'Dim Date'[Day offset] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Day name short] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Day name short] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Day name short] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Day name short], ", " )
+			    VAR ___x = "'Dim Date'[Day name short] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Year month sorting] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Year month sorting] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Year month sorting] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Year month sorting], ", " )
+			    VAR ___x = "'Dim Date'[Year month sorting] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Year week sorting] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Year week sorting] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Year week sorting] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Year week sorting], ", " )
+			    VAR ___x = "'Dim Date'[Year week sorting] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Week name] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Week name] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Week name] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Week name], ", " )
+			    VAR ___x = "'Dim Date'[Week name] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Week and year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Week and year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Week and year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Week and year], ", " )
+			    VAR ___x = "'Dim Date'[Week and year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Month name short] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Month name short] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Month name short] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Month name short], ", " )
+			    VAR ___x = "'Dim Date'[Month name short] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Month and year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Month and year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Month and year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Month and year], ", " )
+			    VAR ___x = "'Dim Date'[Month and year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Quarter name] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Quarter name] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Quarter name] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Quarter name], ", " )
+			    VAR ___x = "'Dim Date'[Quarter name] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Quarter name short] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Quarter name short] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Quarter name short] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Quarter name short], ", " )
+			    VAR ___x = "'Dim Date'[Quarter name short] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Quarter and year] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Quarter and year] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Quarter and year] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Quarter and year], ", " )
+			    VAR ___x = "'Dim Date'[Quarter and year] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Year offset] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Year offset] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Year offset] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Year offset], ", " )
+			    VAR ___x = "'Dim Date'[Year offset] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Quarter offset] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Quarter offset] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Quarter offset] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Quarter offset], ", " )
+			    VAR ___x = "'Dim Date'[Quarter offset] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Month offset] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Month offset] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Month offset] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Month offset], ", " )
+			    VAR ___x = "'Dim Date'[Month offset] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Week offset] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Week offset] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Week offset] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Week offset], ", " )
+			    VAR ___x = "'Dim Date'[Week offset] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Date period] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Date period] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Date period] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Date period], ", " )
+			    VAR ___x = "'Dim Date'[Date period] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Is a weekday] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Is a weekday] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Is a weekday] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Is a weekday], ", " )
+			    VAR ___x = "'Dim Date'[Is a weekday] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Is a weekend] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Is a weekend] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Is a weekend] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Is a weekend], ", " )
+			    VAR ___x = "'Dim Date'[Is a weekend] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Dim Date'[Date ID] ), 
+			    VAR ___f = FILTERS ( 'Dim Date'[Date ID] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Dim Date'[Date ID] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Dim Date'[Date ID], ", " )
+			    VAR ___x = "'Dim Date'[Date ID] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			) & IF (
+			    ISFILTERED ( 'Table'[Column1] ), 
+			    VAR ___f = FILTERS ( 'Table'[Column1] )
+			    VAR ___r = COUNTROWS ( ___f )
+			    VAR ___t = TOPN ( MaxFilters, ___f, 'Table'[Column1] )
+			    VAR ___d = CONCATENATEX ( ___t, 'Table'[Column1], ", " )
+			    VAR ___x = "'Table'[Column1] = " & ___d 
+			        & IF(___r > MaxFilters, ", ... [" & ___r & " items selected]") & " "
+			    RETURN ___x & UNICHAR(13) & UNICHAR(10)
+			)
+			```
+		lineageTag: ced49757-1227-4e3d-88dd-98bbd107cb22
+
+	column Column1
+		dataType: string
+		lineageTag: bce7febf-67f7-4795-a624-acdee63cd70c
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Table = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
