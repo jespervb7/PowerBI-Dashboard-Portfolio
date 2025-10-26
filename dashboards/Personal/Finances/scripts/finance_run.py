@@ -53,7 +53,7 @@ def company_name(
     Example:
         company_name(row,
                      (company_name_from_text, 'Counterparty'),
-                     (company_name_by_hash, 'Hash banking identification'))
+                     (company_name_by_hash, 'hash_banking_identification'))
     """
     for func, col in func_col_pairs:
         if col not in row:
@@ -294,26 +294,95 @@ def company_name_from_text(row):
         return None
     
 def is_tikkie(row):
-    if row == 'NL13ABNA0506417344':
-        return 'Tikkie'
+    pass
+
+def is_salary(row):
+    
+    if row['company_name'] in ['Achmea', 'CE Logistics Group B.V.', 'Yellowstone'] and row['type_of_transaction'] == 'Incoming transaction':
+        return 'Yes'
     else:
-        return row
+        return 'No'
+
+def is_fastfood(row):
+
+    if row['company_name'] in ['McDonalds', 'Thuisbezorgd', 'The Flying Chicken', 'KFC', 'Burger King', 'Subway', "Domino's Pizza", 'Doner City', 'Smullers', 'Station Döner Kebab', 'The Döner Company', 'Starbucks', 'Greggs', 'Febo', 'Kwalitaria']:
+        return 'Yes'
+    else:
+        return 'No'
+    
+def is_groceries(row):
+
+    if row['company_name'] in ['Albert Heijn', 'Aldi', 'Jumbo', 'Lidl', 'Vomar', 'Deen Supermarkten', 'Kruidvat']:
+        return 'Yes'
+    else:
+        return 'No'
+    
+def is_restaurant(row):
+    pass
+
+def is_recurring_payment(row):
+    pass
+
+def is_savings(row):
+    pass
+
+def is_investment(row):
+    pass
+
+def is_expense(row):
+    # Transaction towards spaarrekening or investment accounts are not expenses. Use is_investment and is_savings columns ---- is_savings use that column
+    # Add other transactions? that aren't an expense?
+    pass
+
+def is_income(row):
+    pass
+    # PSEUDO CODE:
+    # is_salary == 'Yes'
+    # is_investmenet == Yes and type_of_transaction == 'Incoming transaction'
+    # 
+
+def add_expense_categories(row):
+    pass
 
 def main():
-    # TODO: convert to function so that it's anonamized when imported
+    # TODO: convert to function so that it's anonamized when imported this is for the CSV files. Include metadata columns
+    # TODO: make file path dynamic from git repository location
     
-    raw_data = pd.read_csv("C:/git/PowerBI-Dashboard-Portfolio/data/NL52INGB0003610006_02-10-2015_01-10-2025.csv", sep=";")
+    raw_data = pd.read_csv("C:/git/PowerBI-Dashboard-Portfolio/data/NL52INGB0003610006_02-10-2015_01-10-2025.csv", sep=";", decimal=",")
 
-    raw_data['Hash value'] = raw_data.apply(row_hashing, axis=1)
-    raw_data['Hash banking identification'] = raw_data['Counterparty'].apply(hash_individual_column, salt=HASH_SALT)
-    raw_data['Type of transaction'] = raw_data['Debit/credit'].apply(credit_debit_rename)
+    raw_data.rename(columns={
+        'Date': 'date',
+        'Counterparty': 'counterparty',
+        'Name / Description': 'name_or_description',
+        'Account': 'account_number',
+        'Code': 'code',
+        'Debit/credit': 'debit_or_credit',
+        'Amount (EUR)': 'amount_in_euro',
+        'Resulting balance': 'balance_after_transaction_euro',
+        'Notifications': 'notifications',
+        'Transaction type': 'transaction_type',
+        'Tag': 'tag'
+    }, inplace=True)
+    
+    raw_data['hash_value'] = raw_data.apply(row_hashing, axis=1)
+    raw_data['received_date'] = pd.to_datetime(raw_data["date"], format="%Y%m%d")
+    raw_data['hash_banking_identification'] = raw_data['counterparty'].apply(hash_individual_column, salt=HASH_SALT)
+    raw_data['type_of_transaction'] = raw_data['debit_or_credit'].apply(credit_debit_rename)
     raw_data['company_name'] = raw_data.apply(lambda row: company_name (
         row,
-        (company_name_by_hash, 'Hash banking identification'),
-        (company_name_from_text, 'Name / Description')
+        (company_name_by_hash, 'hash_banking_identification'),
+        (company_name_from_text, 'name_or_description')
     ), axis=1)
+    raw_data['is_salary'] = raw_data.apply(is_salary, axis=1)
+    raw_data['is_fastfood'] = raw_data.apply(is_fastfood, axis=1)
+    raw_data['is_groceries'] = raw_data.apply(is_groceries, axis=1)
+    raw_data['is_tikkie'] = raw_data.apply(is_tikkie, axis=1)
+    raw_data['is_restaurant'] = raw_data.apply(is_restaurant, axis=1)
+    raw_data['mandate_id'] = raw_data['notifications'].str.extract(r"Mandate ID:\s*([A-Z0-9]+)(?:\s|$)")
 
     print(tabulate(raw_data.head(20), headers='keys', tablefmt='psql'))
+    print(raw_data.dtypes)
+    
     raw_data.to_excel("C:/git/PowerBI-Dashboard-Portfolio/data/Finances_Anonymized.xlsx", index=False)
 
 if __name__ == "__main__":
