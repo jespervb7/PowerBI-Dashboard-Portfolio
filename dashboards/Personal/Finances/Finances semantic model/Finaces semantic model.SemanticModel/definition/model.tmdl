@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["Fact bank transactions","Dim Date","Table"]
+annotation PBI_QueryOrder = ["DIM Date","DIM Company","DIM Transaction info","FACT Bank transaction"]
 
 annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode"]
 
@@ -16,9 +16,10 @@ annotation __TEdtr = 1
 
 annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["MINIMIZE_POWER_QUERY_TRANSFORMATIONS","ENSURE_TABLES_HAVE_RELATIONSHIPS","OBJECTS_WITH_NO_DESCRIPTION","DATECOLUMN_FORMATSTRING","PROVIDE_FORMAT_STRING_FOR_MEASURES","NUMERIC_COLUMN_SUMMARIZE_BY","INTEGER_FORMATTING","RELATIONSHIP_COLUMNS_SHOULD_BE_OF_INTEGER_DATA_TYPE","HIDE_FOREIGN_KEYS"]}
 
-ref table 'Fact bank transactions'
-ref table 'Dim Date'
-ref table Table
+ref table 'DIM Date'
+ref table 'DIM Company'
+ref table 'DIM Transaction info'
+ref table 'FACT Bank transaction'
 
 ref cultureInfo en-US
 

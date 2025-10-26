@@ -1,0 +1,68 @@
+table 'FACT Bank transaction'
+	lineageTag: fe4ab607-7cf2-4016-9d10-ffff7d68ada1
+
+	measure 'Total bank transactions' = COUNTROWS('FACT Bank transaction')
+		formatString: 0
+		lineageTag: 8ff68549-ebf7-4301-87d5-8103553b6b89
+
+	column company_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: c0a3415c-007c-41a3-a9f4-aeb8a4430cc6
+		summarizeBy: none
+		sourceColumn: company_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_info_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 53e63130-dc8e-4695-a095-5ee7e1338d7c
+		summarizeBy: none
+		sourceColumn: transaction_info_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column received_date_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 25ad0957-676d-4efe-9739-c517511000f0
+		summarizeBy: none
+		sourceColumn: received_date_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column counterparty
+		dataType: string
+		lineageTag: 1a4ead66-74fa-4bc2-81b2-a78a55481519
+		summarizeBy: none
+		sourceColumn: counterparty
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_in_euro
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 1b320b07-6d43-4a01-aa5d-567da71f0aec
+		summarizeBy: sum
+		sourceColumn: amount_in_euro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	partition 'FACT Bank transaction' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\git\PowerBI-Dashboard-Portfolio\data\Fact_bank_transactions.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"company_sk", Int64.Type}, {"transaction_info_sk", Int64.Type}, {"received_date_sk", Int64.Type}, {"counterparty", type text}, {"amount_in_euro", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

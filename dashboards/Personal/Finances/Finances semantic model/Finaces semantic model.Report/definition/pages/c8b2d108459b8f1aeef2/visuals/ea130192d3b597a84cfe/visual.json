@@ -11,28 +11,6 @@
   },
   "visual": {
     "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Fact bank transactions"
-                    }
-                  },
-                  "Property": "Incoming transaction"
-                }
-              },
-              "queryRef": "Fact bank transactions.Incoming transaction",
-              "nativeQueryRef": "Incoming transaction"
-            }
-          ]
-        }
-      }
-    },
     "objects": {
       "labels": [
         {

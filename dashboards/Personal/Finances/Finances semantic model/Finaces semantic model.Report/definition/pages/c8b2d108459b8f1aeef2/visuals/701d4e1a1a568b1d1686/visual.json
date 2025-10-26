@@ -22,7 +22,7 @@
                     "Hierarchy": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Dim Date"
+                          "Entity": "DIM Date"
                         }
                       },
                       "Hierarchy": "00. Hierarchy"
@@ -42,7 +42,7 @@
                     "Hierarchy": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Dim Date"
+                          "Entity": "DIM Date"
                         }
                       },
                       "Hierarchy": "00. Hierarchy"
@@ -53,7 +53,7 @@
               },
               "queryRef": "Dim Date.00. Hierarchy.Quarter name short",
               "nativeQueryRef": "00. Hierarchy Quarter name short",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -62,7 +62,7 @@
                     "Hierarchy": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Dim Date"
+                          "Entity": "DIM Date"
                         }
                       },
                       "Hierarchy": "00. Hierarchy"
@@ -73,7 +73,7 @@
               },
               "queryRef": "Dim Date.00. Hierarchy.Month name short",
               "nativeQueryRef": "00. Hierarchy Month name short",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -82,7 +82,7 @@
                     "Hierarchy": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Dim Date"
+                          "Entity": "DIM Date"
                         }
                       },
                       "Hierarchy": "00. Hierarchy"
@@ -102,7 +102,7 @@
                     "Hierarchy": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Dim Date"
+                          "Entity": "DIM Date"
                         }
                       },
                       "Hierarchy": "00. Hierarchy"
@@ -127,7 +127,7 @@
                   "Hierarchy": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "Dim Date"
+                        "Entity": "DIM Date"
                       }
                     },
                     "Hierarchy": "00. Hierarchy"
@@ -141,10 +141,209 @@
         ]
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Year"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM Date"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Quarter name short"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM Date"
+                    }
+                  },
+                  "Property": "Quarter name short"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Month name short"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Week name"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Date"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "2015L"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "2025L"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Q4'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
     "objects": {
       "general": [
         {
-          "properties": {}
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "DIM Date",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "Year"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "2015L"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "Annotations": {
+                      "filterExpressionMetadata": {
+                        "expressions": [
+                          {
+                            "HierarchyLevel": {
+                              "Expression": {
+                                "Hierarchy": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "DIM Date"
+                                    }
+                                  },
+                                  "Hierarchy": "00. Hierarchy"
+                                }
+                              },
+                              "Level": "Year"
+                            }
+                          }
+                        ],
+                        "decomposedIdentities": {
+                          "values": [
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "2015L"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          ],
+                          "columns": [
+                            {
+                              "value": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "DIM Date"
+                                    }
+                                  },
+                                  "Property": "Year"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "valueMap": [
+                          {
+                            "0": "2015"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
         }
       ],
       "data": [
@@ -166,15 +365,110 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "0b72710625f7382ab3b8",
+        "name": "4b6935ed0e713ad32e7a",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d044e06aae64bcc26987",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Quarter name short"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "12e5eaefaef39e214f06",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Month name short"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9fcbbce9c6305b5a256d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Week name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "424c42e710756c6dcb13",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8eeaba31817f9b313e4c",
         "field": {
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Fact bank transactions"
+                "Entity": "FACT Bank transaction"
               }
             },
-            "Property": "Amount"
+            "Property": "Total bank transactions"
           }
         },
         "type": "Advanced",
@@ -183,7 +477,7 @@
           "From": [
             {
               "Name": "f",
-              "Entity": "Fact bank transactions",
+              "Entity": "FACT Bank transaction",
               "Type": 0
             }
           ],
@@ -199,12 +493,12 @@
                           "Source": "f"
                         }
                       },
-                      "Property": "Amount"
+                      "Property": "Total bank transactions"
                     }
                   },
                   "Right": {
                     "Literal": {
-                      "Value": "0M"
+                      "Value": "0L"
                     }
                   }
                 }

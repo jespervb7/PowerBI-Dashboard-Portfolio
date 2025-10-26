@@ -1,5 +1,5 @@
 /// This table contains date related fields that connect to the business activity you are trying to analyse.
-table 'Dim Date'
+table 'DIM Date'
 	lineageTag: 42d34db5-74db-42af-80e5-24e79e9b4a21
 	dataCategory: Time
 
@@ -524,6 +524,15 @@ table 'Dim Date'
 
 		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["DATECOLUMN_FORMATSTRING"]}
 
+	column 'Date SK'
+		dataType: int64
+		formatString: 0
+		lineageTag: ff479187-88c4-4d40-87ae-98493261205f
+		summarizeBy: none
+		sourceColumn: Date SK
+
+		annotation SummarizationSetBy = Automatic
+
 	/// This hierarchy contains the year -> quarter -> month -> week -> date of the business activity.
 	hierarchy '00. Hierarchy'
 		lineageTag: b942ac6b-3e0b-4e2e-92f0-304604638693
@@ -548,7 +557,7 @@ table 'Dim Date'
 			lineageTag: 65fe22fd-e195-49bd-ae79-db3977e0d3d3
 			column: Date
 
-	partition 'Dim Date' = m
+	partition 'DIM Date' = m
 		mode: import
 		source =
 				let
@@ -608,10 +617,11 @@ table 'Dim Date'
 				    #"Added - Date period" = Table.AddColumn(#"Added - Week offset", "Date period", each if [Day offset] < #duration(0, 0, 0, 0) then "Past" else if [Day offset] = #duration(0, 0, 0, 0) then "Present" else if [Day offset] > #duration(0, 0, 0, 0) then "Future" else null),
 				    #"Added - Is a weekday" = Table.AddColumn(#"Added - Date period", "Is a weekday", each if [Day name] = "Saturday" then "No" else if [Day name] = "Sunday" then "No" else "Yes"),
 				    #"Added - Is a weekend" = Table.AddColumn(#"Added - Is a weekday", "Is a weekend", each if [Is a weekday] = "No" then "Yes" else "No"),
-				    #"Added - Date ID" = Table.DuplicateColumn(#"Added - Is a weekend", "Date", "Date ID"),
+				    #"Added - Date SK" = Table.AddColumn(#"Added - Is a weekend", "Date SK", each Text.Combine({Text.From([year month sorting], "en-GB"), Date.ToText([Date], "dd")}), type text),
+				    #"Added - Date ID" = Table.DuplicateColumn(#"Added - Date SK", "Date", "Date ID"),
 				    #"Removed unnecessary or duplicate columns" = Table.RemoveColumns(#"Added - Date ID",{"Day of Week"}),
-				    #"Changing datetypes" = Table.TransformColumnTypes(#"Removed unnecessary or duplicate columns",{{"Day offset", Int64.Type}, {"Day of week", Int64.Type}, {"Day name", type text}, {"Day name short", type text}, {"Day of quarter", Int64.Type}, {"Year quarter sorting", Int64.Type}, {"year month sorting", Int64.Type}, {"Year week sorting", Int64.Type}, {"Week name", type text}, {"Week and year", type text}, {"Month name short", type text}, {"Month and year", type text}, {"Quarter name", type text}, {"Quarter name short", type text}, {"Quarter and year", type text}, {"Year offset", Int64.Type}, {"Quarter offset", Int64.Type}, {"Month offset", Int64.Type}, {"Week offset", Int64.Type}, {"Date period", type text}, {"Is a weekday", type text}, {"Is a weekend", type text}, {"Date", type date}, {"Start of Year", type date}, {"End of Year", type date}}),
-				    #"Reordered Columns" = Table.ReorderColumns(#"Changing datetypes",{"Date ID", "Date", "Day name", "Day name short", "Week name", "Week and year", "Month Name", "Month name short", "Month and year", "Quarter name", "Quarter name short", "Quarter and year", "Date period", "Is a weekday", "Is a weekend", "Year", "Days in Month", "Start of Week", "End of Week", "Start of Month", "End of Month", "Start of Quarter", "End of Quarter", "Start of Year", "End of Year", "Day of week", "Day of month", "Day of quarter", "Day of Year", "Week of Year", "Week of Month", "Month", "Quarter", "Day offset", "Week offset", "Month offset", "Quarter offset", "Year offset", "Year week sorting", "year month sorting", "Year quarter sorting"}),
+				    #"Changing datetypes" = Table.TransformColumnTypes(#"Removed unnecessary or duplicate columns",{{"Day offset", Int64.Type}, {"Day of week", Int64.Type}, {"Day name", type text}, {"Day name short", type text}, {"Day of quarter", Int64.Type}, {"Year quarter sorting", Int64.Type}, {"year month sorting", Int64.Type}, {"Year week sorting", Int64.Type}, {"Week name", type text}, {"Week and year", type text}, {"Month name short", type text}, {"Month and year", type text}, {"Quarter name", type text}, {"Quarter name short", type text}, {"Quarter and year", type text}, {"Year offset", Int64.Type}, {"Quarter offset", Int64.Type}, {"Month offset", Int64.Type}, {"Week offset", Int64.Type}, {"Date period", type text}, {"Is a weekday", type text}, {"Is a weekend", type text}, {"Date", type date}, {"Start of Year", type date}, {"End of Year", type date}, {"Date SK", Int64.Type}}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Changing datetypes",{"Date ID", "Date SK","Date", "Day name", "Day name short", "Week name", "Week and year", "Month Name", "Month name short", "Month and year", "Quarter name", "Quarter name short", "Quarter and year", "Date period", "Is a weekday", "Is a weekend", "Year", "Days in Month", "Start of Week", "End of Week", "Start of Month", "End of Month", "Start of Quarter", "End of Quarter", "Start of Year", "End of Year", "Day of week", "Day of month", "Day of quarter", "Day of Year", "Week of Year", "Week of Month", "Month", "Quarter", "Day offset", "Week offset", "Month offset", "Quarter offset", "Year offset", "Year week sorting", "year month sorting", "Year quarter sorting"}),
 				    #"Renaming columns" = Table.RenameColumns(#"Reordered Columns",{{"Start of Year", "Start of year"}, {"End of Year", "End of year"}, {"Start of Month", "Start of month"}, {"End of Month", "End of month"}, {"Days in Month", "Days in month"}, {"Month Name", "Month name"}, {"Start of Quarter", "Start of quarter"}, {"End of Quarter", "End of quarter"}, {"Week of Year", "Week of year"}, {"Week of Month", "Week of month"}, {"Start of Week", "Start of week"}, {"End of Week", "End of week"}, {"year month sorting", "Year month sorting"}, {"Day of Year", "Day of year"}, {"Month", "Month of year"}, {"Quarter", "Quarter of year"}})
 				in
 				    #"Renaming columns"

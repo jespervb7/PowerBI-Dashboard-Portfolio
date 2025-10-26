@@ -1,4 +1,12 @@
-relationship e84a8708-712d-d5ab-3ccd-0c906978291a
-	fromColumn: 'Fact bank transactions'.'Date ID'
-	toColumn: 'Dim Date'.'Date ID'
+relationship AutoDetected_b2232044-df37-47ca-96f7-9a7f92b0d49b
+	fromColumn: 'FACT Bank transaction'.company_sk
+	toColumn: 'DIM Company'.company_sk
+
+relationship AutoDetected_4206c6b0-0cec-497b-9296-e319ebf7e235
+	fromColumn: 'FACT Bank transaction'.transaction_info_sk
+	toColumn: 'DIM Transaction info'.transaction_info_sk
+
+relationship e1262945-0829-d994-9069-42e7842dc592
+	fromColumn: 'FACT Bank transaction'.received_date_sk
+	toColumn: 'DIM Date'.'Date SK'
 

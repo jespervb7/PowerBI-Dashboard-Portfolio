@@ -10,10 +10,10 @@
       "nodes": [
         {
           "location": {
-            "x": 284,
+            "x": 452,
             "y": 0
           },
-          "nodeIndex": "Dim Date",
+          "nodeIndex": "DIM Date",
           "nodeLineageTag": "42d34db5-74db-42af-80e5-24e79e9b4a21",
           "size": {
             "height": 300,
@@ -23,12 +23,39 @@
         },
         {
           "location": {
-            "x": 0,
-            "y": 0
+            "x": 165,
+            "y": 756
           },
-          "nodeIndex": "Fact bank transactions",
+          "nodeIndex": "DIM Company",
+          "nodeLineageTag": "8c017fe1-89c2-4df4-bfda-bdf7bcc84e82",
           "size": {
-            "height": 300,
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1311,
+            "y": 46
+          },
+          "nodeIndex": "DIM Transaction info",
+          "nodeLineageTag": "e8c75874-5012-4a26-9381-7707b45d1744",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 546,
+            "y": 432
+          },
+          "nodeIndex": "FACT Bank transaction",
+          "nodeLineageTag": "fe4ab607-7cf2-4016-9d10-ffff7d68ada1",
+          "size": {
+            "height": 200,
             "width": 234
           },
           "zIndex": 0
