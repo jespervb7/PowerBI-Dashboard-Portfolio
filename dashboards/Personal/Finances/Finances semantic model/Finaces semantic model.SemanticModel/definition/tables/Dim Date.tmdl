@@ -83,7 +83,7 @@ table 'Dim Date'
 
 		annotation UnderlyingDateTimeDataType = Date
 
-		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["MONTHCOLUMN_FORMATSTRING"]}
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":[]}
 
 	/// This column contains the end date of the month related to the business acitivity.
 	column 'End of month'
