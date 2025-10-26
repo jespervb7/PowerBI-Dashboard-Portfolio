@@ -102,4 +102,5 @@ foreach ($srcPath in $src) {
             }                
         }
     }
+}
 #endregion
