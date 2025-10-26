@@ -101,5 +101,5 @@ foreach ($srcPath in $src) {
                 throw "Error running rules for: '$itemPath'"
             }                
         }
-
+    }
 #endregion
