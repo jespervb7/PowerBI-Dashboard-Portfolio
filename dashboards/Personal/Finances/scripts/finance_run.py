@@ -381,22 +381,33 @@ def is_recurring_payment(row):
     pass
 
 def is_savings(row):
-    pass
+    #TODO make stricter for futher proofing
+    if row['name_or_description'] in ['NOTPROVIDED', 'Oranje Spaarrekening', 'Bonusrenterekening', 'Je oude Bonusrenterekening', 'To Bonusrenterekening', 'From Bonusrenterekening']:
+        return 'Yes'
+    else:
+        return 'No'
 
 def is_investment(row):
-    pass
+    if row['company_name'] in ['Energiebedrijf DeA']:
+        return 'Yes'
+    else:
+        return 'No'
 
 def is_expense(row):
-    # Transaction towards spaarrekening or investment accounts are not expenses. Use is_investment and is_savings columns ---- is_savings use that column
-    # Add other transactions? that aren't an expense?
-    pass
+    if row['is_savings'] == 'Yes':
+        return 'No'
+    elif row['type_of_transaction'] == 'Outgoing transaction':
+        return 'Yes'
+    else:
+        return 'No'
 
 def is_income(row):
-    pass
-    # PSEUDO CODE:
-    # is_salary == 'Yes'
-    # is_investmenet == Yes and type_of_transaction == 'Incoming transaction'
-    # 
+    if row['is_salary'] == 'Yes':
+        return 'Yes'
+    elif row['is_investment'] == 'Yes' and row['type_of_transaction'] == 'Incoming transaction':
+        return 'Yes'
+    else:
+        return 'No'
 
 def add_expense_categories(row):
     pass
@@ -440,7 +451,7 @@ def create_dim_companies(df: pd.DataFrame) -> pd.DataFrame:
 def create_dim_transaction_info(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
-    df = df[['counterparty', 'name_or_description', 'type_of_transaction','is_person_to_person_transaction', 'is_salary', 'is_fastfood', 'is_groceries', 'is_tikkie']].drop_duplicates()
+    df = df[['counterparty', 'name_or_description', 'type_of_transaction','is_person_to_person_transaction', 'is_salary', 'is_fastfood', 'is_groceries', 'is_tikkie', 'is_savings', 'is_investment', 'is_income', 'is_expense']].drop_duplicates()
     df = add_surrogate_key(df, key_name="transaction_info_sk")
 
     return df
@@ -450,7 +461,7 @@ def create_fact_bank_transactions(main_df: pd.DataFrame, dim_companies, dim_tran
     main_df = main_df.copy()
 
     merged_companies = main_df.merge(dim_companies, on='company_name', how='left')
-    merged_transaction_info = merged_companies.merge(dim_transaction_info, on = ['counterparty', 'name_or_description', 'type_of_transaction','is_person_to_person_transaction', 'is_salary', 'is_fastfood', 'is_groceries', 'is_tikkie'], how='left')
+    merged_transaction_info = merged_companies.merge(dim_transaction_info, on = ['counterparty', 'name_or_description', 'type_of_transaction','is_person_to_person_transaction', 'is_salary', 'is_fastfood', 'is_groceries', 'is_tikkie', 'is_savings', 'is_investment', 'is_income', 'is_expense'], how='left')
     final_df = merged_transaction_info[['company_sk', 'transaction_info_sk', 'received_date_sk', 'counterparty', 'amount_in_euro']]
 
     return final_df
@@ -491,6 +502,10 @@ def main():
     raw_data['is_groceries'] = raw_data.apply(is_groceries, axis=1)
     raw_data['is_tikkie'] = raw_data.apply(is_tikkie, axis=1)
     raw_data['is_restaurant'] = raw_data.apply(is_restaurant, axis=1)
+    raw_data['is_savings'] = raw_data.apply(is_savings, axis=1)
+    raw_data['is_investment'] = raw_data.apply(is_investment, axis=1)
+    raw_data['is_income'] = raw_data.apply(is_income, axis=1)
+    raw_data['is_expense'] = raw_data.apply(is_expense, axis=1)
     raw_data['mandate_id'] = raw_data['notifications'].str.extract(r"Mandate ID:\s*([A-Z0-9]+)(?:\s|$)")
 
     print(tabulate(raw_data.head(20), headers='keys', tablefmt='psql'))
