@@ -15,7 +15,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"
@@ -35,7 +35,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"
@@ -55,7 +55,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"
@@ -75,7 +75,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"
@@ -95,7 +95,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"
@@ -152,7 +152,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"
@@ -171,7 +171,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"
@@ -190,7 +190,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"
@@ -209,7 +209,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"
@@ -228,7 +228,7 @@
               "Hierarchy": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Hierarchy": "00. Hierarchy"

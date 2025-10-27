@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim Date"
+                      "Entity": "DIM Date"
                     }
                   },
                   "Property": "Date"
@@ -34,7 +34,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim Date"
+                      "Entity": "DIM Date"
                     }
                   },
                   "Property": "Day name"
@@ -109,7 +109,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "DIM Date"
                   }
                 },
                 "Property": "Date"

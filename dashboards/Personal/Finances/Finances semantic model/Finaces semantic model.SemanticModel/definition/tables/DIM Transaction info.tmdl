@@ -1,0 +1,91 @@
+table 'DIM Transaction info'
+	lineageTag: e8c75874-5012-4a26-9381-7707b45d1744
+
+	column transaction_info_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 31327ad0-fc3f-4c26-b8f6-c21e37f52643
+		summarizeBy: none
+		sourceColumn: transaction_info_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column counterparty
+		dataType: string
+		lineageTag: 32f1210c-8f57-4419-83fc-6e7dcf7fe3dc
+		summarizeBy: none
+		sourceColumn: counterparty
+
+		annotation SummarizationSetBy = Automatic
+
+	column name_or_description
+		dataType: string
+		lineageTag: 5065a82b-3b08-47a7-beaa-e3f3d54adcab
+		summarizeBy: none
+		sourceColumn: name_or_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_of_transaction
+		dataType: string
+		lineageTag: b13ee407-d1e4-486d-8a41-7fe57f44aabc
+		summarizeBy: none
+		sourceColumn: type_of_transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_person_to_person_transaction
+		dataType: string
+		lineageTag: 55132a4e-44a7-46b3-831f-26599585f69d
+		summarizeBy: none
+		sourceColumn: is_person_to_person_transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_salary
+		dataType: string
+		lineageTag: fbe351b5-2b9e-4a50-a65d-6ba19df0399f
+		summarizeBy: none
+		sourceColumn: is_salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_fastfood
+		dataType: string
+		lineageTag: b8757982-12c0-4969-8305-46056dadd1a1
+		summarizeBy: none
+		sourceColumn: is_fastfood
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_groceries
+		dataType: string
+		lineageTag: bad6d741-180f-4c47-94fe-faaf83791010
+		summarizeBy: none
+		sourceColumn: is_groceries
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_tikkie
+		dataType: string
+		lineageTag: 302fd060-dde7-4efc-aa22-a4604e133da7
+		summarizeBy: none
+		sourceColumn: is_tikkie
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM Transaction info' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\git\PowerBI-Dashboard-Portfolio\data\DIM_Transaction_info.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"transaction_info_sk", Int64.Type}, {"counterparty", type text}, {"name_or_description", type text}, {"type_of_transaction", type text}, {"is_person_to_person_transaction", type text}, {"is_salary", type text}, {"is_fastfood", type text}, {"is_groceries", type text}, {"is_tikkie", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
