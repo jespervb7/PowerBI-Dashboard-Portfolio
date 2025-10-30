@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Prototype_theme16336693962572224.json",
+      "name": "Prototype_theme6272163019573014.json",
       "reportVersionAtImport": {
         "visual": "2.1.0",
         "report": "3.0.0",
@@ -28,6 +28,19 @@
             "expr": {
               "Literal": {
                 "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
               }
             }
           }
@@ -52,8 +65,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Prototype_theme16336693962572224.json",
-          "path": "Prototype_theme16336693962572224.json",
+          "name": "Prototype_theme6272163019573014.json",
+          "path": "Prototype_theme6272163019573014.json",
           "type": "CustomTheme"
         }
       ]

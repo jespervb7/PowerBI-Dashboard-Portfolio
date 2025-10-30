@@ -503,6 +503,16 @@
           }
         ]
       }
+    },
+    "report": {
+      "*": {
+        "outspacePane": [
+          {
+            "expanded": false,
+            "visible": false
+          }
+        ]
+      }
     }
   },
   "textClasses": {

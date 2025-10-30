@@ -1,0 +1,248 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "daf791cb863a4d27bc4e",
+  "position": {
+    "x": 19.653379549393417,
+    "y": 177.81629116117853,
+    "z": 2000,
+    "height": 169.39341421143848,
+    "width": 1042.5649913344889,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Net balance"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Net balance",
+              "nativeQueryRef": "Net balance"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total income"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total income",
+              "nativeQueryRef": "Total income"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total expenses"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total expenses",
+              "nativeQueryRef": "Total expenses"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Fact Bank Transactions"
+                  }
+                },
+                "Property": "Net balance"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact Bank Transactions.Total income"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact Bank Transactions.Total expenses"
+          }
+        }
+      ],
+      "referenceLabel": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Net balance Previous Month"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Fact Bank Transactions.Net balance",
+            "id": "field-570ec914-3e05-d5fd-0035-4daf6230ce18",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total income previous month"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Fact Bank Transactions.Total income",
+            "id": "field-e5fb66d9-53db-6858-14a4-d0e38bbefa75",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total expenses previous month"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Fact Bank Transactions.Total expenses",
+            "id": "field-cd9785d2-bdd7-5cbb-c0b1-6989476139bd",
+            "order": 0
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4ba41de9d7028b6733fb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Net balance"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ddc4f6f58f5a2523f17a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total income"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b30823083c3c83ceadc1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total expenses"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

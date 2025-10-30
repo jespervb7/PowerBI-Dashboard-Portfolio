@@ -1,13 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "4420f6426740923001df",
+  "name": "f9661782ac75d0d2a523",
   "position": {
-    "x": 948.97746967071066,
-    "y": 66.4471403812825,
-    "z": 2000,
-    "height": 213.37954939341424,
-    "width": 422.07972270363956,
-    "tabOrder": 4000
+    "x": 20,
+    "y": 388.5,
+    "z": 3000,
+    "height": 150,
+    "width": 974
   },
   "visual": {
     "visualType": "card",
@@ -23,11 +22,11 @@
                       "Entity": "Fact Bank Transactions"
                     }
                   },
-                  "Property": "Total expenses"
+                  "Property": "Total income previous month"
                 }
               },
-              "queryRef": "Fact Bank Transactions.Total expense",
-              "nativeQueryRef": "Total expenses"
+              "queryRef": "Fact Bank Transactions.Total income previous month",
+              "nativeQueryRef": "Total income previous month"
             }
           ]
         }
@@ -42,7 +41,7 @@
                     "Entity": "Fact Bank Transactions"
                   }
                 },
-                "Property": "Total expenses"
+                "Property": "Total income previous month"
               }
             },
             "direction": "Descending"
@@ -67,5 +66,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "51b2af4b0185b842520b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total income previous month"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "7d3aad7f51f30f7820e3",
   "position": {
-    "x": 1474.0034662045061,
-    "y": 489.46273830155985,
-    "z": 3001,
-    "height": 522.21837088388224,
-    "width": 422.07972270363956,
-    "tabOrder": 3001
+    "x": 1454.2425819885477,
+    "y": 489.74492451848,
+    "z": 4000,
+    "height": 521.72826652785011,
+    "width": 441.76991150442478,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact bank transactions"
+                      "Entity": "Dim Company"
                     }
                   },
                   "Property": "company_name"
                 }
               },
-              "queryRef": "Fact bank transactions.company_name",
+              "queryRef": "Dim Company.company_name",
               "nativeQueryRef": "company_name",
               "active": true
             },
@@ -35,15 +35,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact bank transactions"
+                      "Entity": "Dim Transaction Info"
                     }
                   },
-                  "Property": "Name / Description"
+                  "Property": "name_or_description"
                 }
               },
-              "queryRef": "Fact bank transactions.Name / Description",
-              "nativeQueryRef": "Name / Description",
-              "active": false
+              "queryRef": "Dim Transaction Info.name_or_description",
+              "nativeQueryRef": "name_or_description",
+              "active": true
             }
           ]
         },
@@ -54,28 +54,28 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact bank transactions"
+                      "Entity": "Fact Bank Transactions"
                     }
                   },
-                  "Property": "Incoming transaction"
+                  "Property": "Total income"
                 }
               },
-              "queryRef": "Fact bank transactions.Incoming transaction",
-              "nativeQueryRef": "Incoming transaction"
+              "queryRef": "Fact Bank Transactions.Total income",
+              "nativeQueryRef": "Total income"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact bank transactions"
+                      "Entity": "Fact Bank Transactions"
                     }
                   },
-                  "Property": "Outgoing transaction"
+                  "Property": "Total expenses"
                 }
               },
-              "queryRef": "Fact bank transactions.Outgoing transaction",
-              "nativeQueryRef": "Outgoing transaction"
+              "queryRef": "Fact Bank Transactions.Total expense",
+              "nativeQueryRef": "Total expenses"
             }
           ]
         }
@@ -84,20 +84,82 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Fact bank transactions"
+                    "Entity": "Dim Company"
                   }
                 },
-                "Property": "Incoming transaction"
+                "Property": "company_name"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim Transaction Info"
+                  }
+                },
+                "Property": "name_or_description"
+              }
+            },
+            "direction": "Ascending"
           }
         ]
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Dim Company.company_name"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Company"
+                    }
+                  },
+                  "Property": "company_name"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim Transaction Info.name_or_description"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'LinkedIn'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
     "objects": {
       "columnWidth": [
         {
@@ -105,77 +167,17 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "123.16990042674252D"
+                  "Value": "166.0473913107464D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "Fact bank transactions.company_name"
+            "metadata": "Dim Company.company_name"
           }
         }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "78315904330af26481d8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Incoming transaction"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "65c5b2f71103770e4b49",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Outgoing transaction"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "25a3733b2971a2f97649",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "company_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "65df976f1d0b7fda9fd1",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Name / Description"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

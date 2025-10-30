@@ -1,0 +1,40 @@
+DEFINE
+	VAR __DS0FilterTable = 
+		TREATAS({"Achmea"}, 'Dim Company'[company_name])
+
+	VAR __DS0FilterTable2 = 
+		FILTER(KEEPFILTERS(VALUES('Dim Date'[Year])), 'Dim Date'[Year] = 2023)
+
+VAR _TestCase1 = 
+	SUMMARIZECOLUMNS(
+		__DS0FilterTable,
+		__DS0FilterTable2,
+		"Total_income", IGNORE('Fact Bank Transactions'[Total income])
+	)
+	
+	VAR _Tests =
+
+	UNION(
+		ROW(
+			"TestName", "Measure: Test 1",
+			"ExpectedValue", 27845.59,
+			"ActuelValue", {_TestCase1}
+		),
+		ROW(
+			"TestName", "Measure: Test 1",
+			"ExpectedValue", 1,
+			"ActuelValue", 1
+		),
+		ROW(
+			"TestName", "Measure: Test 1",
+			"ExpectedValue", 1,
+			"ActuelValue", 1
+		),
+		ROW(
+			"TestName", "Measure: Test 1",
+			"ExpectedValue", 1,
+			"ActuelValue", 1
+		)
+	)
+
+EVALUATE ADDCOLUMNS(_Tests, "Passed", [ExpectedValue] = [ActuelValue])

@@ -6,8 +6,7 @@
     "y": 46.793760831889088,
     "z": 1000,
     "height": 373.41421143847492,
-    "width": 191.85441941074524,
-    "tabOrder": 2000
+    "width": 191.85441941074524
   },
   "visual": {
     "visualType": "slicer",
@@ -53,7 +52,7 @@
               },
               "queryRef": "Dim Date.00. Hierarchy.Quarter name short",
               "nativeQueryRef": "00. Hierarchy Quarter name short",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -141,6 +140,83 @@
         ]
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Year"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Date"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Quarter name short"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Month name short"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Week name"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "Dim Date.00. Hierarchy.Date"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "null"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "2025L"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
     "objects": {
       "general": [
         {
@@ -166,15 +242,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "0b72710625f7382ab3b8",
+        "name": "ededcb8368338bfd8271",
         "field": {
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Fact bank transactions"
+                "Entity": "Fact Bank Transactions"
               }
             },
-            "Property": "Amount"
+            "Property": "Total bank transactions"
           }
         },
         "type": "Advanced",
@@ -183,7 +259,7 @@
           "From": [
             {
               "Name": "f",
-              "Entity": "Fact bank transactions",
+              "Entity": "Fact Bank Transactions",
               "Type": 0
             }
           ],
@@ -199,12 +275,12 @@
                           "Source": "f"
                         }
                       },
-                      "Property": "Amount"
+                      "Property": "Total bank transactions"
                     }
                   },
                   "Right": {
                     "Literal": {
-                      "Value": "0M"
+                      "Value": "0L"
                     }
                   }
                 }
@@ -213,6 +289,101 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "bd834041e4ded97e57e0",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ef8df9dca4821ec9035d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Quarter name short"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8810d3badf068116ef53",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Month name short"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9686e063944d70f38f64",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Week name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5ac9db263131609493b9",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Date"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

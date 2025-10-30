@@ -1,48 +1,37 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "2c87510ca5cd9f37fccd",
+  "name": "24e5d913b37d0769a052",
   "position": {
-    "x": 0,
-    "y": 0,
+    "x": 20,
+    "y": 20,
     "z": 0,
-    "height": 40,
-    "width": 100
+    "height": 80,
+    "width": 1880,
+    "tabOrder": 2000
   },
   "visual": {
-    "visualType": "actionButton",
+    "visualType": "shape",
     "objects": {
-      "icon": [
+      "shape": [
         {
           "properties": {
-            "shapeType": {
+            "tileShape": {
               "expr": {
                 "Literal": {
-                  "Value": "'back'"
+                  "Value": "'rectangleRounded'"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
-      ]
-    },
-    "visualContainerObjects": {
-      "visualLink": [
+      ],
+      "rotation": [
         {
           "properties": {
-            "show": {
+            "shapeAngle": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "type": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Back'"
+                  "Value": "0L"
                 }
               }
             }

@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "4420f6426740923001df",
+  "name": "6e97c3df8d2994a6d93a",
   "position": {
-    "x": 948.97746967071066,
-    "y": 66.4471403812825,
-    "z": 2000,
-    "height": 213.37954939341424,
-    "width": 422.07972270363956,
+    "x": 540,
+    "y": 23.396880415944544,
+    "z": 1000,
+    "height": 72.998266897746973,
+    "width": 783.32755632582325,
     "tabOrder": 4000
   },
   "visual": {
@@ -23,42 +23,24 @@
                       "Entity": "Fact Bank Transactions"
                     }
                   },
-                  "Property": "Total expenses"
+                  "Property": "Text - Filtered date period"
                 }
               },
-              "queryRef": "Fact Bank Transactions.Total expense",
-              "nativeQueryRef": "Total expenses"
+              "queryRef": "Fact Bank Transactions.Text - Filtered date period",
+              "nativeQueryRef": "Text - Filtered date period"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Fact Bank Transactions"
-                  }
-                },
-                "Property": "Total expenses"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
       "labels": [
         {
           "properties": {
-            "labelDisplayUnits": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "20D"
                 }
               }
             }

@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
-  "name": "c8b2d108459b8f1aeef2",
-  "displayName": "Free filter page",
+  "name": "e830905cace40f5bb530",
+  "displayName": "Current month performance",
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920

@@ -1,0 +1,46 @@
+table 'Dim Company'
+	lineageTag: c7b5be75-b71f-40e5-910f-5e74839cfc0c
+
+	column company_sk
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 8fb105c3-cd54-4da8-9014-28aa54175557
+		summarizeBy: none
+		sourceColumn: company_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: 941857c8-256a-4637-8237-a1bc5c252cc9
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_restaurant
+		dataType: string
+		lineageTag: f322809c-4e71-4f60-8158-c51d5f27cb0f
+		summarizeBy: none
+		sourceColumn: is_restaurant
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Company' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\git\PowerBI-Dashboard-Portfolio\data\DIM_Company.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"company_sk", Int64.Type}, {"company_name", type text}, {"is_restaurant", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

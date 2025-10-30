@@ -1,0 +1,29 @@
+DEFINE
+    FUNCTION Jespervb7.PercentDifference = (
+            pCurrentValue : SCALAR,
+            pPreviousValue : SCALAR
+        ) =>
+        VAR _NewMinusOld = pCurrentValue - pPreviousValue
+        VAR _Result =
+            DIVIDE (
+                _NewMinusOld,
+                pPreviousValue
+            )
+        RETURN
+            _Result
+
+EVALUATE
+
+VAR _DatesWithIncomeOrExpense = FILTER('Dim Date', [Total income] > 0 ) 
+
+RETURN SUMMARIZECOLUMNS (
+    'Dim Date'[Month and year],
+	_DatesWithIncomeOrExpense,
+    "Huidige maand", [Total income],
+    "Previousmonth", Jespervb7.TimeIntelligence._PreviousMonth ( [Total income] ),
+    "Percentage difference",
+        Jespervb7.PercentDifference (
+            [Total income],
+            [Total income previous month]
+        )
+)

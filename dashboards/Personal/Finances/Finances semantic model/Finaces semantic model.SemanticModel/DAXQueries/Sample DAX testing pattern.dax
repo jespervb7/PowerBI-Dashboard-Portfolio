@@ -1,0 +1,30 @@
+/*Credit to John Kerksi*/
+
+DEFINE
+	/*Run Tests*/ 
+	VAR _Tests =
+
+	UNION(
+		ROW(
+			"TestName", "Measure: Test 1",
+			"ExpectedValue", 1,
+			"ActuelValue", 1
+		),
+		ROW(
+			"TestName", "Measure: Test 1",
+			"ExpectedValue", 1,
+			"ActuelValue", 1
+		),
+		ROW(
+			"TestName", "Measure: Test 1",
+			"ExpectedValue", 1,
+			"ActuelValue", 1
+		),
+		ROW(
+			"TestName", "Measure: Test 1",
+			"ExpectedValue", 1,
+			"ActuelValue", 1
+		)
+	)
+
+EVALUATE ADDCOLUMNS(_Tests, "Passed", [ExpectedValue] = [ActuelValue])

@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 284,
-            "y": 0
+            "x": 213,
+            "y": 415
           },
           "nodeIndex": "Dim Date",
           "nodeLineageTag": "42d34db5-74db-42af-80e5-24e79e9b4a21",
@@ -19,16 +19,42 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         },
         {
           "location": {
             "x": 0,
-            "y": 0
+            "y": 74
           },
-          "nodeIndex": "Fact bank transactions",
+          "nodeIndex": "Dim Company",
+          "nodeLineageTag": "c7b5be75-b71f-40e5-910f-5e74839cfc0c",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1037,
+            "y": 393
+          },
+          "nodeIndex": "Dim Transaction Info",
+          "nodeLineageTag": "418ebb71-1842-43eb-a432-7d8ef069dfe3",
           "size": {
             "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 529,
+            "y": 84
+          },
+          "nodeIndex": "Fact Bank Transactions",
+          "size": {
+            "height": 200,
             "width": 234
           },
           "zIndex": 0

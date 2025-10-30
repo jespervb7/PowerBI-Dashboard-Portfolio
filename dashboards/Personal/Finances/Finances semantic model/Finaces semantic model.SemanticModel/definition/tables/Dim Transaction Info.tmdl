@@ -1,0 +1,126 @@
+table 'Dim Transaction Info'
+	lineageTag: 418ebb71-1842-43eb-a432-7d8ef069dfe3
+
+	column transaction_info_sk
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 0ee040ec-d358-41e2-a9e8-b312298eaef4
+		summarizeBy: none
+		sourceColumn: transaction_info_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column counterparty
+		dataType: string
+		lineageTag: 526d65fb-95ee-4124-ace7-5265e4fd0fe7
+		summarizeBy: none
+		sourceColumn: counterparty
+
+		annotation SummarizationSetBy = Automatic
+
+	column name_or_description
+		dataType: string
+		lineageTag: 88f60f9a-ad57-4c1c-8dc2-ce31d4d1d5fa
+		summarizeBy: none
+		sourceColumn: name_or_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_of_transaction
+		dataType: string
+		lineageTag: c354da2e-e940-42bf-bfe1-76d9f9ca11bb
+		summarizeBy: none
+		sourceColumn: type_of_transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_person_to_person_transaction
+		dataType: string
+		lineageTag: 03931530-c89d-4e02-8d8f-9d27b47f1f13
+		summarizeBy: none
+		sourceColumn: is_person_to_person_transaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_salary
+		dataType: string
+		lineageTag: 3e6e424b-9f1e-42da-af68-f8acac9c6a83
+		summarizeBy: none
+		sourceColumn: is_salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_fastfood
+		dataType: string
+		lineageTag: 57d31575-cfbd-4fff-bbcf-4ebc79eb6a70
+		summarizeBy: none
+		sourceColumn: is_fastfood
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_groceries
+		dataType: string
+		lineageTag: 960247d5-e818-4d5c-b58c-dbe40f58782b
+		summarizeBy: none
+		sourceColumn: is_groceries
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_tikkie
+		dataType: string
+		lineageTag: 17f660d2-4148-4bf9-9aca-0e2db9e91c15
+		summarizeBy: none
+		sourceColumn: is_tikkie
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_savings
+		dataType: string
+		lineageTag: 1fa43ade-4c82-451a-818e-e4428f98e15d
+		summarizeBy: none
+		sourceColumn: is_savings
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_investment
+		dataType: string
+		lineageTag: 00d28ee5-8bf6-4a73-8361-ea8ca9d18abb
+		summarizeBy: none
+		sourceColumn: is_investment
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_income
+		dataType: string
+		lineageTag: 50f06e0d-8c54-4ebe-ad1e-5fdd3cf7d477
+		summarizeBy: none
+		sourceColumn: is_income
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_expense
+		dataType: string
+		lineageTag: f122cfc1-4795-4346-acb2-b043ce57d020
+		summarizeBy: none
+		sourceColumn: is_expense
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Transaction Info' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\git\PowerBI-Dashboard-Portfolio\data\DIM_Transaction_info.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"transaction_info_sk", Int64.Type}, {"counterparty", type text}, {"name_or_description", type text}, {"type_of_transaction", type text}, {"is_person_to_person_transaction", type text}, {"is_salary", type text}, {"is_fastfood", type text}, {"is_tikkie", type text}, {"is_groceries", type text}, {"is_savings", type text}, {"is_investment", type text}, {"is_income", type text}, {"is_expense", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

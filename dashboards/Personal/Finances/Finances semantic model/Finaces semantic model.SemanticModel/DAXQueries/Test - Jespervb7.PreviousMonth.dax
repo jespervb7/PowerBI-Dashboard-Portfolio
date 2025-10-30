@@ -1,0 +1,18 @@
+DEFINE
+    FUNCTION Jespervb7.TimeIntelligence._PreviousMonth = (
+            pMeasureValue : ANYREF
+        ) =>
+        VAR _Result =
+            CALCULATE (
+                pMeasureValue,
+                PREVIOUSMONTH ( 'Dim Date'[Date] )
+            )
+        RETURN
+            _Result
+
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Dim Date'[Month and year],
+    "Huidige maand", [Total income],
+    "Previousmonth", Jespervb7.TimeIntelligence._PreviousMonth ( [Total income] )
+)

@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "b9b754b01f7ef574349c",
   "position": {
-    "x": 38.370883882149052,
-    "y": 489.46273830155985,
+    "x": 18.99010931806351,
+    "y": 508.73503383654349,
     "z": 3000,
-    "height": 522.21837088388224,
-    "width": 1415.0433275563259
+    "height": 521.72826652785011,
+    "width": 1415.2628839146278,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "lineChart",
@@ -52,7 +53,7 @@
               },
               "queryRef": "Dim Date.00. Hierarchy.Quarter name short",
               "nativeQueryRef": "00. Hierarchy Quarter name short",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -123,55 +124,35 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact bank transactions"
+                      "Entity": "Fact Bank Transactions"
                     }
                   },
-                  "Property": "Incoming transaction"
+                  "Property": "Total expenses"
                 }
               },
-              "queryRef": "Fact bank transactions.Incoming transaction",
-              "nativeQueryRef": "Incoming transaction"
+              "queryRef": "Fact Bank Transactions.Total expense",
+              "nativeQueryRef": "Total expenses"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact bank transactions"
+                      "Entity": "Fact Bank Transactions"
                     }
                   },
-                  "Property": "Outgoing transaction"
+                  "Property": "Total income"
                 }
               },
-              "queryRef": "Fact bank transactions.Outgoing transaction",
-              "nativeQueryRef": "Outgoing transaction"
+              "queryRef": "Fact Bank Transactions.Total income",
+              "nativeQueryRef": "Total income"
             }
           ]
         }
       }
     },
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "border": [
+    "objects": {
+      "labels": [
         {
           "properties": {
             "show": {
@@ -180,11 +161,17 @@
                   "Value": "true"
                 }
               }
-            },
-            "radius": {
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "5D"
+                  "Value": "1D"
                 }
               }
             }
@@ -193,132 +180,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e8a748e6a37befd4c8d8",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "958f92725c6fc938e8ec",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Quarter name short"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b8f445408580cad184ad",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Month name short"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "958121ba436133debe4c",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Week name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "72a6d2f7739d3406ecea",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6f76c482f087747e195b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Incoming transaction"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2cae467e15ce80a93ae4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact bank transactions"
-              }
-            },
-            "Property": "Outgoing transaction"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

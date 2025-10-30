@@ -1,0 +1,17 @@
+DEFINE
+
+VAR _Table = FILTER(
+		ADDCOLUMNS(
+			'Fact Bank Transactions',
+			"Date",	RELATED('Dim Date'[Month and year]),
+			"is_expense", RELATED('Dim Transaction Info'[is_expense]),
+			"is_income", RELATED('Dim Transaction Info'[is_income])
+		),
+		OR(
+			[is_expense] == "Yes",
+			[is_income] == "Yes"
+		)
+	)
+
+EVALUATE
+	SUMMARIZECOLUMNS('Dim Date'[Month and year], 'Dim Company'[company_name], _Table, "Income Current Month", [Total income])
