@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["Dim Date","Dim Company","Dim Transaction Info","Fact Bank Transactions"]
+annotation PBI_QueryOrder = ["Dim Date","Dim Company","Dim Transaction Info","Fact Bank Transactions","Filepath"]
 
 annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode","DaxQueryView_Desktop"]
 

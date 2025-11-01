@@ -95,7 +95,7 @@ table 'Fact Bank Transactions'
 		mode: import
 		source =
 				let
-				    Source = Excel.Workbook(File.Contents("C:\git\PowerBI-Dashboard-Portfolio\data\Fact_bank_transactions.xlsx"), null, true),
+				    Source = Excel.Workbook(File.Contents(Filepath & "Fact_bank_transactions.xlsx"), null, true),
 				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"company_sk", Int64.Type}, {"transaction_info_sk", Int64.Type}, {"received_date_sk", Int64.Type}, {"counterparty", type text}, {"amount_in_euro", Currency.Type}})

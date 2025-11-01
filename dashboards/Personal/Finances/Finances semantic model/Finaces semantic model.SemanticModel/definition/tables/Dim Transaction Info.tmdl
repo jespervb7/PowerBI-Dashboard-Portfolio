@@ -113,7 +113,7 @@ table 'Dim Transaction Info'
 		mode: import
 		source =
 				let
-				    Source = Excel.Workbook(File.Contents("C:\git\PowerBI-Dashboard-Portfolio\data\DIM_Transaction_info.xlsx"), null, true),
+				    Source = Excel.Workbook(File.Contents(Filepath & "DIM_Transaction_info.xlsx"), null, true),
 				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"transaction_info_sk", Int64.Type}, {"counterparty", type text}, {"name_or_description", type text}, {"type_of_transaction", type text}, {"is_person_to_person_transaction", type text}, {"is_salary", type text}, {"is_fastfood", type text}, {"is_tikkie", type text}, {"is_groceries", type text}, {"is_savings", type text}, {"is_investment", type text}, {"is_income", type text}, {"is_expense", type text}})

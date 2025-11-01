@@ -33,7 +33,7 @@ table 'Dim Company'
 		mode: import
 		source =
 				let
-				    Source = Excel.Workbook(File.Contents("C:\git\PowerBI-Dashboard-Portfolio\data\DIM_Company.xlsx"), null, true),
+				    Source = Excel.Workbook(File.Contents(Filepath & "DIM_Company.xlsx"), null, true),
 				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"company_sk", Int64.Type}, {"company_name", type text}, {"is_restaurant", type text}})
@@ -42,5 +42,5 @@ table 'Dim Company'
 
 	annotation PBI_NavigationStepName = Navigation
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 
