@@ -3,12 +3,14 @@
   "tabOrder": [
     "Test - Jespervb7.PreviousMonth",
     "Test - Jespervb7.PercentDifference",
-    "Query 1",
-    "Query 2",
-    "Query 3",
+    "Query 6",
     "Sample DAX testing pattern",
     "Sample tests",
-    "Query 5"
+    "Query 3",
+    "Query 1",
+    "Query 5",
+    "Query 2",
+    "Query 4"
   ],
-  "defaultTab": "Test - Jespervb7.PercentDifference"
+  "defaultTab": "Query 6"
 }

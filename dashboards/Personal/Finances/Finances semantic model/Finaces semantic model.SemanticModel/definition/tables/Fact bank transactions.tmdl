@@ -2,8 +2,9 @@ table 'Fact Bank Transactions'
 	lineageTag: 24f86956-59b2-4e10-a649-d147e9a99a42
 
 	measure 'Total bank transactions' = COUNTROWS('Fact Bank Transactions')
-		formatString: #,0
 		lineageTag: f1fe6aaa-79f7-4282-9e40-5ce2a4fc0f3e
+
+		formatStringDefinition = DaxLib.FormatString.Basic.RomanNumerals()
 
 	measure 'Total income' = CALCULATE(SUM('Fact Bank Transactions'[Amount]), 'Dim Transaction Info'[is_income] = "Yes")
 		lineageTag: 6a328592-3e5a-49d9-85ac-6a365515be8d
@@ -37,6 +38,11 @@ table 'Fact Bank Transactions'
 		lineageTag: 4572a08a-4d99-4712-b568-3fbbfe9a71e1
 
 		formatStringDefinition = DaxLib.FormatString.DynamicUnits(SELECTEDMEASURE(), "€", "PREFIX", "", "")
+
+	measure '%Δ Income diff PM' = Jespervb7.PercentDifference([Total income], [Total income previous month])
+		lineageTag: 12066c0c-1c0e-4a30-b70e-8071c7564da8
+
+		formatStringDefinition = DaxLib.FormatString.RelativeToTarget.Percents("PREFIX", 1, "TRIANGLES", "", "")
 
 	column company_sk
 		dataType: int64

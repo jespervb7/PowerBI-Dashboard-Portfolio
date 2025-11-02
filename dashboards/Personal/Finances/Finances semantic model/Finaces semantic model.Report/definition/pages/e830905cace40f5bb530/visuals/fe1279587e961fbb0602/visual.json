@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "fe1279587e961fbb0602",
+  "position": {
+    "x": 1384.1594454072792,
+    "y": 388.5,
+    "z": 5001,
+    "height": 150,
+    "width": 417.40034662045059
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total bank transactions"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total bank transactions",
+              "nativeQueryRef": "Total bank transactions"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a24742c394066403c488",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total bank transactions"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

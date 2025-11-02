@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "30e546c6130ad07cd023",
+  "position": {
+    "x": 1384.1594454072792,
+    "y": 584.69547110879751,
+    "z": 5002,
+    "height": 474.75273295158775,
+    "width": 417.40034662045059
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Property": "Start of quarter"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Dim Date.Start of quarter)",
+              "nativeQueryRef": "Start of quarter"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Dim Date"
+                      }
+                    },
+                    "Property": "Start of quarter"
+                  }
+                },
+                "Function": 3
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ad8b4337f0c134180472",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim Date"
+                  }
+                },
+                "Property": "Start of quarter"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

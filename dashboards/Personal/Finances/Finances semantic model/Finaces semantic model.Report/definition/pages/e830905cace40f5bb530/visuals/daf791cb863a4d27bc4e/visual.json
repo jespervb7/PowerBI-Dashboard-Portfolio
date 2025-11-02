@@ -108,6 +108,20 @@
           "selector": {
             "metadata": "Fact Bank Transactions.Total expenses"
           }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact Bank Transactions.Net balance"
+          }
         }
       ],
       "referenceLabel": [
@@ -193,6 +207,86 @@
             "metadata": "Fact Bank Transactions.Total expenses",
             "id": "field-cd9785d2-bdd7-5cbb-c0b1-6989476139bd",
             "order": 0
+          }
+        }
+      ],
+      "referenceLabelValue": [
+        {
+          "properties": {
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact Bank Transactions.Total income",
+            "id": "field-e5fb66d9-53db-6858-14a4-d0e38bbefa75"
+          }
+        }
+      ],
+      "referenceLabelDetail": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "detailDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "detailBackgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact Bank Transactions.Total income",
+            "id": "field-e5fb66d9-53db-6858-14a4-d0e38bbefa75"
+          }
+        },
+        {
+          "properties": {
+            "detailValue": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "%Δ Income diff PM"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Fact Bank Transactions.Total income",
+            "id": "field-e5fb66d9-53db-6858-14a4-d0e38bbefa75"
           }
         }
       ]

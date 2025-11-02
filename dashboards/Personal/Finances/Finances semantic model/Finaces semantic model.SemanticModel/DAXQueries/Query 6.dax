@@ -1,0 +1,11 @@
+// Write your formula below, select 'Run' to try it out. When ready, select 'Update model' to add the measure to your model.
+DEFINE
+	MEASURE 'Fact Bank Transactions'[% Income diff PM] = Jespervb7.PercentDifference([Total income], [Total income previous month])
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		'Dim Date'[Month and year],
+		"Income current", [Total income],
+		"Income previous", [Total income previous month],
+		"% diff", [% Income diff PM]
+	)

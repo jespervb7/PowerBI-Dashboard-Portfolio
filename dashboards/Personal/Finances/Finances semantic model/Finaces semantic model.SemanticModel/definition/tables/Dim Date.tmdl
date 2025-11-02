@@ -142,7 +142,7 @@ table 'Dim Date'
 	/// This column contains the start date of the quarter related to the business acitivity.
 	column 'Start of quarter'
 		dataType: dateTime
-		formatString: Short Date
+		formatString: DaxLib.FormatString.Basic.Quarters()
 		displayFolder: 04. Start off
 		lineageTag: 7ca247d0-fafc-460c-9986-7797ec33bfe1
 		summarizeBy: none
@@ -151,6 +151,8 @@ table 'Dim Date'
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
 
 	/// This column contains the end date of the quarter related to the business acitivity.
 	column 'End of quarter'

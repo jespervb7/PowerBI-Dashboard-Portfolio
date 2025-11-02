@@ -1,5 +1,5 @@
 /// This parameter holds the option for the Filepath, currently it holds a list of my different workstations so I can easily switch between them when I need to.
-expression Filepath = "C:\Coding\PowerBI-Dashboard-Portfolio\data\" meta [IsParameterQuery=true, List={"C:\Coding\PowerBI-Dashboard-Portfolio\data\"}, DefaultValue=..., Type="Text", IsParameterQueryRequired=true]
+expression Filepath = "C:\git\PowerBI-Dashboard-Portfolio\data\" meta [IsParameterQuery=true, List={"C:\Coding\PowerBI-Dashboard-Portfolio\data\", "C:\git\PowerBI-Dashboard-Portfolio\data\"}, DefaultValue=..., Type="Text", IsParameterQueryRequired=true]
 	lineageTag: 1f0aa72b-6e3b-451b-afa8-48af7172c1c1
 
 	annotation PBI_NavigationStepName = Navigation
