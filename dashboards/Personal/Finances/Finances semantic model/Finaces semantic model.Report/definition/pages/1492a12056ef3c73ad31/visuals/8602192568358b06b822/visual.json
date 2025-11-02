@@ -1,13 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "f07f98e5b93bdc4a85f4",
+  "name": "8602192568358b06b822",
   "position": {
-    "x": 19.989588755856325,
-    "y": 584.69547110879751,
-    "z": 4000,
-    "height": 474.75273295158775,
-    "width": 1318.3133784487247,
-    "tabOrder": 1000
+    "x": 75,
+    "y": 34,
+    "z": 0,
+    "height": 703,
+    "width": 947
   },
   "visual": {
     "visualType": "tableEx",
@@ -23,39 +22,53 @@
                       "Entity": "Dim Date"
                     }
                   },
-                  "Property": "Month and year"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "Dim Date.Month and year",
-              "nativeQueryRef": "Month and year"
+              "queryRef": "Dim Date.Date",
+              "nativeQueryRef": "Date"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact Bank Transactions"
+                      "Entity": "Dim Date"
                     }
                   },
-                  "Property": "Total income"
+                  "Property": "Day name"
                 }
               },
-              "queryRef": "Fact Bank Transactions.Total income",
-              "nativeQueryRef": "Total income"
+              "queryRef": "Dim Date.Day name",
+              "nativeQueryRef": "Day name"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact Bank Transactions"
+                      "Entity": "Dim Transaction Info"
                     }
                   },
-                  "Property": "Total income previous month"
+                  "Property": "name_or_description"
                 }
               },
-              "queryRef": "Fact Bank Transactions.Total income previous month",
-              "nativeQueryRef": "Total income previous month"
+              "queryRef": "Dim Transaction Info.name_or_description",
+              "nativeQueryRef": "name_or_description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Company"
+                    }
+                  },
+                  "Property": "company_name"
+                }
+              },
+              "queryRef": "Dim Company.company_name",
+              "nativeQueryRef": "company_name"
             },
             {
               "field": {
@@ -73,17 +86,17 @@
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact Bank Transactions"
+                      "Entity": "Dim Transaction Info"
                     }
                   },
-                  "Property": "Net balance"
+                  "Property": "is_expense"
                 }
               },
-              "queryRef": "Fact Bank Transactions.Net balance",
-              "nativeQueryRef": "Net balance"
+              "queryRef": "Dim Transaction Info.is_expense",
+              "nativeQueryRef": "is_expense"
             }
           ]
         }
@@ -92,13 +105,13 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "Fact Bank Transactions"
                   }
                 },
-                "Property": "Month and year"
+                "Property": "Total expenses"
               }
             },
             "direction": "Descending"
@@ -113,69 +126,27 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "179.56380578006946D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Dim Date.Month and year"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "248.45544759157212D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Fact Bank Transactions.Total income"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "261.3190989311564D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Fact Bank Transactions.Total income previous month"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "137.51123268779116D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Fact Bank Transactions.Net balance"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "114.68801912733579D"
+                  "Value": "87D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "Fact Bank Transactions.Total expenses"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "346D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim Transaction Info.name_or_description"
           }
         }
       ]
@@ -185,7 +156,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "1b3c12dc95735532bdd6",
+        "name": "9e33c97dc33e3d7bcaf5",
         "field": {
           "Column": {
             "Expression": {
@@ -193,55 +164,27 @@
                 "Entity": "Dim Date"
               }
             },
-            "Property": "Month and year"
+            "Property": "Date"
           }
         },
         "type": "Categorical"
       },
       {
-        "name": "805c231b4c0b08cbbd7e",
+        "name": "349928fbb377c4b9f71b",
         "field": {
-          "Measure": {
+          "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Fact Bank Transactions"
+                "Entity": "Dim Date"
               }
             },
-            "Property": "Total income"
+            "Property": "Day name"
           }
         },
-        "type": "Advanced"
+        "type": "Categorical"
       },
       {
-        "name": "566395ab800922e472f6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact Bank Transactions"
-              }
-            },
-            "Property": "Total income previous month"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "c5e428004ba64e13939e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact Bank Transactions"
-              }
-            },
-            "Property": "Net balance"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ab06d234495ef75f86fd",
+        "name": "2823a0adfd882ed2dea9",
         "field": {
           "Measure": {
             "Expression": {
@@ -253,6 +196,48 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "f46f3e9bcb71c0c995c7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Transaction Info"
+              }
+            },
+            "Property": "name_or_description"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6f6d569cf8820b71a6ca",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Transaction Info"
+              }
+            },
+            "Property": "is_expense"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "255f29ee25388be8f7b7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Company"
+              }
+            },
+            "Property": "company_name"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

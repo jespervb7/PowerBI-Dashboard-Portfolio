@@ -1,50 +1,55 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "6e97c3df8d2994a6d93a",
+  "name": "60722459cde78c228ac5",
   "position": {
-    "x": 540,
-    "y": 23.396880415944544,
-    "z": 1000,
-    "height": 72.998266897746973,
-    "width": 783.32755632582325,
-    "tabOrder": 4000
+    "x": 144.37177280550773,
+    "y": 26.643717728055076,
+    "z": 0,
+    "height": 83.029259896729769,
+    "width": 335.83476764199656
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact Bank Transactions"
+                      "Entity": "Dim Transaction Info"
                     }
                   },
-                  "Property": "Text - Filtered date period"
+                  "Property": "is_expense"
                 }
               },
-              "queryRef": "Fact Bank Transactions.Text - Filtered date period",
-              "nativeQueryRef": "Text - Filtered date period"
+              "queryRef": "Dim Transaction Info.is_expense",
+              "nativeQueryRef": "is_expense",
+              "active": true
             }
           ]
         }
       }
     },
     "objects": {
-      "labels": [
+      "data": [
         {
           "properties": {
-            "fontSize": {
+            "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "'Basic'"
                 }
               }
             }
           }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
         }
       ]
     },

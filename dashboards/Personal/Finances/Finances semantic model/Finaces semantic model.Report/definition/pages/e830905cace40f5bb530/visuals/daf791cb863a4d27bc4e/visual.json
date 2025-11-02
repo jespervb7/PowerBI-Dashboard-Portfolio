@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "daf791cb863a4d27bc4e",
   "position": {
-    "x": 19.653379549393417,
-    "y": 177.81629116117853,
-    "z": 2000,
-    "height": 169.39341421143848,
-    "width": 1042.5649913344889,
-    "tabOrder": 5000
+    "x": 60,
+    "y": 133.8382099827883,
+    "z": 1000,
+    "height": 227.71084337349396,
+    "width": 1858.8640275387263,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -225,6 +225,21 @@
             "metadata": "Fact Bank Transactions.Total income",
             "id": "field-e5fb66d9-53db-6858-14a4-d0e38bbefa75"
           }
+        },
+        {
+          "properties": {
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact Bank Transactions.Total expenses",
+            "id": "field-cd9785d2-bdd7-5cbb-c0b1-6989476139bd"
+          }
         }
       ],
       "referenceLabelDetail": [
@@ -296,7 +311,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "4ba41de9d7028b6733fb",
+        "name": "a6ac42fd2701e49d3007",
         "field": {
           "Measure": {
             "Expression": {
@@ -310,7 +325,7 @@
         "type": "Advanced"
       },
       {
-        "name": "ddc4f6f58f5a2523f17a",
+        "name": "0d623979062e722197e9",
         "field": {
           "Measure": {
             "Expression": {
@@ -324,7 +339,7 @@
         "type": "Advanced"
       },
       {
-        "name": "b30823083c3c83ceadc1",
+        "name": "9e1774d98c5d5df53c78",
         "field": {
           "Measure": {
             "Expression": {

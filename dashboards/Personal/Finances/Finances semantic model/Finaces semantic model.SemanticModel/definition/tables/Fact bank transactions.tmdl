@@ -44,6 +44,19 @@ table 'Fact Bank Transactions'
 
 		formatStringDefinition = DaxLib.FormatString.RelativeToTarget.Percents("PREFIX", 1, "TRIANGLES", "", "")
 
+	measure 'Expenses PY' = CALCULATE([Total expenses], PREVIOUSMONTH('Dim Date'[Date SK]))
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: b93646e8-8207-45be-8df8-9785d7751120
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Total expenses day level PM' = CALCULATE([Total expenses], DATEADD('Dim Date'[Date], -1, MONTH))
+		lineageTag: 4fdeaecc-27a4-4509-8a3d-2f09626257a2
+
+		formatStringDefinition = DaxLib.FormatString.DynamicUnits(SELECTEDMEASURE(), "€", "PREFIX", "", "")
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
 	column company_sk
 		dataType: int64
 		isHidden

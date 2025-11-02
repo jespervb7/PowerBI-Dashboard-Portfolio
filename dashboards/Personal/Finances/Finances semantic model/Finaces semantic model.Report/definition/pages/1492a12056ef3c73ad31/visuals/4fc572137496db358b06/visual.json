@@ -1,0 +1,245 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "4fc572137496db358b06",
+  "position": {
+    "x": 1040,
+    "y": 34,
+    "z": 1,
+    "height": 703,
+    "width": 880,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Date"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Dim Date.Date",
+              "nativeQueryRef": "Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Date"
+                    }
+                  },
+                  "Property": "Day name"
+                }
+              },
+              "queryRef": "Dim Date.Day name",
+              "nativeQueryRef": "Day name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Transaction Info"
+                    }
+                  },
+                  "Property": "name_or_description"
+                }
+              },
+              "queryRef": "Dim Transaction Info.name_or_description",
+              "nativeQueryRef": "name_or_description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Company"
+                    }
+                  },
+                  "Property": "company_name"
+                }
+              },
+              "queryRef": "Dim Company.company_name",
+              "nativeQueryRef": "company_name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total expenses day level PM"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total expenses day level PM",
+              "nativeQueryRef": "Total expenses day level PM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Transaction Info"
+                    }
+                  },
+                  "Property": "is_expense"
+                }
+              },
+              "queryRef": "Dim Transaction Info.is_expense",
+              "nativeQueryRef": "is_expense"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Fact Bank Transactions"
+                  }
+                },
+                "Property": "Total expenses day level PM"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "260D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim Transaction Info.name_or_description"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "142D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim Company.company_name"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a7ce84ec1294c664d8b3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Date"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0b332097cc7d9927cc5b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Date"
+              }
+            },
+            "Property": "Day name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "12ed77a6d16721635796",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Transaction Info"
+              }
+            },
+            "Property": "name_or_description"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8ec56e04ebbb6fe2fcd8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total expenses day level PM"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c79d209d087145e94640",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Transaction Info"
+              }
+            },
+            "Property": "is_expense"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f943e5c83b12dfa34094",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Company"
+              }
+            },
+            "Property": "company_name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

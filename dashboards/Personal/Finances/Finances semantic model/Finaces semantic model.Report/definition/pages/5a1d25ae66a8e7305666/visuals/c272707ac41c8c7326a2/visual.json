@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "b9b754b01f7ef574349c",
+  "name": "c272707ac41c8c7326a2",
   "position": {
-    "x": 18.99010931806351,
-    "y": 508.73503383654349,
-    "z": 3000,
-    "height": 521.72826652785011,
-    "width": 1415.2628839146278,
-    "tabOrder": 2000
+    "x": 110.60240963855422,
+    "y": 240.72289156626505,
+    "z": 1000,
+    "height": 317.86574870912222,
+    "width": 994.4922547332186,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "lineChart",
@@ -53,7 +53,7 @@
               },
               "queryRef": "Dim Date.00. Hierarchy.Quarter name short",
               "nativeQueryRef": "00. Hierarchy Quarter name short",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -130,22 +130,8 @@
                   "Property": "Total expenses"
                 }
               },
-              "queryRef": "Fact Bank Transactions.Total expense",
+              "queryRef": "Fact Bank Transactions.Total expenses",
               "nativeQueryRef": "Total expenses"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Fact Bank Transactions"
-                    }
-                  },
-                  "Property": "Total income"
-                }
-              },
-              "queryRef": "Fact Bank Transactions.Total income",
-              "nativeQueryRef": "Total income"
             }
           ]
         }
@@ -155,23 +141,23 @@
       "labels": [
         {
           "properties": {
-            "show": {
+            "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "1D"
                 }
               }
             }
           }
         }
       ],
-      "valueAxis": [
+      "lineStyles": [
         {
           "properties": {
-            "labelDisplayUnits": {
+            "lineChartType": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "'smooth'"
                 }
               }
             }

@@ -6,7 +6,8 @@
     "y": 46.793760831889088,
     "z": 1000,
     "height": 373.41421143847492,
-    "width": 191.85441941074524
+    "width": 191.85441941074524,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -289,101 +290,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "bd834041e4ded97e57e0",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ef8df9dca4821ec9035d",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Quarter name short"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8810d3badf068116ef53",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Month name short"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "9686e063944d70f38f64",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Week name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5ac9db263131609493b9",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Date"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

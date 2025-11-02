@@ -2,36 +2,65 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "30e546c6130ad07cd023",
   "position": {
-    "x": 1384.1594454072792,
-    "y": 584.69547110879751,
-    "z": 5002,
-    "height": 474.75273295158775,
-    "width": 417.40034662045059
+    "x": 89.225473321858857,
+    "y": 421.03270223752151,
+    "z": 6000,
+    "height": 638.51979345955249,
+    "width": 1797.5215146299483,
+    "tabOrder": 5000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Column": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim Date"
-                        }
-                      },
-                      "Property": "Start of quarter"
+                    "SourceRef": {
+                      "Entity": "Dim Date"
                     }
                   },
-                  "Function": 3
+                  "Property": "Day of month"
                 }
               },
-              "queryRef": "Min(Dim Date.Start of quarter)",
-              "nativeQueryRef": "Start of quarter"
+              "queryRef": "Dim Date.Day of month",
+              "nativeQueryRef": "Day of month",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total expenses"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total expenses",
+              "nativeQueryRef": "Total expenses"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total expenses day level PM"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.test2",
+              "nativeQueryRef": "Total expenses day level PM"
             }
           ]
         }
@@ -40,45 +69,132 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Dim Date"
-                      }
-                    },
-                    "Property": "Start of quarter"
-                  }
-                },
-                "Function": 3
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
-      }
-    },
-    "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ad8b4337f0c134180472",
-        "field": {
-          "Aggregation": {
-            "Expression": {
               "Column": {
                 "Expression": {
                   "SourceRef": {
                     "Entity": "Dim Date"
                   }
                 },
-                "Property": "Start of quarter"
+                "Property": "Day of month"
               }
             },
-            "Function": 3
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "end": {
+              "expr": {
+                "Literal": {
+                  "Value": "31D"
+                }
+              }
+            },
+            "start": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "axisType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scalar'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "matchLineColor": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact Bank Transactions.test2"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7dfec01c5ecde3594a9d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Date"
+              }
+            },
+            "Property": "Day of month"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a21824d0608e27650608",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total expenses"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "28ffc151988cb75c7319",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total expenses day level PM"
           }
         },
         "type": "Advanced"

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "94c1a5d75992002d0941",
+  "position": {
+    "x": 1308.6402753872633,
+    "y": 154.28571428571428,
+    "z": 2000,
+    "height": 150.56798623063682,
+    "width": 335.52495697074011,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total expenses"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total expenses",
+              "nativeQueryRef": "Total expenses"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

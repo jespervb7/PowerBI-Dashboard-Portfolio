@@ -6,8 +6,7 @@
     "y": 66.4471403812825,
     "z": 0,
     "height": 213.37954939341424,
-    "width": 422.07972270363956,
-    "tabOrder": 1000
+    "width": 422.07972270363956
   },
   "visual": {
     "visualType": "card",
@@ -70,20 +69,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "ea815bdcae73bd50aeaf",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact Bank Transactions"
-              }
-            },
-            "Property": "Total income"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "9d9803f55bd795b513af",
         "field": {

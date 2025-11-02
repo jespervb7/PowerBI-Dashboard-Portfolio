@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "34f86b3e59d877d40fd9",
   "position": {
-    "x": 1384.1594454072792,
-    "y": 177.81629116117853,
-    "z": 5000,
-    "height": 149.74003466204508,
-    "width": 417.40034662045065,
-    "tabOrder": 3000
+    "x": 1360.6884681583476,
+    "y": 29.74182444061962,
+    "z": 4000,
+    "height": 70.6368330464716,
+    "width": 264.88812392426848,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "slicer",
@@ -17,103 +17,18 @@
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim Date"
-                        }
-                      },
-                      "Hierarchy": "00. Hierarchy"
+                    "SourceRef": {
+                      "Entity": "Dim Date"
                     }
                   },
-                  "Level": "Year"
+                  "Property": "Month and year"
                 }
               },
-              "queryRef": "Dim Date.00. Hierarchy.Year",
-              "nativeQueryRef": "00. Hierarchy Year",
+              "queryRef": "Dim Date.Month and year",
+              "nativeQueryRef": "Month and year",
               "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim Date"
-                        }
-                      },
-                      "Hierarchy": "00. Hierarchy"
-                    }
-                  },
-                  "Level": "Quarter name short"
-                }
-              },
-              "queryRef": "Dim Date.00. Hierarchy.Quarter name short",
-              "nativeQueryRef": "00. Hierarchy Quarter name short",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim Date"
-                        }
-                      },
-                      "Hierarchy": "00. Hierarchy"
-                    }
-                  },
-                  "Level": "Month name short"
-                }
-              },
-              "queryRef": "Dim Date.00. Hierarchy.Month name short",
-              "nativeQueryRef": "00. Hierarchy Month name short",
-              "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim Date"
-                        }
-                      },
-                      "Hierarchy": "00. Hierarchy"
-                    }
-                  },
-                  "Level": "Week name"
-                }
-              },
-              "queryRef": "Dim Date.00. Hierarchy.Week name",
-              "nativeQueryRef": "00. Hierarchy Week name",
-              "active": false
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Dim Date"
-                        }
-                      },
-                      "Hierarchy": "00. Hierarchy"
-                    }
-                  },
-                  "Level": "Date"
-                }
-              },
-              "queryRef": "Dim Date.00. Hierarchy.Date",
-              "nativeQueryRef": "00. Hierarchy Date",
-              "active": false
             }
           ]
         }
@@ -122,246 +37,20 @@
         "sort": [
           {
             "field": {
-              "HierarchyLevel": {
+              "Column": {
                 "Expression": {
-                  "Hierarchy": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Dim Date"
-                      }
-                    },
-                    "Hierarchy": "00. Hierarchy"
+                  "SourceRef": {
+                    "Entity": "Dim Date"
                   }
                 },
-                "Level": "Year"
+                "Property": "Month and year"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Values"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "Dim Date.00. Hierarchy.Year"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim Date"
-                    }
-                  },
-                  "Property": "Year"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "Dim Date.00. Hierarchy.Quarter name short"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim Date"
-                    }
-                  },
-                  "Property": "Quarter name short"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "Dim Date.00. Hierarchy.Month name short"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim Date"
-                    }
-                  },
-                  "Property": "Month name short"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "Dim Date.00. Hierarchy.Week name"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "Dim Date.00. Hierarchy.Date"
-            ],
-            "isCollapsed": true
-          }
-        ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2024L"
-                  }
-                }
-              ],
-              "isToggled": true,
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Q4'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                },
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Q3'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2025L"
-                  }
-                }
-              ],
-              "isToggled": true,
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Q1'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                },
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Q4'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                },
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Q3'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2021L"
-                  }
-                }
-              ],
-              "isToggled": true
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2015L"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Q4'"
-                      }
-                    }
-                  ],
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'Oct'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2016L"
-                  }
-                }
-              ],
-              "isToggled": true,
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Q1'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            }
-          ]
-        }
-      }
-    ],
     "objects": {
       "data": [
         {
@@ -369,7 +58,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Basic'"
+                  "Value": "'Dropdown'"
                 }
               }
             }
@@ -401,27 +90,7 @@
                                   "Source": "d"
                                 }
                               },
-                              "Property": "Year"
-                            }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "Quarter name short"
-                            }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "Month name short"
+                              "Property": "Month and year"
                             }
                           }
                         ],
@@ -429,154 +98,35 @@
                           [
                             {
                               "Literal": {
-                                "Value": "2025L"
-                              }
-                            },
-                            {
-                              "Literal": {
-                                "Value": "'Q3'"
-                              }
-                            },
-                            {
-                              "Literal": {
-                                "Value": "'Jul'"
+                                "Value": "'Jul 2025'"
                               }
                             }
                           ]
-                        ]
-                      }
-                    },
-                    "Annotations": {
-                      "filterExpressionMetadata": {
-                        "expressions": [
-                          {
-                            "HierarchyLevel": {
-                              "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim Date"
-                                    }
-                                  },
-                                  "Hierarchy": "00. Hierarchy"
-                                }
-                              },
-                              "Level": "Year"
-                            }
-                          },
-                          {
-                            "HierarchyLevel": {
-                              "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim Date"
-                                    }
-                                  },
-                                  "Hierarchy": "00. Hierarchy"
-                                }
-                              },
-                              "Level": "Quarter name short"
-                            }
-                          },
-                          {
-                            "HierarchyLevel": {
-                              "Expression": {
-                                "Hierarchy": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim Date"
-                                    }
-                                  },
-                                  "Hierarchy": "00. Hierarchy"
-                                }
-                              },
-                              "Level": "Month name short"
-                            }
-                          }
-                        ],
-                        "decomposedIdentities": {
-                          "values": [
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2025L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'Q3'"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "2": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'Jul'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
-                          ],
-                          "columns": [
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim Date"
-                                    }
-                                  },
-                                  "Property": "Year"
-                                }
-                              }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim Date"
-                                    }
-                                  },
-                                  "Property": "Quarter name short"
-                                }
-                              }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Dim Date"
-                                    }
-                                  },
-                                  "Property": "Month name short"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "valueMap": [
-                          {
-                            "0": "2025",
-                            "1": "Q3",
-                            "2": "Jul"
-                          }
                         ]
                       }
                     }
                   }
                 ]
+              }
+            },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
               }
             }
           }
@@ -637,96 +187,15 @@
         "howCreated": "User"
       },
       {
-        "name": "a62c4959538f7f87475d",
+        "name": "7623b3f23163a6845c5f",
         "field": {
-          "HierarchyLevel": {
+          "Column": {
             "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
+              "SourceRef": {
+                "Entity": "Dim Date"
               }
             },
-            "Level": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7b3d96f57d3bdf7cfcdf",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Quarter name short"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "cd3825f6054bbf459d7b",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Month name short"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "428779669f817bdb5867",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Week name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "42b2b9936133374ba7bb",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Hierarchy": "00. Hierarchy"
-              }
-            },
-            "Level": "Date"
+            "Property": "Month and year"
           }
         },
         "type": "Categorical"

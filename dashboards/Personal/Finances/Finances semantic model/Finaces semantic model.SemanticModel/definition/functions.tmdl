@@ -1860,7 +1860,8 @@ function 'Jespervb7.PercentDifference' =
 		        VAR _Result =
 		            DIVIDE (
 		                _NewMinusOld,
-		                pPreviousValue
+		                pPreviousValue,
+		                0
 		            )
 		        RETURN
 		            _Result

@@ -1,8 +1,12 @@
-// Write your formula below, select 'Run' to try it out. When ready, select 'Update model' to add the measure to your model.
-DEFINE
-	MEASURE 'Fact Bank Transactions'[Delta] = COUNTROWS('Fact Bank Transactions')
+// Write your formula below, select 'Run' to try it out. When ready, select 'Update model' to add the measure to your model
+DEFINE measure 'Fact Bank Transactions'[test2] = CALCULATE([Total expenses], DATEADD('Dim Date'[Date], -1, MONTH))
+
 
 EVALUATE
 	SUMMARIZECOLUMNS(
-		"New Measure", [New Measure]
-	)
+		'Dim Date'[Date],
+		"expense", [Total expenses],
+		"PREVIOUS EXPENSE", [test2]
+			)
+
+ORDER BY 'Dim Date'[Date] desc

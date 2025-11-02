@@ -7,7 +7,8 @@ DEFINE
         VAR _Result =
             DIVIDE (
                 _NewMinusOld,
-                pPreviousValue
+                pPreviousValue,
+                0
             )
         RETURN
             _Result
