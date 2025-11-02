@@ -333,24 +333,13 @@
                   }
                 }
               }
-            }
+            },
+            "show": true
           }
         ],
-        "border": [
+        "referenceLabelValue": [
           {
-            "show": true,
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
+            "valueDisplayUnits": 1
           }
         ]
       }

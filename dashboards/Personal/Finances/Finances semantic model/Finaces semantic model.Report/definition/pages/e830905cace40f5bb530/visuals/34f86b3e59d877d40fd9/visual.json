@@ -185,20 +185,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "7623b3f23163a6845c5f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Date"
-              }
-            },
-            "Property": "Month and year"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

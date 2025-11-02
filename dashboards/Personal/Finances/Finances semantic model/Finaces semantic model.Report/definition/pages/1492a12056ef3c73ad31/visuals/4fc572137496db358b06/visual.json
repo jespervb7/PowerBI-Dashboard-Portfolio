@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "4fc572137496db358b06",
   "position": {
-    "x": 1040,
-    "y": 34,
-    "z": 1,
-    "height": 703,
-    "width": 880,
-    "tabOrder": 1
+    "x": 970,
+    "y": 460,
+    "z": 1000,
+    "height": 600,
+    "width": 930
   },
   "visual": {
     "visualType": "tableEx",
@@ -153,93 +152,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a7ce84ec1294c664d8b3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Date"
-              }
-            },
-            "Property": "Date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0b332097cc7d9927cc5b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Date"
-              }
-            },
-            "Property": "Day name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "12ed77a6d16721635796",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Transaction Info"
-              }
-            },
-            "Property": "name_or_description"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8ec56e04ebbb6fe2fcd8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact Bank Transactions"
-              }
-            },
-            "Property": "Total expenses day level PM"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "c79d209d087145e94640",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Transaction Info"
-              }
-            },
-            "Property": "is_expense"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f943e5c83b12dfa34094",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Company"
-              }
-            },
-            "Property": "company_name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

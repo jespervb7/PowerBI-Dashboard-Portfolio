@@ -696,6 +696,23 @@
           {
             "show": false
           }
+        ],
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
         ]
       }
     },
@@ -750,21 +767,11 @@
             "verticalAlignment": "middle"
           }
         ],
-        "border": [
-          {
-            "show": false
-          }
-        ],
         "shapeCustomRectangle": [
           {
             "$id": "default",
             "tileShape": "rectangleRounded",
             "rectangleRoundedCurve": 10
-          }
-        ],
-        "background": [
-          {
-            "show": false
           }
         ],
         "outline": [
@@ -783,6 +790,33 @@
               }
             },
             "show": true
+          }
+        ],
+        "fillCustom": [
+          {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "show": true
+          }
+        ],
+        "referenceLabelValue": [
+          {
+            "valueDisplayUnits": 1
+          }
+        ],
+        "value": [
+          {
+            "labelDisplayUnits": 1
           }
         ]
       }

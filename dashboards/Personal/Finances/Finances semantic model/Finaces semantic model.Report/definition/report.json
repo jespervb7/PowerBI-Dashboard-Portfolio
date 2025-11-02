@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Neon4491488365735886.json",
+      "name": "Neon07708853846618702.json",
       "reportVersionAtImport": {
         "visual": "2.1.0",
         "report": "3.0.0",
@@ -65,8 +65,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Neon4491488365735886.json",
-          "path": "Neon4491488365735886.json",
+          "name": "Neon07708853846618702.json",
+          "path": "Neon07708853846618702.json",
           "type": "CustomTheme"
         }
       ]

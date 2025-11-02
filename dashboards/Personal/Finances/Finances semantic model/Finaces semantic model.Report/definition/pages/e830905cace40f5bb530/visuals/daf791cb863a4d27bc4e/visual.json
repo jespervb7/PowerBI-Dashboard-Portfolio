@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "daf791cb863a4d27bc4e",
   "position": {
-    "x": 60,
-    "y": 133.8382099827883,
+    "x": 20,
+    "y": 120,
     "z": 1000,
-    "height": 227.71084337349396,
-    "width": 1858.8640275387263,
+    "height": 300,
+    "width": 1880,
     "tabOrder": 3000
   },
   "visual": {
@@ -304,6 +304,29 @@
             "id": "field-e5fb66d9-53db-6858-14a4-d0e38bbefa75"
           }
         }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "rectangleRoundedCurve": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "rectangleRoundedCurveCustomStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
@@ -311,7 +334,8 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a6ac42fd2701e49d3007",
+        "name": "7ef9b29b0966ccd5577a",
+        "ordinal": 0,
         "field": {
           "Measure": {
             "Expression": {
@@ -325,21 +349,8 @@
         "type": "Advanced"
       },
       {
-        "name": "0d623979062e722197e9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact Bank Transactions"
-              }
-            },
-            "Property": "Total income"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9e1774d98c5d5df53c78",
+        "name": "5c10b58b09ddd72afeea",
+        "ordinal": 1,
         "field": {
           "Measure": {
             "Expression": {
@@ -351,7 +362,23 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "f2a5f521304271d2dd9e",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total income"
+          }
+        },
+        "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

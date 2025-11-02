@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "30e546c6130ad07cd023",
+  "name": "409d1e928c1fd6ad7961",
   "position": {
     "x": 20,
-    "y": 440,
-    "z": 6000,
-    "height": 620,
+    "y": 120,
+    "z": 4000,
+    "height": 200,
     "width": 1880,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dim Date"
-                    }
-                  },
-                  "Property": "Day of month"
-                }
-              },
-              "queryRef": "Dim Date.Day of month",
-              "nativeQueryRef": "Day of month",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -59,7 +40,7 @@
                   "Property": "Total expenses day level PM"
                 }
               },
-              "queryRef": "Fact Bank Transactions.test2",
+              "queryRef": "Fact Bank Transactions.Total expenses day level PM",
               "nativeQueryRef": "Total expenses day level PM"
             }
           ]
@@ -69,86 +50,49 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dim Date"
+                    "Entity": "Fact Bank Transactions"
                   }
                 },
-                "Property": "Day of month"
+                "Property": "Total expenses"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
-      "categoryAxis": [
+      "value": [
         {
           "properties": {
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "end": {
-              "expr": {
-                "Literal": {
-                  "Value": "31D"
-                }
-              }
-            },
-            "start": {
-              "expr": {
-                "Literal": {
                   "Value": "1D"
-                }
-              }
-            },
-            "axisType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Scalar'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "matchLineColor": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.1
-                    }
-                  }
                 }
               }
             }
           },
           "selector": {
-            "metadata": "Fact Bank Transactions.test2"
+            "metadata": "Fact Bank Transactions.Total expenses"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact Bank Transactions.Total expenses day level PM"
           }
         }
       ]
@@ -158,23 +102,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "711a9cc6afdb29b0246c",
-        "ordinal": 0,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Date"
-              }
-            },
-            "Property": "Day of month"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "57e67b74bdb49fe0103c",
-        "ordinal": 1,
+        "name": "7093bfd3fc103ed9a627",
         "field": {
           "Measure": {
             "Expression": {
@@ -188,8 +116,7 @@
         "type": "Advanced"
       },
       {
-        "name": "d72a687b01fc0c575cb4",
-        "ordinal": 2,
+        "name": "f85bfb0606b19e974659",
         "field": {
           "Measure": {
             "Expression": {
@@ -202,7 +129,6 @@
         },
         "type": "Advanced"
       }
-    ],
-    "filterSortOrder": "Custom"
+    ]
   }
 }

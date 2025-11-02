@@ -16,7 +16,7 @@ table 'Fact Bank Transactions'
 
 		formatStringDefinition = DaxLib.FormatString.DynamicUnits(SELECTEDMEASURE(), "€", "PREFIX", "", "")
 
-	measure 'Text - Filtered date period' = PiotrBartela.TitleContext.Period("", 'Dim Date'[Date])
+	measure 'Text - Filtered date period' = PiotrBartela.TitleContext.Period("Monthly budget of ", 'Dim Date'[Date])
 		lineageTag: 9bad3b1d-10ef-420c-bb95-be20e4a0c95d
 
 	measure 'Net balance' = [Total income] - [Total expenses]
@@ -56,6 +56,9 @@ table 'Fact Bank Transactions'
 		formatStringDefinition = DaxLib.FormatString.DynamicUnits(SELECTEDMEASURE(), "€", "PREFIX", "", "")
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	measure 'Text - Filtered date period - tooltip' = PiotrBartela.TitleContext.Period("Expenses of ", 'Dim Date'[Date])
+		lineageTag: 1db3856c-4285-4de2-b2c0-d4a56544b120
 
 	column company_sk
 		dataType: int64

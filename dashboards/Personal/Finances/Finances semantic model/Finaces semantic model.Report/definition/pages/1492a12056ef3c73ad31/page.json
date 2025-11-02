@@ -9,6 +9,7 @@
     "filters": [
       {
         "name": "1df6137f2d28e1cc1a4f",
+        "ordinal": 0,
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -29,6 +30,7 @@
       },
       {
         "name": "62333b977b5b86db9a3e",
+        "ordinal": 1,
         "field": {
           "Column": {
             "Expression": {
@@ -42,7 +44,8 @@
         "type": "Categorical",
         "howCreated": "Drillthrough"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   },
   "pageBinding": {
     "name": "12096a922508631a9305",
@@ -51,8 +54,6 @@
       {
         "name": "6882ca686eb214a5de6c",
         "boundFilter": "1df6137f2d28e1cc1a4f",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "HierarchyLevel": {
             "Expression": {
@@ -72,8 +73,6 @@
       {
         "name": "e1336d2c85e662a0d5d2",
         "boundFilter": "62333b977b5b86db9a3e",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {
@@ -87,5 +86,6 @@
       }
     ]
   },
+  "visibility": "HiddenInViewMode",
   "type": "Tooltip"
 }

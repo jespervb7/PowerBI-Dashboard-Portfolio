@@ -1,0 +1,131 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "97fe279746426986f0ae",
+  "position": {
+    "x": 185.88640275387263,
+    "y": 43.373493975903614,
+    "z": 0,
+    "height": 280.06884681583477,
+    "width": 649.36316695352843
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total income previous month"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total income previous month",
+              "nativeQueryRef": "Total income previous month"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total income"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total income",
+              "nativeQueryRef": "Total income"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total expenses day level PM"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total expenses day level PM",
+              "nativeQueryRef": "Total expenses day level PM"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Fact Bank Transactions"
+                  }
+                },
+                "Property": "Total income previous month"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "referenceLabel": [
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Fact Bank Transactions.Total income previous month",
+            "id": "field-03b2484a-b742-f68d-8eca-0579ff5494fd",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "backgroundShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Fact Bank Transactions.Total income previous month"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Fact Bank Transactions.Total income previous month",
+            "id": "field-c367e764-0818-3cee-61d5-bab6004e698e",
+            "order": 1
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
