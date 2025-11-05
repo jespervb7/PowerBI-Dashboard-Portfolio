@@ -509,10 +509,13 @@ table 'Dim Date'
 
 	column 'Date SK'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 67552b92-7ed7-4568-ba26-b1ca7109739a
 		summarizeBy: none
 		sourceColumn: Date SK
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

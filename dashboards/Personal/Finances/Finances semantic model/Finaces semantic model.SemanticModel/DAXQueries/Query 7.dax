@@ -1,0 +1,9 @@
+DEFINE
+
+VAR _filtertable = FILTER('Fact Bank Transactions', 'Fact Bank Transactions'[Amount] = 2062.10 )
+
+EVALUATE
+
+SUMMARIZECOLUMNS('Dim Date'[Date], 'Dim Transaction Info'[name_or_description], 'Dim Transaction Info'[is_expense],_filtertable, "income", SUM('Fact Bank Transactions'[Amount]))
+
+ORDER BY [income]

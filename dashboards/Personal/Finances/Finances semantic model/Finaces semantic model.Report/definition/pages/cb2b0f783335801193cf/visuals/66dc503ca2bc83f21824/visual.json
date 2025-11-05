@@ -1,0 +1,199 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "66dc503ca2bc83f21824",
+  "position": {
+    "x": 61.342512908777969,
+    "y": 44.612736660929428,
+    "z": 0,
+    "height": 653.70051635111872,
+    "width": 1194.0103270223751
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Date"
+                        }
+                      },
+                      "Hierarchy": "00. Hierarchy"
+                    }
+                  },
+                  "Level": "Date"
+                }
+              },
+              "queryRef": "Dim Date.00. Hierarchy.Date",
+              "nativeQueryRef": "00. Hierarchy Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Transaction Info"
+                    }
+                  },
+                  "Property": "name_or_description"
+                }
+              },
+              "queryRef": "Dim Transaction Info.name_or_description",
+              "nativeQueryRef": "name_or_description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Company"
+                    }
+                  },
+                  "Property": "company_name"
+                }
+              },
+              "queryRef": "Dim Company.company_name",
+              "nativeQueryRef": "company_name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total bank transactions"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total bank transactions",
+              "nativeQueryRef": "Total bank transactions"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact Bank Transactions"
+                    }
+                  },
+                  "Property": "Total amount"
+                }
+              },
+              "queryRef": "Fact Bank Transactions.Total amount",
+              "nativeQueryRef": "Total amount"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Dim Date"
+                      }
+                    },
+                    "Hierarchy": "00. Hierarchy"
+                  }
+                },
+                "Level": "Date"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "539b756e8bff121e3c86",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim Date"
+                  }
+                },
+                "Hierarchy": "00. Hierarchy"
+              }
+            },
+            "Level": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "782b185a54b88cafee15",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Transaction Info"
+              }
+            },
+            "Property": "name_or_description"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8b88d093a5d0924762f9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total bank transactions"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f01667f9c581eb766ae7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total amount"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "af90a76132b07ab09f2e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Company"
+              }
+            },
+            "Property": "company_name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

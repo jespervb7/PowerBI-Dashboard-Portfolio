@@ -95,6 +95,63 @@
             "metadata": "Fact Bank Transactions.Total expenses day level PM"
           }
         }
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
@@ -102,7 +159,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "7093bfd3fc103ed9a627",
+        "name": "dc6407f8759d0857918d",
         "field": {
           "Measure": {
             "Expression": {
@@ -116,7 +173,7 @@
         "type": "Advanced"
       },
       {
-        "name": "f85bfb0606b19e974659",
+        "name": "4d66702be91ccd550bc1",
         "field": {
           "Measure": {
             "Expression": {

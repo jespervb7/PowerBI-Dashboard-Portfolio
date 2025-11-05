@@ -153,6 +153,41 @@
         }
       ]
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total expenses'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Current and previous month by day'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
