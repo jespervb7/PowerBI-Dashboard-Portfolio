@@ -1,12 +1,12 @@
 relationship AutoDetected_da71b634-3451-4c32-ab35-94e8e7a94f41
-	fromColumn: 'Fact Bank Transactions'.company_sk
-	toColumn: 'Dim Company'.company_sk
+	fromColumn: 'Fact Bank Transactions'.'Company SK'
+	toColumn: 'Dim Company'.'Company SK'
 
 relationship AutoDetected_46ee0948-5326-441e-9a7c-b3ef4ee53660
-	fromColumn: 'Fact Bank Transactions'.transaction_info_sk
-	toColumn: 'Dim Transaction Info'.transaction_info_sk
+	fromColumn: 'Fact Bank Transactions'.'Transaction info SK'
+	toColumn: 'Dim Transaction Info'.'Transaction info SK'
 
 relationship cba0411c-4c22-e52e-bbdb-313b9abe1a71
-	fromColumn: 'Fact Bank Transactions'.received_date_sk
+	fromColumn: 'Fact Bank Transactions'.'Received date SK'
 	toColumn: 'Dim Date'.'Date SK'
 

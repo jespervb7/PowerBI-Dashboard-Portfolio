@@ -1,7 +1,7 @@
 table 'Dim Transaction Info'
 	lineageTag: 418ebb71-1842-43eb-a432-7d8ef069dfe3
 
-	column transaction_info_sk
+	column 'Transaction info SK'
 		dataType: int64
 		isHidden
 		isKey
@@ -13,7 +13,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column counterparty
+	column Counterparty
 		dataType: string
 		lineageTag: 526d65fb-95ee-4124-ace7-5265e4fd0fe7
 		summarizeBy: none
@@ -21,7 +21,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column name_or_description
+	column 'Name or description'
 		dataType: string
 		lineageTag: 88f60f9a-ad57-4c1c-8dc2-ce31d4d1d5fa
 		summarizeBy: none
@@ -29,7 +29,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column type_of_transaction
+	column 'Type of transaction'
 		dataType: string
 		lineageTag: c354da2e-e940-42bf-bfe1-76d9f9ca11bb
 		summarizeBy: none
@@ -37,7 +37,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_person_to_person_transaction
+	column 'Is person to person transaction'
 		dataType: string
 		lineageTag: 03931530-c89d-4e02-8d8f-9d27b47f1f13
 		summarizeBy: none
@@ -45,7 +45,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_salary
+	column 'Is salary'
 		dataType: string
 		lineageTag: 3e6e424b-9f1e-42da-af68-f8acac9c6a83
 		summarizeBy: none
@@ -53,7 +53,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_fastfood
+	column 'Is fastfood'
 		dataType: string
 		lineageTag: 57d31575-cfbd-4fff-bbcf-4ebc79eb6a70
 		summarizeBy: none
@@ -61,7 +61,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_groceries
+	column 'Is groceries'
 		dataType: string
 		lineageTag: 960247d5-e818-4d5c-b58c-dbe40f58782b
 		summarizeBy: none
@@ -69,7 +69,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_tikkie
+	column 'Is tikkie'
 		dataType: string
 		lineageTag: 17f660d2-4148-4bf9-9aca-0e2db9e91c15
 		summarizeBy: none
@@ -77,7 +77,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_savings
+	column 'Is savings'
 		dataType: string
 		lineageTag: 1fa43ade-4c82-451a-818e-e4428f98e15d
 		summarizeBy: none
@@ -85,7 +85,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_investment
+	column 'Is investment'
 		dataType: string
 		lineageTag: 00d28ee5-8bf6-4a73-8361-ea8ca9d18abb
 		summarizeBy: none
@@ -93,7 +93,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_income
+	column 'Is income'
 		dataType: string
 		lineageTag: 50f06e0d-8c54-4ebe-ad1e-5fdd3cf7d477
 		summarizeBy: none
@@ -101,7 +101,7 @@ table 'Dim Transaction Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_expense
+	column 'Is expense'
 		dataType: string
 		lineageTag: f122cfc1-4795-4346-acb2-b043ce57d020
 		summarizeBy: none

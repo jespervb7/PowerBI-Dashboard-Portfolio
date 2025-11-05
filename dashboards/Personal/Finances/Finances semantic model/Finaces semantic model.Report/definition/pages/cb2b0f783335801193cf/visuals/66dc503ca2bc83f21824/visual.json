@@ -38,28 +38,28 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim Transaction Info"
+                      "Entity": "Dim Company"
                     }
                   },
-                  "Property": "name_or_description"
+                  "Property": "Company name"
                 }
               },
-              "queryRef": "Dim Transaction Info.name_or_description",
-              "nativeQueryRef": "name_or_description"
+              "queryRef": "Dim Company.Company name",
+              "nativeQueryRef": "Company name"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim Company"
+                      "Entity": "Dim Transaction Info"
                     }
                   },
-                  "Property": "company_name"
+                  "Property": "Name or description"
                 }
               },
-              "queryRef": "Dim Company.company_name",
-              "nativeQueryRef": "company_name"
+              "queryRef": "Dim Transaction Info.Name or description",
+              "nativeQueryRef": "Name or description"
             },
             {
               "field": {
@@ -139,20 +139,6 @@
         "type": "Categorical"
       },
       {
-        "name": "782b185a54b88cafee15",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Transaction Info"
-              }
-            },
-            "Property": "name_or_description"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "8b88d093a5d0924762f9",
         "field": {
           "Measure": {
@@ -181,7 +167,7 @@
         "type": "Advanced"
       },
       {
-        "name": "af90a76132b07ab09f2e",
+        "name": "a0f69ee38fb79f79c1cb",
         "field": {
           "Column": {
             "Expression": {
@@ -189,7 +175,21 @@
                 "Entity": "Dim Company"
               }
             },
-            "Property": "company_name"
+            "Property": "Company name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "69d61aeacc7f7adee446",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Transaction Info"
+              }
+            },
+            "Property": "Name or description"
           }
         },
         "type": "Categorical"

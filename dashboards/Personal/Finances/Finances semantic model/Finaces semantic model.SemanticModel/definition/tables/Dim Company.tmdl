@@ -1,7 +1,7 @@
 table 'Dim Company'
 	lineageTag: c7b5be75-b71f-40e5-910f-5e74839cfc0c
 
-	column company_sk
+	column 'Company SK'
 		dataType: int64
 		isHidden
 		isKey
@@ -13,7 +13,7 @@ table 'Dim Company'
 
 		annotation SummarizationSetBy = Automatic
 
-	column company_name
+	column 'Company name'
 		dataType: string
 		lineageTag: 941857c8-256a-4637-8237-a1bc5c252cc9
 		summarizeBy: none
@@ -21,7 +21,7 @@ table 'Dim Company'
 
 		annotation SummarizationSetBy = Automatic
 
-	column is_restaurant
+	column 'Is restaurant'
 		dataType: string
 		lineageTag: f322809c-4e71-4f60-8158-c51d5f27cb0f
 		summarizeBy: none
