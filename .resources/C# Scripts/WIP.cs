@@ -19,6 +19,8 @@ foreach (var table in Model.Tables)
             
             // Set IsAvailableInMDX to False to prevent these columns being used by Analyze in Excel. IDs have no place in Analyze in Excel, this is for analyst.
             column.IsAvailableInMDX = false;
+
+            // Primary and foreign keys should be marked as key columns
             column.IsKey = true;
         }
     }

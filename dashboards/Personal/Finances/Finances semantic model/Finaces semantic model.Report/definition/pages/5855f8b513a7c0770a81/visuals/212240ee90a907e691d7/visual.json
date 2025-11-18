@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "34f86b3e59d877d40fd9",
+  "name": "212240ee90a907e691d7",
   "position": {
     "x": 1360.6884681583476,
     "y": 29.74182444061962,
@@ -98,7 +98,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Aug 2025'"
+                                "Value": "'Sep 2025'"
                               }
                             }
                           ]
@@ -185,20 +185,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "feb2823029b28dbdfea1",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Date"
-              }
-            },
-            "Property": "Month and year"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

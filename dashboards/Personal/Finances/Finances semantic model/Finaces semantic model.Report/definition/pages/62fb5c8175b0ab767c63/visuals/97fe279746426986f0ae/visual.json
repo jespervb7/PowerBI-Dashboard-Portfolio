@@ -6,7 +6,8 @@
     "y": 43.373493975903614,
     "z": 0,
     "height": 280.06884681583477,
-    "width": 649.36316695352843
+    "width": 649.36316695352843,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -124,8 +125,102 @@
             "order": 1
           }
         }
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d606fd06ab1e8e864326",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total income previous month"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dc7ce30bc725a6f56598",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total income"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "960d92ef530f0e189d3a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fact Bank Transactions"
+              }
+            },
+            "Property": "Total expenses day level PM"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
