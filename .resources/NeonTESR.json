@@ -444,6 +444,23 @@
               }
             }
           }
+        ],
+        "fill": [
+          {
+            "$id": "",
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
         ]
       },
       "teststyle": {
@@ -462,27 +479,7 @@
         ],
         "fill": [
           {
-            "show": true
-          },
-          {
-            "$id": "default",
-            "fillColor": {
-              "solid": {
-                "color": "#FFFFFF"
-              }
-            },
-            "transparency": 0
-          },
-          {
-            "$id": "hover",
-            "fillColor": {
-              "solid": {
-                "color": "#F1F3F4"
-              }
-            },
-            "transparency": 70
-          },
-          {
+            "show": true,
             "$id": "selected",
             "fillColor": {
               "solid": {
@@ -505,26 +502,6 @@
           }
         ],
         "text": [
-          {
-            "$id": "default",
-            "fontColor": {
-              "solid": {
-                "color": "#485257"
-              }
-            },
-            "fontFamily": "Segoe UI",
-            "fontSize": 10.5
-          },
-          {
-            "$id": "hover",
-            "fontColor": {
-              "solid": {
-                "color": "#30373A"
-              }
-            },
-            "fontFamily": "Segoe UI",
-            "fontSize": 10.5
-          },
           {
             "$id": "selected",
             "fontColor": {
@@ -591,6 +568,26 @@
         "border": [
           {
             "show": false
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "columnHeaders": [
+          {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
           }
         ]
       }
